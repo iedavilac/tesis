@@ -1,0 +1,161 @@
+% Chapter 2
+
+\chapter{Cinco ecuaciones vorticiales} % Chapter title
+
+\label{ch:taubes} % For referencing the chapter elsewhere, use \autoref{ch:examples} 
+
+%----------------------------------------------------------------------------------------
+
+En este capítulo enunciaremos el Teorema de Taubes y mostraremos los pasos más importantes para su demostración. Este teorema aparece por primera vez en [Taubes, N vortex]. El teorema muestra que un conjunto no ordenado de puntos en el plano complejo (no necesariamente distintos) determina únicamente una solución analítica de las ecuaciones de Bogomolny, también se demuestra que esta es la única solución $C^\infty$. La importancia del teorema es clara, sin embargo, no provee con una solución explícita de las ecuaciones de Bogomolny en el plano. Además de presentar este teorema, en la presente sección, mostraremos cinco ecuaciones vorticiales que dan soluciones explícitas en superficies de Riemann. 
+
+\section{Teoremas de Taubes}
+\label{sec:2.1}
+
+Los teoremas de Taubes proveen una descripción de los espacios de módulo de soluciones de las ecuaciones de Bogomolny. El espacio de módulos de las solciones no es más que el espacio de soluciones módulo transformaciones de gauge. El primer teorema de Taubes es el siguiente:
+
+\teo{Taubes 1}{Dado un entero $N\geq 0$ y un conjunto de puntos $\{Z_i\}, i=1,2,\cds k$ en el plano complejo $\m C$ con multiplicidades $d_1,d_2,\cds,d_k$, tal que $\sum d_j=N$, existe una solución de las ecuaciones de Bogomolny que es única a menos de una transformación de gauge, con las siguientes propiedades:
+\begin{enumerate}
+    \item La solución el globalmente $C^\infty$.
+    \item Los ceros de $\phi$ son el conjunto de puntos $\{Z_i\}$. Además, cerca de sus ceros el campo se comporta como
+    \begin{align}
+        \phi\sim c_j(z-Z_j)^{n_j}, \ \ \ c_j\neq 0, \label{eq:2.1.0.1}
+    \end{align}
+    donde $n_j$ es la multiplicidad de $Z_j$.
+\end{enumerate}}
+
+Una de las consecuencias es que el número de vórtice es igual a $N$. Llamamos a esta solución una solución $N$-vorticial. Nótese que el teorema se puede usar, de forma totalmente análoga, para $N<0$ ya que una solución anti-vorticial corresponde a tomar la conjugada compleja de una solución vorticial.
+
+Es fácil ver que para $N=0$, la solución es equivalente a la solución trivial $A_z=0$ y $\phi=1$.
+
+\teo{Taubes 2}{Cualquier solución de las ecuaciones de Euler-Lagrange para $N>0$ y $\lambda=1$ es equivalente a una solución $N$-vorticial de las ecuaciones de Bogomolny.}
+
+Una consecuencia de este teorema es que soluciones vorticiales del modelo abeliano de Higgs son $N$-vórtices o $N$-antivorticiales, es decir, no existes soluciones vórtice-antivórice. Esto significa que, físicamente, las soluciones de las ecuaciones de Bogomolny son estables y su energía es la mínima.
+
+\section{Estructura compleja de las ecuaciones de Bogomolny}
+\label{sec:2.2}
+
+En esta sección veremos como las ecuaciones de Bogomolny esconden una estructura compleja que será de gran ayuda en \ref{sec: 2.3}.
+
+Consideremos la primera ecuación en $\eqref{eq:1.5.3.1}$ y desarrollemosla:
+\begin{align}
+    D_1\phi+iD_2\phi &= (\pr_1+i\pr_2)\phi-i(A_1+iA_2)\phi=0.\label{eq:2.2.0.1}
+\end{align}
+Definimos la derivada compleja $\pr_{\overline z}$ y el campo de gauge complejo $A_{\overline z}$ como
+\begin{align*}
+    \pr_{\overline z} &= \f 12(\pr_1+i\pr_2),\\
+    A_{\overline z} &= \f 12(A_1+iA_2).
+\end{align*}
+Combinamos ambos en la derivada covariante compleja, definida como, $D_{\overline z} = \pr_{\overline z}-iA_{\overline z}$. Entonces, la primera ecuación de Bogomolny se escribe en forma compacta como
+\begin{align}
+    D_{\overline z}\phi =0. \label{eq:2.2.0.2}
+\end{align}
+Ecuación $\eqref{eq:2.2.0.2}$ guarda una semejanza con la versión compleja de las ecuaciones de Cauchy-Riemann $\pr_{\overline z}f=0$. Entonces, podemos decir que la primera ecuación de Bogmolny es una versión covariante de las ecuaciones de Cauchy-Riemann, por lo que, dan a entender que $\phi$ es una función analítica en el sentido covariante. Esto es más claro si consideramos que existe una función $w(z,\bar z)$ tal que $\pr_{\overline z}(e^{-w}\phi)=0$. Para que esto se cumpla, $w$ debe satisfacer $\pr_{\overline z}w=iA_{\overline z}$. Entonces, la función compleja $f=e^{-w}\phi$ es una función analítica, por lo tanto, tiene ceros aislados. Estos ceros coinciden con los ceros de $\phi$ pues $e^{-w}$ es no nula en todo punto. Además, $f$ localmente tiene la forma
+\begin{align*}
+    f(z)\sim c_j(z-Z_j)^{n_j}, \ \ \ c_j\in\m C.
+\end{align*}
+De aquí podemos leer el comportamiento de $\phi$ cerca de sus ceros.
+
+Pero, queda la pregunta de que si $\pr_{\bar z}w=iA_{\bar z}$ tiene solución. Ya que $\f{1}{u-z}$ es la función de Green del operador $\pr_{\bar z}$, la solución puede escribirse como
+\begin{align}
+    w(z) = \f{1}{2\pi i}\int_{|u-z|<\epsilon}\f{i A_{\bar z}(z,\bar z)}{u-z} du d\bar u \label{eq:2.2.0.3}
+\end{align}
+
+Debido a la ecuación $\eqref{eq:2.2.0.2}$, una vez que se obtiene una solución para $\phi$, el campo de gauge queda determinado
+\begin{align}
+    A_{z} = i\pr_{z}\log\bar\phi, \ \ A_{\overline z} = -i\pr_{\overline z}\log\phi \label{eq:2.2.0.4}
+\end{align}
+
+\section{Reducción a una ecuación escalar}
+\label{sec: 2.3}
+
+Queremos escribir la segunda ecuación de Bogomolny en forma compleja. Para esto, escribimos $A_1$ y $A_2$ en términos de $A_z$ y $A_{\overline z}$ y luego reemplazando en $B$, obteniéndose
+\begin{align}
+    B = 2i(\pr_z A_{\overline z}-\pr_{\overline z} A_z)\label{eq:2.3.0.1}
+\end{align}
+La forma de la segunda ecuación de Bogomolny no cambia, simplemente el campo magnético se escribe de otra forma. Para combinar ambas ecuaciones de Bogomolny en una sóla ecuación, usemos $\eqref{eq:2.2.0.4}$ en $\eqref{eq:2.3.0.1}$
+\begin{align}
+    B = -2i^2(\pr_z \pr_{\overline z}\log\phi-\pr_{\overline z}\pr_z\log\bar\phi) = 2\pr_z\pr_{\overline z}(\log\phi+\log\bar\phi) = 2\pr_z\pr_{\overline z}\log|\phi|^2. \label{eq:2.3.0.2}
+\end{align}
+Entonces, la segunda ecuación se Bogomolny se escribe
+\begin{align}
+    \pr_z\pr_{\overline z}\log|\phi|^2 = \f{1}2(1-|\phi|^2) \label{eq:2.3.0.3}
+\end{align}
+Si hacemos $|\phi|^2 = e^{u}$ y notamos que $\Delta=4\pr_z\pr_{\overline z}$, entonces $\eqref{eq:2.3.0.3}$ se escribe como
+\begin{align}
+    -\Delta u+e^u-1 =0 \label{eq:2.3.0.4}
+\end{align}
+Ecuación $\eqref{eq:2.3.0.4}$ está incompleta pues $u$ tiene una singularidad logarítmica en los ceros de $\phi$, en donde tiende a $-\infty$. Entonces, ecuación $\eqref{eq:2.3.0.4}$ debe suplementarse con funciones delta con soporte justamente en estos ceros,
+\begin{align}
+    -\Delta u+e^u-1 =-4\pi\sum_{j=1}^N\delta(z-Z_j)\label{eq:2.3.0.5}
+\end{align}
+Ecuación $\eqref{eq:2.3.0.5}$ es conocida como la ecuación de Taubes. Hasta el momento de escribir este trabajo, no se conocen soluciones explícitas a esta ecuación en el espacio plano.
+
+\section{Vórtices en superficies riemannianas}
+
+En la sección anterior introducimos la ecuación de Taubes que describe vórtices en el plano, además, mencionamos que no existen hasta la fecha soluciones analíticas en el plano. Entonces, es natural preguntarse si pueden existir soluciones analíticas en espacios curvos para la ecuación de Taubes. Tales vórtices, si existen, se llaman vórtices integrables.
+
+Los objetos de estudio son un campo escalar $\phi$ y un campo de gauge $A$, que son una sección y una conexión en un fibrado $U(1)$ \footnote{Localmente, la sección se representa por una función compleja sobre $M_0$ y la conexión como una 1-forma real con componentes $A=A_1dx^1+A_2dx^2$.} sobre $M_0$ respectivamente. Aquí $M_0$ es una superficie de Riemann que puede ser compacta o no (pero con un borde en el infinito). En coordenadas complejas $z=x^1+ix^2$, la métrica en $M_0$ es
+\begin{align}
+    ds_0^2 = \Om_0((dx^1)^2+(dx^2)^2)=\Om_0 dzd\bar z, \label{2.4.0.1}
+\end{align}
+donde $\Om_0$ es un factor conforme que depende de las coordenadas. El campo de gauge tiene curvatura $F=dA$, o en componentes, $F_{12}=\pr_1 A_2-\pr_2 A_1$. El campo magnético físico es $B=\f{1}{\Om_0}F_{12}$. Con estas generalizaciones, las ecuaciones de Bogomolny se escriben
+\begin{align}
+    D_1\phi+iD_2\phi &= 0, \label{2.4.0.2}\\
+    B &= \frac{\Om_0}{2}(1-|\phi|^2).\label{2.4.0.3}
+\end{align}
+Las ecuaciones de Taubes también se modifican y toman la siguiente forma
+\begin{align}
+    -\Delta u+\Om_0 e^{u}-\Om_0 =0, \label{eq:2.4.0.4}
+\end{align}
+donde debemos tener en cuenta el comportamiento logarítmico de $u$ cerca los ceros de $\phi$
+\begin{align}
+    u\sim \log |z-Z|+\text{constante}. \label{eq:2.4.0.5}
+\end{align}
+De esta forma podemos ignorar las funciones delta de Dirac en $\eqref{eq:2.3.0.5}$. Las soluciones vorticiales no deberían tener más singularidades en $M_0$. Si $u$ tiene un máximo en $M_0$ el laplaciano de $u$ es negativo, además, debido a la ecuación $\eqref{eq:2.4.0.4}$, $u\leq 0$ en el máximo y por lo tanto también en todo punto, a causa del principio del máximo. Este argumento es válido sólo si $M_0$ es compacta. En el caso de que no lo sea debemos imponer la condición $|\phi|=1$ o $u=0$ en el borde.
+
+Podemos generalizar aún más la ecuación $\eqref{eq:2.4.0.4}$ de la siguiente manera
+\begin{align}
+    -\Delta u+C_0\Om_0+C\Om_0 e^{u} =0, \label{eq:2.4.0.6}
+\end{align}
+donde $C_0$ y $C$ son constantes reales. Es claro, que uno puede reescalear estas constantes multiplicando por un factor que se puede absorber en el factor conforme. Entonces, sin pérdida de generalidad podemos hacer que $C_0$ y $C$ tomen tres valores estándar $-1,0$ o $1$. Esto hace que hayan nueve posibles combinaciones y, por lo tanto, nueve ecuaciones vorticiales.  De estas nueve ecuaciones sólo cinco tienen soluciones vorticiales.
+
+El segundo y tercer términos de $\eqref{eq:2.4.0.6}$ describen al campo magnético, entonces, para que describa un campo magnético físico se debe cumplir que $-C_0+C e^{u}\geq 0$. Esto excluye cuatro casos: $C_0=0$ o $C_0=1$, combinados con $C=-1$ o $C=0$. Los cinco casos restantes se resumen en la siguiente cuadro
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{l|c|c}
+        Vórtices & $C_0$ & C \\ \hline
+        Vórtices hiperbólicos (Taubes) & -1 & -1\\
+        Vórtices de Popov & 0 & 1\\
+        Vórtices de Jackiw-Pi & 1 & 1\\
+        Vórtices de Bradlow & -1 & 0\\
+        Vórtices de Ambjorn-Olesen & -1 & 1\\ \hline
+    \end{tabular}
+    \caption{Ecuaciones vorticiales}
+    \label{tab:vortex}
+\end{table}
+
+Los vórtices hiperbólicos fueron obtenidos por primera vez por Witten [witten77] mediante una reducción de dimensión de una toería de Yang-Mills $SU(2)$. La motivación inicial de Witten era obtener soluciones autoduales $F_{\mu\nu}=\bar F_{\mu\nu}$ que posean simetría ante rotaciones y transformaciones de gauge. Esto lo llevó a plantear un ansatz para el campo de gauge no abeliano $A_\mu^a$ que reducía la acción de Yang-Mills a la acción de Maxwell-Higgs pero en un espacio con métrica $g^{\mu\nu}=r^2\delta^{\mu\nu}$, es decir, un espacio con curvatura constante negativa $-1$, llamado el espacio hiperbólico $\m H^2$. Las ecuaciones de autodualidad correspondían a las ecuaciones de Bogomolny con $\Om_0=\f{1}{r^2}$. En $\m H^2$, la ecuación de Taubes se reducía a la ecuación de Liouville, cuya solución general es conocida y está caracterizada por una función analítica arbitraria $f:\m H^2\ra\m H^2$.
+
+La ecuación de Popov [Popov] surgió de una forma completamente análoga a lo obtenido por Witten, pero para una teoría de Yang-Mills $SU(1,1)$. En vez de una espacio hiperbólico, las soluciones de Popov son integrables en una esfera, que tiene curvatura constante positiva $+1$. La solución está dada por funciones racionales en la esfera $R:\m S^2\ra\m S^2$ [Manton sobre Popov].
+
+Los vórtices de Jackiw-Pi [Jackiw-Pi 1y2] aparecen en la teoría abeliana de Chern-Simons y son integrables en el plano o en un toro (condiciones de contorno periódicas en el plano).
+
+Los vórtices de Bradlow fueron introducidos por primera vez en [Manton five] son integrables en $H^2$. Este caso es el caso límite de la ecuación de Taubes cuando $N$ alcanza el valor máximo permitido en una superficie compacta.
+
+La ecuación de Ambjorn-Olesen apareció en [Manton five 13 y 14] en su estudio sobre inestabilidades de campos magnéticos fuertes en la teoría electrodébil.
+
+Todas estas ecuaciones, conocidas como ecuaciones de vórtices exóticas, son integrables en dos dimensiones, pero todas en una superficie de Riemann distinta. Mirando al cuadro anterior uno puede ver una conexión entre el coeficiente $C_0$ y la curvatura de la superficie de Riemann en la que son integrables. Esta conexión es presentada por primera vez en [Manton five].
+
+
+El funcional de energía correspondiente es análogo al del modelo abeliano de Higgs pero con coeficientes distintos:
+\begin{align}
+    V_{\lambda} = \f 12\int_{M_0}\bb{B^2-\f{2C}{\Om_0}D_i\phi\overline{D_i\phi}+\f{\lambda}4(-C_0+C|\phi|^2)^2}\Om_0 d^2x. \label{eq:2.4.0.7}
+\end{align}
+El argumento a la Bogomolny muestra que para $\lambda=1$ el funcional se puede escribir como
+\begin{align}
+    V_{\lambda=1} = \f 12\int_{M_0}\bb{\bp{B^2+\f 12(C_0-C|\phi|^2)}^2-\f{2C}{\Om_0}|D_1\phi+iD_2\phi|^2}\Om_0 d^2x-\pi C_0 N. \label{eq:2.4.0.8}
+\end{align}
+Si las ecuaciones de Bogomolny se satisfacen la energía es estacionaria y tiene el valor de $-\pi C_0 N$. En el caso de que $C\leq 0$, el integrando de $\eqref{eq:2.4.0.8}$ es positivo, por lo tanto, la energía es minimizada.
+
+\section{Vórtices integrables}
+
