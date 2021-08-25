@@ -1,12 +1,140 @@
 % Chapter 3
 
-\chapter{Bogomolny y supersimetría} % Chapter title
+\chapter{Vórtices integrables a partir de autodualidad} % Chapter title
 
-\label{ch:bogosusy} % For referencing the chapter elsewhere, use \autoref{ch:mathtest}
+\label{ch:selfduality} % For referencing the chapter elsewhere, use \autoref{ch:mathtest}
 
 %----------------------------------------------------------------------------------------
 
-[Solibranas-Fidel],[Witten-Olive].
+Contatto y Dunajski demostraron que las cinco soluciones vorticiales integrables obtenidas por Manton surgen como reducción de simetría de las ecuaciones de autodualidad de Yang-Mills en una cuatro variedad. En este capítulo introduciremos brevemente la teoría de Yang-Mills y las ecuaciones de (anti-)autodualidad , mostrando algunas de las soluciones instantónicas. Mostraremos explícitamente el cálculo hecho por Witten y obtendremos las soluciones vorticiales ya vistas en el plano hiperbólico. Luego, nos evocaremos a mostrar los resultados de Contatto y Dunajski, basándonos principalmente en [Contatto-Dunajski]
+
+\section{Teoría de Yang-Mills}
+
+Los instantones son solitones topológicos de la teoría de Yang-Mills pura definidas en un espacio euclídeo cuadrimensional. Consideraremos a los instantones como solitones estáticos en un espacio de cuatro dimensiones, de modo que son del mismo tipo que los vórtices que estuvimos estudiando.
+
+La motivación para considerar un espacio euclídeo cuadrimensional y no el espacio tiempo de Minkowski $3+1$-dimensional es que en la Teoría Cuántica de Campos debemos calcular integrales de camino, las cuáles deben ser continuadas analíticamente (con una rotación de Wick) para estar bien definidas. Llamaremos al tiempo euclídeo $it$ como la coordenada $x^4$ en una teoría estática. La importancia de las soluciones clásicas es que proveen la contribución dominante a la integral de caminos, en particular, los instantones generan efectos cuánticos no perturbativos.
+
+En el contexto más general de las teorías de Gauge, las teorías de Yang-Mills son ejemplos especiales de teorías de gauge con grupos de simetría no abelianos.
+
+Consideremos una teoría de gauge $SU(2)$ con un potencial de gauge $A_\mu, \mu=1,\cdots,4$, tomando valores en el álgebra de Lie $\mf{su}(2)$. El tensor de campo asociado es
+\begin{align}
+	F_{\mu\nu} = \pr_\mu A_\nu-\pr_\nu A_\mu+[A_\mu,A_\nu] \label{eq:3.1.0.1}
+\end{align}
+La teoría de Yang-Mills pura está descrita por la siguiente acción
+\begin{align}
+	S=-\f 18\int d^4x \Tr(F_{\mu\nu}F_{\mu\nu}), \label{eq:3.1.0.2}
+\end{align}
+donde ahora usamos la métrica euclidiana es $(+,+,+,+)$. La variación de esta acción permite obtener la ecuación de campo de Yang-Mills \footnote{El cálculo explícito de la variación de la acción de Yang-Mills se muestra en el apéndice \ref{app:a1}}
+\begin{align}
+	D_\mu F_{\mu\nu} =0 \label{eq:3.1.0.3}
+\end{align}
+Introduzcamos la $2$-forma $F=\f 12F_{\mu\nu}dx^\mu\wedge dx^\nu$ que representa el campo electromagnético. En un espacio de cuatro dimensiones el dual de Hodge de una $2$-forma es otra dos forma. En componentes, el dual de Hodge de $F$, $\star F$, está definido como
+\begin{align}
+	\star F_{\mu\nu} = \f 12\eps_{\mu\nu\al\be}F_{\al\be},  \label{eq:3.1.0.4}
+\end{align}
+donde $\eps_{\mu\nu\al\be}$ es el tensor totalmente antisimétrico con la convención $\eps_{1234}=-1$. Usando el hecho de que $\Tr(F_{\mu\nu}F_{\mu\nu})=\Tr(\star F_{\mu\nu}\star F_{\mu\nu})$ \footnote{Demostración en Apéndice \ref{app:a2} }, la acción \eqref{eq:3.1.0.2} puede ser reescrita como
+\begin{align}
+	S = -\f 1{16}\int\bb{\Tr\bp{(F_{\mu\nu}\mp\star F_{\mu\nu})(F_{\mu\nu}\mp\star F_{\mu\nu})}\pm 2\Tr(F_{\mu\nu}\star F_{\mu\nu})}d^4x \label{eq:3.1.0.5}
+\end{align}
+Definamos la siguiente cantidad
+\begin{align}
+	N = -\f{1}{8\pi^2}\int\Tr(F_{\mu\nu}\star F_{\mu\nu})d^4x, \label{eq:3.1.0.6}
+\end{align}
+que no es más que el segundo número de Chern para un campo de gauge $SU(2)$ en $\m R^4$\footnote{Para una pequeña introducción, véase el Apéndice}. El primer término es un cuadrado, por lo que es no negativo. Esto conlleva a la siguiente desigualdad
+\begin{align}
+	S\geq\pi^2|N|, \label{eq:3.1.0.7}
+\end{align}
+que es análoga a la desigualdad de Bogomolny que derivamos para los vórtices. Estamos interesados con campos que hagan la acción finita, esto implica que $F_{\mu\nu}=0$ cuando $|x|\ra\infty$, esto implica que cuando $|x|\ra\infty$ el campo de gauge tiende a un gauge puro
+\begin{align}
+	A_\mu = -\pr_\mu g_{\infty}g_\infty^{-1} \label{eq:3.1.0.7}
+\end{align}
+para algún $g_\infty\in SU(2)$ definido en el infinito espacial. En este caso $N$ es un número entero y es igual al grado del mapeo $g_\infty: S_\infty^3\ra SU(2)$.
+
+De la ecuación \eqref{eq:3.1.0.5} es inmediato que la desigualdad \eqref{eq:3.1.0.7} se satura cuando los campos son autoduales o anti autoduales
+\begin{align}
+	F_{\mu\nu} = \pm\star F_{\mu\nu}. \label{eq:3.1.0.8}
+\end{align}
+Estas son las ecuaciones de (anti)autodualidad de Yang-Mills. Soluciones de estas ecuaciones que hacen finita la acción son llamados (anti)instantones. $N$ es un entero positivo para campos autoduales no triviales y se interpreta como el número de instantones (análogamente $|N|$ es el número de anti instantones si $N<0$).
+
+La solución general para el instantón con $N=1$ fue obtenida por primera vez por Belavin \emph{et al.} [Manton,47]. Más tarde, 't Hooft [Manton,402], obtuvo esta y otras soluciones multinstantónicas utilizando un ansatz. Para presentar el ansatz de 't Hooft, introduzcamos el tensor antisimétrico $\sg_{\mu\nu}$, definido como
+\begin{align}
+	\sg_{i4}=\tau_i, \ \ \ \sg_{ij}=\eps_{ijk}\tau_k, \ i,j=1,2,3 \label{eq:3.1.0.9}
+\end{align}
+y que tiene la propiedad de ser anti autodual: $\f{1}2\eps_{\mu\nu\al\be}\sg_{\al\be}=-\sg_{\mu\nu}$. El potencial de gauge autodual se contruye a partir de un campo escalar real $\rho$ como
+\begin{align}
+	A_\mu = \f{i}2\sg_{\mu\nu}\pr_\nu\log\rho \label{eq:3.1.0.10}
+\end{align}
+Si sustituimos este ansatz en \eqref{eq:3.1.0.8} llegamos a 
+\begin{align}
+	\f 1{\rho}\nabla^2\rho=0 \label{eq:3.1.0.11}
+\end{align}
+que no es más que la ecuación de Laplace en $\m R^4$. La solución instantónica con $N=1$ es generada por una solución que tiene un polo en un cuadrivector arbitrario constante $a\in\m R^4$
+\begin{align}
+	\rho(x) = 1+\f{\lambda^2}{|x-a|^2}. \label{eq:3.1.0.12}
+\end{align}
+La constante positiva $\lambda$ representa el ancho del instantón, en el sentido que la acción es máxima en $x=a$ y decae a la mitad cuando $|x-a|\leq\lambda$. Esta solución puede ser usada para generar instantones con $N$ arbitrario haciendo que la solución de la ecuación de Laplace tenga $N$ polos distintos
+\begin{align}
+	\rho(x) = 1+\sum_{j=1}^N\f{\lambda_j^2}{|x-a_j|^2},
+\end{align}
+con anchos y posiciones arbitrarias.
+
+Este ansatz lleva a que el campo de gauge sea singular. Considere de nuevo la solución con $N=1$ con $a=0$, usando \eqref{eq:3.1.0.10} podemos ver que el potencial tiene una singularidad en $x=0$
+\begin{align}
+	A_\mu^{sing} = \f i2\sg_{\mu\nu}\f{-2\lambda^2x^\nu}{x^2(x^2+\lambda^2)}. \label{eq:3.1.0.13}
+\end{align}
+Sin embargo, mediante una transformación de gauge singular podemos remover la singularidad
+\begin{align}
+	A_\mu^{reg} = -i\sg_{\mu\nu}\f{x^\nu}{(x^2+\lambda^2)}. \label{eq:3.1.0.14}
+\end{align}
+
+\subsection{Espacio de módulos del instantón $SU(2)$}
+
+Para especificar completamente el instantón \eqref{eq:3.1.0.12} hace falta conocer cinco parámetros reales, a saber, las cuatro componentes de $a$ y el ancho del instantón $\lambda$. Además de estos parámetros, se debe incluir una transformación de gauge $SU(2)$ para especificar la orientación del instantón. Esto agrega tres parámetros extra, teniendo un total de ocho. Por lo tanto, el espacio de módulos del instantón $N=1$, $\mc M_1$, tiene ocho dimensiones.
+
+Resulta de mucho interés en matemática y física matemática estudiar estos espacios de módulos y sus métricas, en parte, debido a los trabajos de Donaldson y Witten sobre 4-variedades [Manton,111,112].  Para instantones en $\m R^4$ estos espacios de módulos son ejemplos de variedades hiperkähler. La métrica en el espacio de módulos se define restringiendo la métrica natural del espacio de configuraciones a la subvariedad de instantones. Atiyah, Hitchin y Singer [Manton,19] mostraron que el espacio de módulos para el instantón con carga $N$, $\mc M_N$, tiene dimensión $8N$. Cuando todos los instantones están muy separados entre ellos, los $8N$ parámetros pueden pensarse como $8$ parámetros para cada uno de los $N$ instantones.
+
+\subsection{Solución multinstantónica de Witten}
+
+Históricamente, la primera solución multinstantónica fue encontrada por Witten [Witten77] antes del descubrimiento de las soluciones de t' Hooft. Como se explicó en \ref{sec2.4} el enfoque de Witten fue encontrar instantones con simetría cilíndrica en cuatro dimensiones (simetría ante rotaciones alrededor del eje $x^4$). Explícitamente, el ansatz de Witten plantea el siguiente campo de gauge $SU(2)$
+\begin{align} \label{eq:3.1.2.1}
+	\begin{split}
+	A_i^a &= \f{\phi_2+1}{r^2}\eps_{jak}x_k+\f{\phi_1}{r^3}[\delta_{ja}r^2-x_jx_a]+A_1\f{x_jx_a}{r^2},\\
+	A_0^a &= \f{A_0x^a}r.
+	\end{split}
+\end{align}
+donde los índices $j,k$ son índices espaciales y $a$ es índice de isoespín, es decir, indica el generador $t^a$ de $SU(2)$. Además, $\phi_1$, $\phi_2$, $A_0$ y $A_1$ son funciones de $x^4$ y $r$. Witten argumentó que este ansatz es el más general con simetría ante rotaciones y transformaciones de gauge. Usando \eqref{eq:3.1.2.1} uno puede calcular el tensor de campo $F_{\mu\nu}^a$ y su dual $\star F_{\mu\nu}^a$:
+\begin{align}\label{eq:3.1.2.2}
+	\begin{split}
+	F_{0i}^a &= (\pr_4\phi_2-A_0\phi_1)\f{\eps_{iak}x_k}{r^2}+(\pr_4\phi_1+A_0\phi_2)\f{(\delta_{ai}r^2-x_a x_i)}{r^3}+r^2(\pr_4 A_1-\pr_1 A_0)\f{x_ax_i}{r^4},\\
+	\f 12\eps_{ijk}F_{jk}^a &=-\f{\eps_{ias}x_s}{r^2}(\pr_1\phi_1+A_1\phi_2)+\f{(\delta_{ai}r^2-x_a x_i)}{r^3}(\pr_1\phi_2-A_1\phi_1)+\f{x_ax_i}{r^4}(1-\phi_1^2-\phi_2^2)
+	\end{split}
+\end{align}
+donde $\pr_1=\pr/\pr_r$. La forma de \eqref{eq:3.1.2.2} sugiere que consideremos a $\phi=\phi_1+i\phi_2$ como un campo escalar complejo de Higgs interactuando con un campo de gauge bidimensional $A_\mu=(A_0,A_1)$, con derivada covariante $D_\mu\phi_i=\pr_\mu\phi_i+\eps_{ij}A_\mu\phi_j$. Insertando \eqref{eq:3.1.2.2} en la acción de Yang-Mills \eqref{eq:3.1.0.2} se tiene
+\begin{align}
+	S = \f{1}{8}\int d^3x\int dt F_{\mu\nu}^a F_{\mu\nu}^a = 8\pi\int_{-\infty}^{\infty}\int_0^\infty dr\bb{\f 12(D_\mu\phi_i)^2+\f{1}8r^2 F_{\mu\nu}^2+\f{1}4r^{-2}(1-|\phi|^2)^2}, \label{eq:3.1.2.3}
+\end{align}
+donde ahora $F_{\mu\nu}=\pr_\mu A_\nu-\pr_\nu A_\mu$. La acción de Yang-Mills se ha reducido a una versión modificada del funcional de energía del modelo abeliano de Higgs. De hecho, en un espacio curvo con métrica $g^{\mu\nu}$, el funcional de energía se puede escribir
+\begin{align}
+	\int d^2x\sqrt{g}\bb{\f 12g^{\mu\nu}D_\mu\phi_i D_\nu\phi_i+\f{1}8 g^{\mu\al}g^{\nu\be}F_{\mu\nu}F_{\al\be}+\f 14(1-|\phi|^2)}, \label{eq:3.1.2.4}
+\end{align}
+donde $g=\det g^{\mu\nu}$. Esta ecuación coincide con \eqref{eq:3.1.2.3} si $g^{\mu\nu}=r^2\delta^{\mu\nu}$. Esta métrica corresponde a un espacio con curvatura constante negativa igual a $-1$. Es decir, que $x^4$ y $r$ son coordenadas en un espacio hiperbólico $\m H^2$.
+
+Si insertamos los tensores de campo \eqref{eq:3.1.2.2} en las ecuaciones de autodualidad, estas se reducen a las ecuaciones de Bogomolny para vórtices hiperbólicos discutidos en \ref{sec2.4} . Estas ecuaciones son
+\begin{align}
+	\begin{split}
+	D_4\phi+iD_r\phi &=0,\\
+	B-\f{1}{2r^2}(1-|\phi|^2) &=0,
+	\end{split}
+\end{align}
+donde $B=\pr_4 A_1-\pr_r A_0$. Estas ecuaciones se resuelven derivando la ecuación de Taubes correspondiente y luego reduciéndola a la ecuación de Liouville. Esto lo hicimos explícitamente en \ref{sec:2.5.1}.
+
+
+\section{Cinco ecuaciones vorticiales a partir de autodualidad}
+
+En esta sección expondremos el trabajo de Conttato y Dunajski [ContDunaj] sobre la obtención de las cinco ecuaciones vorticiales a partir de reducciones de simetría de las ecuaciones de anti autodualidad de Yang-Mills en cuatro dimensiones.
+
+
+
 
 %----------------------------------------------------------------------------------------
 
