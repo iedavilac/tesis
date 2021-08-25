@@ -7,23 +7,89 @@
 %----------------------------------------------------------------------------------------
 
 Los vórtices son solitones\footnote{Solitones son soluciones estáticas de las ecuaciones de movimiento (no lineales) de una teoría que son estables, localizados en el espacio y tienen energía finita[solibranas].} en dos dimensiones con comportamiento de partícula que aparecen en ciertas teorías de campo.
-Teorías de campo que presentan soluciones vorticiales pueden ser de dos tipos, globales y con gauge, u sus respectivas soluciones son llamadas vórtices globales y vórtices gauge. En una teoría global el único campo dinámico es un campo escalar complejo $\phi(x)$, mientras que en un teoría con gauge este campo se encuentra acoplado al campo electromagnético mediante un potencial de gauge $A_\mu(x)$. 
+Teorías de campo que presentan soluciones vorticiales pueden ser de dos tipos, globales y con gauge, y sus respectivas soluciones son llamadas vórtices globales y vórtices gauge. En una teoría global el único campo dinámico es un campo escalar complejo $\phi(x)$, mientras que en un teoría con gauge este campo se encuentra acoplado al campo electromagnético mediante un potencial de gauge $A_\mu(x)$. 
 
-En este trabajo estamos interesados en el modelo abeliano de Higgs, que es la versión relativista del modelo de Ginzburg-Landau para la superconductividad. Esta teoría presenta vórtices gauge y vórtices críticos o autoduales.
+En este trabajo estamos interesados en el modelo abeliano de Higgs, que es la versión relativista del modelo de Ginzburg-Landau para la superconductividad, la cuál presenta soluciones vorticiales. Empezaremos explicando el modelo de Ginzburg-Landau para la superconductividad.
 
-\section{Funcional de energía de Ginzburg-Landau}
+\section{Modelo de Ginzburg-Landau}
 
-Uno de primeros modelos que explicaron la superconductividad apareció en los años cincuenta de la mano de V. Ginzburg y L. Landau. Este último ya había propuesto su teoría de transiciones de fase utilizando un parámetro de orden. Siguiendo este modelo, el grado de superconductividad de un cuerpo que ocupa una región del espacio $\om\in\m R^3$, está caracterizado por un parámetro de orden representado como una "pseudo función de onda" $\phi:\om\ra\m C$.
+Uno de primeros modelos que explicaron la superconductividad apareció en los años cincuenta de la mano de V. Ginzburg y L. Landau.  Siguiendo el modelo de transiciones de fase de la termodinámica, el "grado de superconductividad" de un cuerpo que ocupa una región del espacio $\om\in\m R^3$, está caracterizado por un parámetro de orden representado como una "pseudo función de onda" $\phi:\om\ra\m C$. En la terminología moderna, $\phi$ es una sección en un fibrado lineal $\hat{\mc L}$.
+
+\subsection{Funcional de energía}
 
 El funcional de energía para un superconductor propuesta por Ginzburg y Landau se puede escribir como
 \begin{align}
-  V = \f 12\int_\om\bp{B^2+\overline{D_i\phi}D_i\phi+\f{\lambda}4(m^2-|\phi|^2)^2}d^3x + \int_\om f(x)d^3x \label{eq:1} 
+  V = \f 12\int_\om\bp{|d_A \phi|+\f{\lambda}4(m^2-|\phi|^2)^2}d^3x \label{eq:1} 
 \end{align}
-donde $D_i=\pr_i\phi-i A_i\phi$ y $A_i$ son las componentes espaciales de un campo de gauge $\vct A$. $B$ es el campo magnético $B=\pr_1A_2-\pr_2 A_1$. Además, presenta un término $f$ que representa un campo externo aplicado sobre el superconductor. La constante $\lambda$ es llamada la constante de acoplamiento, que depende del material considerado, la cuál juega un rol muy importante en este trabajo como veremos más adelante (capitulo sobre Bogomolny).
+Este funcional tiene sus mínimos cuando $|\phi|=m$ y $d_A\phi=0$, asumiendo que $\lambda>0$. Donde $d_A=d-ieA$ es la extensión covariante de la derivada exterior.
+
+\subsection{El efecto Meissner}
+
+El hecho de que $\phi\neq 0$ con $d_A\phi=0$ implica que la curvatura de $\hat{\mc L}$ es cero dentro del material superconductor. Explícitamente, $d_A\phi=0$ implica que $0=d_A^2\phi=-2ieF\phi$, de modo que $F=0$ siempre y cuando $\phi$ sea no nula. Este fenómeno es lo que se conoce como el efecto Meissner: el campo magnético se anula muy dentro del superconductor. Si una esfera de plomo es colocada en el seno de un campo magnético constante, entonces a altas temperaturas el campo magnético no es afectado por la esfera, sin embargo, debajo de una temperatura crítica (usualmente debajo de los 7.2 Kelvin) la esfera se vuelve superconductora y el campo magnético es expedido del interior, como se muestra en la siguiente figura
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{gfx/superconductingsphere.png}
+	\caption{Esfera de plomo en el seno de un campo magnético. A la izquierda por encima de la temperatura crítica. A la derecha el campo magnético es expulsado del interior de la esfera.}
+	\label{fig:1}
+\end{figure}
+
+Esta explicación del esfecto Meissner recae en la suposición de que el campo magnético no es muy fuerte. Sea $\mc V$ el volumen de la esfera de plomo en fig. \ref{fig:1}. Si hacemos $\phi=0$ en toda la esfera, entonces el campo magnético puede penetrar libremente y de acuerdo a la ecuación \eqref{eq:1}, la energía es $\lambda m^4\mc V/8$. Si hacemos $\phi=m$, el campo es expedido del material y de acuerdo al funcional de energía, esto tiene un costo energético de aproximadamente $|B|^2\mc V/2$. El efecto Meissner ocurrirá si es favorecido energéticamente, esto pasa cuando la energía para expedir el campo magnético es menor a la energía para hacer $\phi=0$. Esto pasa cuando $B$ es menor a un valor crítico $B_{c}=\lambda^{1/2}m^2/2$. Este valor crítico es típicamente del orden de 10000 veces el campo magnético de la Tierra y está cerca de los imanes más potentes actualmente.
+
+Ya que la energía para expedir al campo magnético es proporcional a $|B|^2$, la energía crece cuando $B$ aumenta. Como resultado de esto, un superconductor es repelido de una región donde el campo magnético es grande. Esto lleva al fenómeno de la levitación magnética (fig. \ref{fig:2}).
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{gfx/maglev.png}
+	\caption{Esfera superconductora es repelida de una región donde el campo magnético es fuerte.}
+	\label{fig:2}
+\end{figure}
+
+Un material superconductor presenta corrientes eléctricas que fluyen en su interior y que son los responsables de cambiar la configuración del campo externo mostrado en fig. \ref{fig:2}. Las corrientes dentro del superconductor crean un campo magnético tal que la suma del campo externo con este campo interno se anula. Estas corrientes fluyen indefinidamente, ya que el efecto Meissner es energéticamente favorable. El hecho de que estas corrientes fluyan indefinidamente sin gasto energético es lo que conocemos como superconductividad.
+
+Las ecuaciones de Maxwell independientes del tiempo demandan de que si el campo magnético es nulo en el interior de un superconductor, entonces la densidad de corrientes $\vec J$ también. Por lo tanto, las corrientes deben fluir en la superficie del material.
+
+\subsection{Líneas de flujo}
+
+Una línea de flujo es una región unidimensional dentro del superconductor donde la sección $\phi=0$. Estas líneas de flujo son de gran importancia científica y tecnológica y son conocidas como líneas de flujo de Abrikosov-Gorkov. Una representación de estas líneas de flujo en una esfera superconductora se muestra en figura \ref{fig:3}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{gfx/fluxline.png}
+	\caption{Linea de flujo dentro de una esfera superconductora. A lo largo de la línea $\phi=0$.}
+	\label{fig:3}
+\end{figure}
+
+Podemos describir matemáticamente a las líneas de flujo como mínimos de un funcional de energía adecuado. En el modelo de Ginzburg-Landau, la función de energía es la suma de la energía para $\phi$, dada en \eqref{eq:1}, y la energía magnética, que es la integral de $|B|^2/2$. La función a minimizar es
+\begin{align}
+	V(\phi,B) = \int_{\m R^3}d^3x\bp{\f{|B|^2}2+\f 12|d_A\phi|^2+\f{\lambda}{8}(m^2-\phi^2)^2}.
+\end{align}
+Las ecuaciones de Euler-Lagrange nos devuelven las ecuaciones de la teoría de Ginzburg-Landau:
+\begin{align}
+	D_\mu D^\mu\phi+\f{\lambda}4\phi(m^2-\phi^2) &=0\\
+	\eps_{ij}B_i+ie(\bar\phi D_j\phi-\phi\bar{D_i\phi}) &=0
+\end{align}
+Estas ecuaciones en derivadas parciales se pueden reducir a ecuaciones diferenciales ordinarias usando argumentos de simetría (como veremos en la sección \ref{sec:1.3}) en $\m R^2$. Soluciones a estas ecuaciones con el típico comportamiento $|\phi|\ra m$ y $d_A\phi\ra 0$ en el infinito son caracterizadas por un entero $n$, conocido como la primera clase de Chern. Soluciones existen, pero no se pueden escribir en una forma explícita, incluso la solución más básica de la línea vorticial de Abrikosov-Gorkov con $n=1$.
+
+\subsection{Superconductores Tipo I y Tipo II}
+
+Podemos reescalear la energía de Ginzburg-Landau de modo que sólo dependa de una constante adimensional. Considere los siguientes reescaleos: la sección $\phi$ puede ser reescaleada como $\phi\ra\phi/a$, las nuevas coordenadas espaciales $x\ra emx$, la conexión $A\ra eA$ y la curvatura $F\ra eF$. Con estas definiciones la constante de acoplamiento se vuelve adimensional $\lambda\ra\lambda/e^2$.
+
+Una transición de fase ocurre cuando $\lambda=1$. Considere una superconductor que llena todo el espacio $\m R^3$ que posee líneas de flujo. Para $\lambda<1$, las líneas de flujo se atraen y se combinan para formar una sólo línea de flujo. Estos materiales son llamadas superconductores tipo I; ejemplos incluyen muchos metales puros. Para $\lambda>1$, las líneas de flujo se repelen. Un material con esta propiedad es llamado un superconductor tipo II.
+
+La distinción de estos dos tipos de superconductores es de gran importancia práctica. Cuando un campo magnético externo se comienza a acercar al campo magnético crítico, líneas de flujo comienzan a penetrar el material. En superconductores Tipo I, estas líneas se atraen, provocando una región no superconductora (líneas de flujo la atraviesan) que va creciendo conforme seguimos aumentando el campo; eventualmente, la superconductividad se pierde. En el caso de superconductores Tipo II, las líneas de flujo se repelen, pudiendo formar un arreglo estable (fig. \ref{fig:4}). Como resultado, un superconductor Tipo II puede mantener su superconductividad incluso para campos magnéticos por encima del valor crítico, haciéndolos más útiles para aplicaciones tecnológicas.  Aún así, llegado a un segundo valor crítico del campo magnético, la superconductividad se pierde.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{gfx/type2superconductor.png}
+	\caption{A la izquierda, un arreglo estable de líneas de flujo vistas desde arriba. A la derecha vórtices en una lámina delgada de 200 nm de YBCO, tomada usando microscopía SQUID.}
+	\label{fig:4}
+\end{figure}
+
 
 \section{Modelo de Higgs abeliano}
 
-El modelo de Higgs abeliano (o modelo de Maxwell-Higgs) es la versión relativista del modelo GL. El campo escalar complejo $\phi(x):\m R^{2+1}\ra\m C$ se le conoce ahora como campo de Higgs. Esta teoría es el paradigma para obtener soluciones vorticiales. La densidad lagrangiana de la teoría es
+El modelo de Higgs abeliano (o modelo de Maxwell-Higgs) es la versión relativista del modelo GL. La sección $\phi(x):\m R^{2+1}\ra\m C$ se le conoce ahora como campo de Higgs. Esta teoría es el paradigma para obtener soluciones vorticiales. La densidad lagrangiana de la teoría es
 \begin{align}
     \mc L = -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12D_\mu\phi\overline{D^\mu\phi}-\f{\lambda}8(1-|\phi|^2)^2 \label{eq:2}
 \end{align}
@@ -43,6 +109,7 @@ Podemos obtener la correspondiente teoría global haciendo $A_i=0$, obteniéndos
 A esta teoría global se la conoce como teoría de Ginzburg-Landau global y sus soluciones son llamadas vortices globales. En este trabajo estamos especialmente interesados en el modelo de Higgs abeliano, sin embargo, analizaremos brevemente la teoría de Ginzburg-Landau global ya que algunos métodos nos servirán más tarde.
 
 \section{Teoría de Ginzburg-Landau global}
+\label{sec:1.3}
 
 El funcional de energía $\eqref{eq:3a}$ es invariante ante rotaciones en el plano complejo $\phi\ra e^{i\al}\phi$ dónde $\al$ es una fase constante . Soluciones estáticas se obtendrán minimizando el funcional de energía, $\delta V_\lambda=0$, obteniéndose su ecuación de movimiento
 \begin{align}
