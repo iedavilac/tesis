@@ -1,0 +1,33 @@
+% Introduction and motivation
+
+\chapter{Introducción y Motivación} % Chapter title
+
+\label{ch:intro} % For referencing the chapter elsewhere, use \autoref{ch:examples}
+
+Los solitones juegan un papel muy importante en muchas áreas de la física, desde materia condensada, fluidos, física de partículas y cosmología a incluso teoría de cuerdas. Uno de los solitones más importantes, el vórtice, ha sido observado experimentalmente en superconductores tipo II formando una arreglo conocido como enrejado de Abrikosov.
+
+En cosmología, las cuerdas cósmicas, que no son de naturaleza fundamental como las cuerdas en teoría de cuerdas, sino más bien son mucho más grandes y pesadas, se piensan que pueden explicar los filamentos que se observan a grandes escalas en el Universo.
+
+En física del estado sólido, en particular en relación con el efecto Hall cuántico fraccional, teorías de campo efectivas que incluyen términos de Chern-Simons han probado ser de gran importancia. Una descripción efectiva de los electrones en un fluido de Hall cuántico superconductor puede ser descrita por una teoría de campos escalar con un término de interacción del tipo Chern-Simons.
+
+Uno de los problemas abiertos más importantes en física de partículas surgió a partir de la introducción de la Cromodinámica Cuántica, el llamado problema del confinamiento de quark o simplemente confinamiento. Este fenómeno es bienvenido ya que explica porqué no se ha detectado quarks libres. Aún no se ha encontrado una prueba analítica del confinamiento en todas las teorías de gauge no abelianas, y nuevos métodos de cálculo deben ser desarrollados. Estos nuevos métodos deben ser de naturaleza no perturbativa, en donde los solitones juegan un rol importante. Aunque en este trabajo no tocaremos teorías de gauge no abelianas, es importante remarcar que en ciertas teorías de gauge abelianas también exhiben confinamiento.
+
+Avocándonos al tema de este trabajo, los vortices abelianos son solitones topológicos en 2 dimensiones que aparecen como soluciones en el modelo de Higgs abeliano. Este modelo es una teoría de campo gauge $U(1)$ con un potencial cuártico cuya variedad de vacío posee una topología no trivial. Esta topología no trivial provee estabilidad a los vórtices. Estos vórtices llevan una carga topológica que es igual al \emph{winding} del campo de Higgs $\phi$ en el infinito o, de forma equivalente, al número de ceros de $\phi$ contado con multiplicidades. Un tipo especial de estos vórtices son los vórtices autoduales o vórtices críticos los cuales aparecen después de un argumento de Bogomolny sobre el funcional de energía. Estos son soluciones a un sistema de ecuaciones diferenciales de primer orden, las conocidas ecuaciones de Bogomolny, que también satisfacen las ecuaciones de Euler-Lagrange. Estas ecuaciones se pueden juntar en una sóla ecuaciones diferencial de segundo orden llamada ecuación de Taubes sujeta a condiciones de contorno. Esta ecuación no es fácil de resolver y sólo se conocen un puñado de soluciones analíticas, por lo que se suelen resolver numéricamente. Cronológicamente, la primera solución analítica apareció en un paper de 1977 de Edward Witten en el contexto de la teoría de Yang-Mills $SU(2)$. Más tarde, otras dos soluciones explícitas fueron encontradas por Dunajski [Contatto22] usando trascendentes de Painlevé.
+
+Otros cuatro tipos de solitones fueron presentados por Manton usando una generalización de la ecuación de Taubes, los cuales son los vórtices de Popov, Jackiw-Pi, Ambjorn-Olesen y Bradlow. Junto con los vórtices hallados por Witten, se tienen cinco vórtices llamados vórtices exóticos. Los vórtices de Witten y Popov surgen de una reducción de simetría de las ecuaciones de anti autodualidad de Yang-Mills (ASDYM) con grupo de gauge $SU(2)$ y $SU(1,1)$ respectivamente. Es natural preguntarse si los tres restantes vórtices también pueden surgir de una reducción de simetría de las ecuaciones ASDYM. La respuesta a esta pregunta es afirmativa, así como lo descubrieron Contatto y Dunajski, presentamos sus resultados en el capítulo \ref{ch:selfduality}.
+
+Finalizamos este trabajo presentando modelos modificados del modelo de Higgs abeliano. Introduciendo términos cinéticos no estándares y modificando el potencial cuártico a una potencia arbitraria de modo que el argumento de Bogomolny siga valiendo, es posible obtener nuevas soluciones explícitas de estos modelos.
+
+Con toda esta introducción y motivación introduzcamos el concepto de un solitón topológico.
+
+\section{Solitón topológico}
+
+Un solitón es una onda solitaria o excitación de algún campo que se propaga sin deformarse, es decir, manteniendo su forma e intensidad en el tiempo, que además tampoco se deforma cuando colisiona con otros solitones. El interés de este trabajo son solitones que tienen un origen topológico con la diferencia que estos si pueden ser afectados en colisiones, es decir, pueden dispersarse.
+
+Para ilustrar el origen topológico de este tipo de solitones, consideremos la teoría más simple que presenta solitones topológicos: una teoría $1+1$ con un campo escalar con un potencial polinómico cuártico. El solitón respectivo se hace llamar \emph{domain wall}. El respectivo lagrangiano de la teoría es
+\begin{align}
+	\mc L = \f 12\pr_\mu\phi\pr^\mu\phi-\f{\lambda}4(\phi^2-\chi^2)^2, \ \ \lambda,\chi>0.,
+\end{align}
+el cuál posee una simetría discreta $\m Z_2$, $\phi\ra-\phi$. El vacío rompe esta simetría $\m Z_2\ra\m I$. El campo escalar puede escoger entre dos vacíos, $\phi=\chi$ o $\phi=-\chi$. Una configuración que tenga al vacío $\phi=-\chi$ en $x\ra-\infty$ y al vacío $\phi=\chi$ en $x\ra+\infty$ debe pasar por $\phi=0$ creando una densidad de energía distinta de cero, esto es, una partícula solitónica. En este ejemplo el \emph{domain wall} vive en un espacio de una dimensión espacial y una dimensión temporal y se puede pensar como una pseudopartícula localizada y de energía finita. Es común que este objeto se presente extendido en dos dimensiones espaciales y una temporal. Enfaticemos que la existencia del \emph{domain wall} recae en la topología no trivial de la variedad de vacío $\mc M=\{-\chi,\chi\}$.
+
+En general, este tipo de defecto está caracterizado por el $l$-avo grupo de homotopía $\pi_l(\mc M)$ de la variedad de vacío $\mc M$. Para solitones topológicos viviendo en una teoría en $d+1$ dimensiones espacio temporales uno puede clasificarlos de acuerdo a $l$. Para el \emph{domain wall} se tiene que $l=0$, para $l=1$ tenemos a los vórtices que son solitones topológicos en $d=2$ caracterizados por $\pi_1(\mc M)=\m Z$, para $l=2$ tenemos a los monopolos que viven en un espacio $d=3$, finalmente con $l=3$ tenemos a los instantones.
