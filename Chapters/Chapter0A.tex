@@ -1,46 +1,63 @@
 % Appendix A
 
-\chapter{Appendix Test}
+\chapter{Apéndice A}
+\label{appendixa}
 
 %----------------------------------------------------------------------------------------
 
-\lipsum[13-14]
+En este apéndice calcularemos la variación de la acción de Yang-Mills para el Capítulo 3.
 
 %----------------------------------------------------------------------------------------
 
-\section{Appendix Section Test}
-\lipsum[15]
+\section{Variación de la acción de Yang-Mills}\label{app:a1}
 
-\graffito{More dummy text}
-\lipsum[16]
+Para derivar las ecuaciones de campo a partir de la acción, consideremos una pequeña deformación del campo de gauge $A_\mu\ra A_\mu+ta_\mu$. Donde $a_\mu$ es un cuadrivector que depende de la posición. Para determinar los puntos críticos de la acción podemos usar la derivación funcional, sin embargo, en este apéndice usaremos un método análogo. Los puntos críticos se pueden calcular con la siguiente ecuación
+\begin{align}
+	\f{d}{dt}\bp{YM(A+ta)}_{t=0} &=0,
+\end{align}
+donde $YM(A)$ es la acción de Yang-Mills. Usaremos este método ya que es fácilmente generalizable para otros campos de gauge. El tensor de campo cambia ante la variación de $A$ como
+\begin{align*}
+	F_{\mu\nu}(A+ta)&= \pr_\mu(A_\nu+ta_\nu)-\pr_\nu(A_\mu+ta_\nu)+[A_\mu+ta_\mu,A_\nu+ta_\nu]\\
+	&= F_{\mu\nu}+t(\pr_\mu a_\nu-\pr_\nu a_\mu+[A_\mu,a_\nu]+[a_\mu,A_\nu])+t^2[a_\mu,a_\nu]\\
+	&= F_{\mu\nu}+t(D_\mu a_\nu-D_\nu a_\mu)+t^2[a_\mu,a_\nu]
+\end{align*}
+La acción de Yang-Mills contiene este término al cuadrado. Sin embargo, sólo los términos lineales en $t$ que queden después de la derivación y luego de hacer $t=0$, contribuirán al cálculo. Es fácil ver que el único término que queda es
+\begin{align}
+	\f{d}{dt}\bp{YM(A+ta)}_{t=0} = -\f 18\int 2F_{\mu\nu}(D_\mu a_\nu-D_\nu a_\mu)
+\end{align}
+Usando la antisimetría de $F_{\mu\nu}$, podemos sacar un factor de $2$ extra: $F_{\mu\nu}D_\nu a_\mu=-F_{\mu\nu}D_\mu a_\nu$. Tenemos entonces,
+\begin{align}
+	\f{d}{dt}\bp{YM(A+ta)}_{t=0} = -\f 12\int F_{\mu\nu}D_\mu a_\nu =0
+\end{align}
+Usando integración por partes y tirando los términos de borde tenemos finalmente
+\begin{align}
+	\f{d}{dt}\bp{YM(A+ta)}_{t=0} = -\f 12\int D_\mu F_{\mu\nu}a_\nu =0
+\end{align}
+Para que esta última ecuación se satisfaga para todo $a_\mu$, se debe cumplir que
+\begin{align}
+	D_\mu F_{\mu\nu} =0
+\end{align}
+Estas no son más que las ecuaciones de Yang-Mills.
 
-%----------------------------------------------------------------------------------------
+\section{Traza de $F_{\mu\nu}^2$}\label{app:a2}
 
-\section{Another Appendix Section Test}
-\lipsum[17]
-
-\begin{table}
-\myfloatalign
-\begin{tabularx}{\textwidth}{Xll} \toprule
-\tableheadline{labitur bonorum pri no} & \tableheadline{que vista}
-& \tableheadline{human} \\ \midrule
-fastidii ea ius & germano &  demonstratea \\
-suscipit instructior & titulo & personas \\
-\midrule
-quaestio philosophia & facto & demonstrated \\
-\bottomrule
-\end{tabularx}
-\caption[Autem usu id]{Autem usu id.}
-\label{tab:moreexample}
-\end{table}
-
-\lipsum[18]
-
-There is also a useless Pascal listing below: \autoref{lst:useless}.
-
-\begin{lstlisting}[float=b,language=Pascal,frame=tb,caption={A floating example (\texttt{listings} manual)},label=lst:useless]
-for i:=maxint downto 0 do
-begin
-{ do nothing }
-end;
-\end{lstlisting}
+Queremos demostrar que $\Tr(F_{\mu\nu}F_{\mu\nu})=\Tr(\star F_{\mu\nu}\star F_{\mu\nu})$. Hagámoslo directamente
+\begin{align*}
+	\Tr(\star F_{\mu\nu}\star F_{\mu\nu}) &= \f 12\eps_{\mu\nu\al\be}\f 12\eps{\mu\nu\gm\delta}\Tr(F_{\al\be}F_{\gm\delta})\\
+	&= \f 14\eps_{\mu\nu\al\be}\eps_{\mu\nu\gm\delta}\Tr(F_{\al\be}F_{\gm\delta})\\
+	&= \f 14\delta^{\mu\nu\al\be}_{\mu\nu\gm\delta}\Tr(F_{\al\be}F_{\gm\delta}) = \f 142!\delta^{\al\be}_{\gm\delta}\Tr(F_{\al\be}F_{\gm\delta})
+\end{align*}
+donde $\delta^{\mu_1\cdots\mu_n}_{\nu_1\cdots\nu_n}$ es la función delta de Dirichlet generalizada. Satisface que
+\begin{align*}
+	\delta^{\al\be}_{\gm\delta} = \left| \begin{matrix}
+	\delta^{\al}_\gm & \delta^{\al}_\delta\\
+	\delta^{\be}_\gm & \delta^\be_\delta
+	\end{matrix}	\right| = \delta^\al_\gm\delta^\be_\delta-\delta^\al_\delta\delta^\be_\gm
+\end{align*}
+Entonces,
+\begin{align*}
+	\Tr(\star F_{\mu\nu}\star F_{\mu\nu}) &= \f 12(\delta^\al_\gm\delta^\be_\delta-\delta^\al_\delta\delta^\be_\gm)\Tr(F_{\al\be}F_{\gm\delta})\\
+	&= \f 12(\Tr(F_{\al\be}F_{\al\be})-\Tr(F_{\al\be}F_{\be\al}))\\
+	&= \Tr(F_{\al\be}F_{\al\be})
+\end{align*}
+Donde en pasar a la tercera línea usamos la antisimetría de $F_{\mu\nu}$.
