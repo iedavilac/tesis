@@ -31,3 +31,35 @@ Para ilustrar el origen topológico de este tipo de solitones, consideremos la t
 el cuál posee una simetría discreta $\m Z_2$, $\phi\ra-\phi$. El vacío rompe esta simetría $\m Z_2\ra\m I$. El campo escalar puede escoger entre dos vacíos, $\phi=\chi$ o $\phi=-\chi$. Una configuración que tenga al vacío $\phi=-\chi$ en $x\ra-\infty$ y al vacío $\phi=\chi$ en $x\ra+\infty$ debe pasar por $\phi=0$ creando una densidad de energía distinta de cero, esto es, una partícula solitónica. En este ejemplo el \emph{domain wall} vive en un espacio de una dimensión espacial y una dimensión temporal y se puede pensar como una pseudopartícula localizada y de energía finita. Es común que este objeto se presente extendido en dos dimensiones espaciales y una temporal. Enfaticemos que la existencia del \emph{domain wall} recae en la topología no trivial de la variedad de vacío $\mc M=\{-\chi,\chi\}$.
 
 En general, este tipo de defecto está caracterizado por el $l$-avo grupo de homotopía $\pi_l(\mc M)$ de la variedad de vacío $\mc M$. Para solitones topológicos viviendo en una teoría en $d+1$ dimensiones espacio temporales uno puede clasificarlos de acuerdo a $l$. Para el \emph{domain wall} se tiene que $l=0$, para $l=1$ tenemos a los vórtices que son solitones topológicos en $d=2$ caracterizados por $\pi_1(\mc M)=\m Z$, para $l=2$ tenemos a los monopolos que viven en un espacio $d=3$, finalmente con $l=3$ tenemos a los instantones.
+
+\section{Teorema de Derrick}
+
+Una pregunta importante acerca de los solitones es su estabilidad. El teorema de Derrick, basado en un argumento de escaleo, nos dice que no hay configuraciones de campo de energía finita en más de una dimensión, a parte del vacío, que presente un punto estacionario. Esto significa que solitones de energía finita no son estables para $d>1$. Repasemos el argumento de Derrick brevemente. Por simplicidad, consideremos una teoría de campo escalar en $d$ dimensiones espaciales y hagamos el siguiente rescaleo $x\ra \mu x$, $\phi(x)\ra\phi(\mu x)$, entonces la derivadas se rescalean como $\pr_i\ra\mu\pr_i$ mientras que el elemento $d^dx\ra \mu^{-d}d^dx$. Asumamos también que $\phi$ describe una solución estacionaria no trivial, es decir, que debe ser un punto crítico de la energía
+\begin{align}
+	E[\phi(x)]=\int_{\m R^d}d^dx\bb{|\pr_i\phi|^2+V[\phi]}
+\end{align}
+La energía después del rescaleo es
+\begin{align}
+	E[\phi(\mu x)] = \int_{\m R^d} d^d(\mu x)\bb{\mu^{2-d}|\pr_i\phi|^2+\mu^{-d}V[\phi(\mu x)]}
+\end{align}
+Para que esta energía posea un punto estacionario para todo valor de $\mu$, es claro que
+\begin{align}
+	\f{dE[\phi(\mu x)]}{d\mu}\left|_{\mu=1}\right. =0 \label{eq:0.2.0.3}
+\end{align}
+donde escogimos el valor arbitrario de $\mu=1$. Desarrollando a ecuación anterior se tiene
+\begin{align}
+	(2-d)\int_{\m R^d}d^dx|\pr_i\phi(x)|^2=d\int_{\m R^d}d^dxV[\phi(x)]
+\end{align}
+Esta ecuación nos da dos posibilidades para $d$. Para $d=1$ podemos tener configuraciones no triviales pues las contribuciones del escaleo del término cinético pueden compensar las del potencial (de hecho son iguales ambas contribuciones). Para $d=2$ esto ya no es posible pues $V=0$, caso que corresponden a los \emph{lumps} en el modelo sigma. Armemos a nuestra teoría de campo escalar con un campo de gauge, de modo que cuando rescalemos la derivada covariante lo hagamos del siguiente modo $D_\mu\ra\mu D_\mu$, entonces claramente el campo de gauge rexcalea como $A_\mu\ra\mu A_\mu$, por lo tanto la nueva energía rescaleada es
+\begin{align}
+	E[\phi(\mu x)] = \int_{\m R^d} d^d(\mu x)\bb{\f{\mu^{4-d}}{g^2}F_{\mu\nu}F^{\mu\nu}+\mu^{2-d}|D_i\phi|^2+\mu^{-d}V[\phi(\mu x)]}
+\end{align}
+Aplicando \eqref{eq:0.2.0.3} a esta energía llegamos a
+\begin{align}
+	(4-d)\int_{\m R^d}d^dx\f{1}{g^2}F_{\mu\nu}F^{\mu\nu}+(2-d)\int_{\m R^d}d^dx|D_i\phi|^2 = d\int_{\m R^d}d^dx V[\phi(x)],
+\end{align}
+claramente vemos que para $d=2$ la contribución de los campos de gauge balancea la contribución del potencial dando pie a la aparición de los vórtices. Un comentario adicional es que para $d=4$ el término de los campos de gauge no escalea y no hay necesidad de término cinético ni de potencial, dando origen a un solitón sin rompimiento espontáneo de la simetría, llamado instantón. Tal vez el solitón más importante en la física de altas energías es el instantón hallado por Belavin, Polyakov, Schwartz y Tyupkin (BPST) en la teoría de Yang-Mills $SU(2)$ pura, el cuál revisaremos en \ref{sec:4.1}.
+
+Pero si no hay potencial, por lo tanto no hay variedad de vacío, entonces, ¿cuál es el origen topológico de los instantones? La respuesta es simplemente que los instantones mapean el borde del espacio tiempo $\pr\m R^4$, que puede ser identificado con la esfera cuatro dimensional $S^3$ mediante una compactificación, al grupo de gauge $SU(2)\equiv S^3$. Tales mapeos son caracterizados por el tercer grupo de homotopía $\pi_3(S^3)=\m Z$. Por lo tanto, el número instantónico o la carga del instanton es de origen topológico.
+
+Otro comentario interesante sobre los instantones es que la acción es inversamente proporcional a la constante de acoplamiento $S\propto g^{-2}$. Las amplitudes de transición (o amplitudes en general) están descritas por la integral de caminos de Feynman, que mediante una rotación de Wick se puede escribir como $\sim e^{-S}$. Por lo tanto, los instantones se vuelven importantes en el régimen de constante de acoplamiento grande, llamado también \emph{strong coupling}.
