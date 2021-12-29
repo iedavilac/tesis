@@ -1,29 +1,303 @@
 % Chapter X
 
-\chapter{Chapter Title} % Chapter title
+\chapter{Supersimetría y vórtices} % Chapter title
 
-\label{ch:name} % For referencing the chapter elsewhere, use \autoref{ch:name} 
-
-%----------------------------------------------------------------------------------------
-
-\section{Section Title}
-
-Content
-
-%------------------------------------------------
-
-\subsection{Subsection Title}
-
-Content
-
-%------------------------------------------------
-
-\subsection{Subsection Title}
-
-Content
+\label{ch:supervortices} % For referencing the chapter elsewhere, use \autoref{ch:name} 
 
 %----------------------------------------------------------------------------------------
 
-\section{Section Title}
+En este capítulo abordaremos la conexión que existe entre supersimetría y vórtices. En especial tocaremos la conexión entre la ecuación de Bogomolny y la condición de la existencia de una extensión supersimétrica del modelo; notada por Schaposnik y De Vega [schapo-devega] y clarificada más tarde por Witten y Olive [wittenolive].
 
-Content
+\section{Ecuaciones de Bogomolny y supersimetría}
+
+Ya hemos visto que existe un valor especial de la constante de acoplamiento $\lambda$ para el cual las ecuaciones de movimiento de segundo orden se reducían a ecuaciones diferenciales de primer orden y para el cuál se conoce una solución exacta.
+
+Estas ecuaciones de primer orden son las llamadas ecuaciones de Bogomolny, las cuales no sólo aparecen para el modelo abeliano de Higgs sino en muchas otras teorías. En [schapo-devega] se nota que este \emph{fine-tuning} de la constante de acoplamiento permite una extensión supersimétrica del modelo abeliano de Higgs.
+
+Como motivación, consideremos la versión supersimétrica de una teoría de campo escalar en dos dimensiones
+\begin{align}
+	S = \int d^2x\bb{\f 12(\pr_\mu\phi)^2+\f i2\bar\psi\gm^\mu\pr_\mu\psi-\f 12V(\phi)^2-\f 12V'(\phi)\bar\psi\psi},
+\end{align}
+donde $\psi$ es un fermión de Majorana y $V(\phi)$ es la función potencial de la teoría, que por ahora es arbitraria. En dos dimensiones las matrices gama se escriben como
+\begin{align}
+	\gm^0 = -i\sg^2 = \begin{pmatrix}
+	0 & -1 \\ 1 & 0
+	\end{pmatrix}, \ \ \gm^1 = \sg^3 = \begin{pmatrix}
+	1 & 0\\ 0 & -1
+	\end{pmatrix}
+\end{align}
+Las ecuaciones de movimiento para los campos se obtienen fácilmente y son
+\begin{align}
+	\Box\phi &= V(\phi)V'(\phi)+\f 12V''(\phi)\bar\psi\psi \label{eq:5.1.0.3}\\
+	\pr\slashd\psi &- V'(\phi)\psi =0 \label{eq:5.1.0.4}
+\end{align}
+Esta acción es invariante (en el sentido que la variación de la acción es a lo mucho una derivada total) ante las siguientes transformaciones de supersimetría
+\begin{align}
+	\delta\phi &= \bar\eps\psi\\
+	\delta\psi &= (\pr\slashd\phi-V(\phi))\eps \label{eq:5.1.0.6}\\
+	\delta\bar\psi &= -\bar\eps(\pr\slashd\psi+V(\phi))
+\end{align}
+y por consiguiente, debido al teorema de Noether, la corriente conservada asociada es
+\begin{align}
+	J^\mu = -(\pr\slashd\phi+V(\phi))\gm^\mu\psi,
+\end{align}
+y la supercarga asociada es
+\begin{align}
+	Q = -\int dx(\pr\slashd\phi+V(\phi))\gm^0\psi
+\end{align}
+Luego, escribiendo $Q=(Q^+ \ \ Q^-)^T$ es fácil ver que
+\begin{align}
+	Q^+ &= \int dx(\pr_0\phi\psi^++(\pr_1\phi+V(\phi))\psi^-) \label{eq:5.1.0.10}\\
+	Q^- &= \int dx(\pr_0\phi\psi^-+(\pr_1\phi-V(\phi))\psi^+) \label{eq:5.1.0.11}
+\end{align}
+Estas cargas no cierran totalmente el álgebra supersimétrica, ya que se satisface $Q_+^2 = P_+$, $Q_-^2 = P_-$, donde $P_{\pm}=P_0\pm P_1$ y
+\begin{align}
+	\{Q_+,Q_-\} = 2\int dxV(\phi)\f{\pr\phi}{\pr x}.
+\end{align}
+Recordemos que para el álgebra supersimétrica este último término se debe anular. Sin embargo, queda este término de superficie, el cuál también se puede escribir como
+\begin{align}
+	\{Q_+,Q_-\} = 2\int dx H'(x), \label{eq:5.1.0.13}
+\end{align}
+donde $H(\phi)$ es una función tal que $H'(\phi)=V(\phi)$. Entonces, el conmutador de las supercargas es la integral de una divergencia total la cuál debería anularse. Pero en un estado solitónico este término no es necesariamente nulo. Por ejemplo, considere $V(\phi)=-\lambda(\phi^2-a^2)$ de modo que el potencial es el típico potencial cuártico de Higgs $\lambda^2(\phi^2-a^2)^2$, el cuál tiene dos vacíos en $\phi=\pm a$. Llamando $T$ al lado derecho de \eqref{eq:5.1.0.13}, vemos que para una configuración de \emph{domain wall} $\phi(-\infty)=-a$ y $\phi(\infty)=a$
+\begin{align}
+	T = \int_{-\infty}^\infty dx\f{\pr}{\pr x}\bp{2a^2\lambda-\f 23\lambda\phi^3} =\f{4\lambda a^3}3.
+\end{align}
+Es claro que $T$ está relacionada con la carga topológica $\int dx(\pr\phi/\pr x)$. Esta nueva álgebra modificada $\{Q_+,Q_-\}=T$ tiene muchas consecuencias interesantes. La primera es que permite establecer un límite sobre la masa de una partícula. Considere lo siguiente
+\begin{align}
+	(Q_+\pm Q_-)^2 &= Q_+^2+Q_-^2\pm(Q_+Q_-+Q_-Q_+) \nonumber\\
+				   &= P_++P_-\pm T \label{eq:5.1.0.15}
+\end{align}
+Pero $(Q_+\pm Q_-)^2\geq 0$, entonces, $P_++P_-\geq |T|$. Para una sola partícula de masa $M$ en reposo, $P_0=M$ y $P_1=0$, entonces $P_+=P_-=M$ y la ecuación anterior implica
+\begin{align}
+	M\geq |T|.
+\end{align}
+Ahora nos preguntamos cuando se satura esta desigualdad. Es claro, a partir de ecuación \eqref{eq:5.1.0.15} que la desigualdad se satura para estados $\ket{\al}$ tales que
+\begin{align}
+	(Q_+\pm Q_-)\ket\al =0.
+\end{align}
+Clásicamente, esta condición se satisface para todos los estados solitónicos de la teoría. Esto se puede ver fácilmente a partir de ecuaciones \eqref{eq:5.1.0.10} y \eqref{eq:5.1.0.11}, que implican para una configuración estática $\pr\phi/\pr t=0$
+\begin{align}
+	(\pr_1\phi+V(\phi))\psi^-=0 \ \ \ \text{o} \ \ \ (\pr_1\phi-V(\phi))\psi^+=0 \label{eq:5.1.0.18}
+\end{align}
+que no son más que las ecuaciones de Bogomolny para esta teoría. En efecto, la energía de una configuración estática es
+\begin{align}
+	M = \int dx\f 12\bp{(\pr_1\phi)^2+V^2(\phi)}
+\end{align}
+la cuál se puede escribir, mediante el argumento de Bogomolny, de la siguiente forma
+\begin{align}
+	M = \f 12\int dx\bp{(\pr_1\phi)^2\pm V(\phi)^2}^2\mp T
+\end{align}
+del cuál se pueden derivar fácilmente ecuaciones \eqref{eq:5.1.0.18} cuando se satura la desigualdad.
+
+Otra cosa que podemos notar es que la transformación supersimétrica para el fermión $\psi$ \eqref{eq:5.1.0.6} se escribe, para una configuración estática, como sigue
+\begin{align}
+	\delta\psi = \begin{pmatrix}
+	\pr_1\phi-V(\phi) & 0\\
+	0 & -\pr_1\phi- V(\phi)
+	\end{pmatrix}\begin{pmatrix}
+	\eps^+ \\ \eps^-
+	\end{pmatrix}.
+\end{align}
+Haciendo $\delta\psi=0$ es otra forma de obtener las ecuaciones de Bogomolny sin necesidad de construir la corriente y luego las cargas. Además, para cada ecuación de Bogomolny está asociada una solución de la ecuación de Dirac
+\begin{align}
+	\psi_0 = (\pr\slashd\phi-V)\begin{pmatrix}
+	\psi_0^+ \\ 0
+	\end{pmatrix} \ \ \ \text{o} \ \ \ \psi_0 = (\pr\slashd\phi+V)\begin{pmatrix}
+	0 \\ \psi_0^-
+	\end{pmatrix} 
+\end{align}
+Uno puede entender la aparición de estos modos cero notando que un \emph{domain wall} junto con $\psi=0$ resuelven las ecuaciones de movimiento \eqref{eq:5.1.0.3} y \eqref{eq:5.1.0.4} del modelo. Pero una transformación de supersimetría de esta solución seguirá siendo una solución, lo que significa que $\delta\psi$ satisface la ecuación de Dirac.
+
+
+\section{El modelo supersimétrico $N=1$ en $2+1$}
+
+Comencemos introduciendo una versión supersimétrica del modelo abeliano de Higgs. Definimos la métrica como $g_{\mu\nu}=diag(+,-,-)$. El campo de Higgs $\phi$ junto con el higgsino $\psi$ y un campo auxiliar $F$ son componentes del supercampo escalar complejo $\Phi(y,\theta)$, que en $2+1$ se escribe como
+\begin{align}
+	\Phi(y;\theta) &= \phi(y)+\sqrt 2\theta\psi(y)-\theta\theta F(y) \label{eq:5.2.0.1} \\
+	\Phi\dg(y;\bar\theta) &= \phi^*(y)+\sqrt 2\overline{\theta\psi}(y)-\overline{\theta\theta} F(y),
+\end{align}
+donde $y^\mu=x^\mu+i\theta\sg^\mu\bar\theta$ y $\theta^2 = \theta\theta$. En $2+1$ un supercampo escalar $\mc N=1$ no puede ser quiral [Alexandre2003]. Definimos la superderivada covariante como
+\begin{align}
+	\mc D_\al = \f{\pr}{\pr\theta^\al}+i(\sg^\mu\bar\theta)_\al\pr_\mu, \ \ \ \overline{\mc D_\al} = \f{\pr}{\pr\overline\theta^\al}+i(\theta\sg^\mu)_\al\pr_\mu,
+\end{align}
+son las superderivadas covariantes en la variable $x^\mu$. Para algunas cuentas necesitaremos escribirlas en términos de $y^\mu$ como
+\begin{align}
+	\mc D_\al = \f{\pr}{\pr\theta^\al}+2i(\sg^\mu\bar\theta)_\al\f{\pr}{\pr y^\mu}, \ \ \ \overline{\mc D_\al} = \f{\pr}{\pr\overline\theta^\al}
+\end{align}
+
+El campo de gauge $A_\mu(x)$ abeliano junto con el fotino $\lambda(x)$ se acomodan en el supercampo vectorial $V$, que escrito en el gauge de Wess-Zumino es
+\begin{align}
+	V_{WZ} = \theta\sg^\mu\bar\theta A_\mu(x)+i\theta^2\overline{\theta\lambda}(x)-i\bar\theta^2\theta\lambda(x)
+\end{align}
+Finalmente, también introducimos un supercampo escalar real, necesario para implementar el mecanismo de ruptura de simetría de Fayet-Illiopoulos [Fayet-Illiopoulos], que se escribe como
+\begin{align}
+	S(x;\theta) = N(y)+\sqrt 2\theta\chi(y)+\f 12\theta^2 D(y)
+\end{align}
+y el supercampo spinorial lo escribimos como
+\begin{align}
+	W_\al = -\f 14 \overline{\mc D}^2\mc D_\al V_{WZ} = -i\lambda_\al(y)+i(\sg^{\mu\nu}\theta)_\al F_{\mu\nu}(y)+\theta^2(\sg^\mu\pr_\mu\bar\lambda(y))_\al
+\end{align}
+El lagrangiano supersimétrico para el modelo abeliano de Higgs $\mc N=1$, escrito en el formalismo de superespacio, tiene la forma
+\begin{align}
+	L_{\mc N=1} = \int d^2\theta\bp{\f 12 W^\al W_\al+\sqrt{2\lambda}S\Phi\dg\Phi}+\int d^2\theta d^2\bar\theta \bp{\Phi\dg e^{V_{WZ}}\Phi+S\dg S+\eta S}
+\end{align}
+donde $\eta$ es el parámetro de Fayet-Iliopoulos. Escribiendo el lagrangiano en términos de sus componentes bosónicos y fermiónicos nos da
+\begin{align}
+	L_{\mc N=1} &= -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12\pr^\mu N\pr_\mu N+\f 12(D^\mu\phi)\dg D_\mu\phi+\f 12D^2+\sqrt{2\lambda} D|\phi|^2 \nonumber\\
+	&\eta D+\f 12|F|^2+\sqrt{2\lambda}N(F^*\phi+F\phi^*)+\f i2\lambda\pr\slashd\bar\lambda+\f i2\chi\pr\slashd\bar\chi+\f i2\psi D\slashd\bar\psi-\nonumber\\
+	&\sqrt{2\lambda}N\bar\psi\psi+\f i2(\bar\psi\lambda\phi-\bar\lambda\psi\phi^*)-\sqrt{2\lambda}(\bar\psi\chi\phi+\bar\chi\psi\phi^*) \label{eq:5.2.0.11}
+\end{align}
+Podemos eliminar los campos auxiliares $F$ y $D$ insertando en el lagrangiano anterior sus ecuaciones de movimiento correspondientes
+\begin{align}
+	F &= -2\sqrt{2\lambda} N\phi,\\
+	D &= -\sqrt{2\lambda}|\phi|^2-\eta.
+\end{align}
+El rompimiento de la simetría se da cuanto el término $D$ se anula para cierto valor del campo $\phi_0$. Tal valor se halla fácilmente como
+\begin{align}
+	\phi_0^2 = -\f{\eta}{\sqrt{2\lambda}}.
+\end{align}
+Reemplazando los campos auxiliares en el lagrangiano \eqref{eq:5.2.0.11} obtenemos
+\begin{align}
+	L_{\mc N=1} &= -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12\pr^\mu N\pr_\mu N+\f 12(D^\mu)^* D_\mu\phi-4\lambda N^2|\phi|^2-\lambda (|\phi|^2-\phi_0^2)^2\nonumber\\
+	&+\f i2\bar\lambda\pr\slashd\lambda+\f i2\bar\chi\pr\slashd\chi+\f i2\bar\psi D\slashd\psi-\sqrt{2\lambda}N\bar\psi\psi\nonumber\\
+	&+\f i2(\bar\psi\lambda\phi-\bar\lambda\psi\phi^*)-\sqrt{2\lambda}(\bar\psi\chi\phi+\bar\chi\psi\phi^*) \label{eq:5.2.0.15}
+\end{align}
+Nótese que este lagrangiano se reduce al lagrangiano del modelo abeliano de Higgs si "apagamos" los campos fermiónicos, es decir, anulamos los campos $\lambda,\psi$ y $\chi$, y  si hacemos también $N=0$. Incluso aparece el típico término del potencial cuártico sin necesidad de agregar algún superpotencial, ya que este nace de pedir la ruptura de la simetría a través del término de Fayet-Iliopoulos junto con el término $D$.
+
+Ahora nos gustaría hacer que el lagrangiano anterior posea una supersimetría extendidad $\mc N=2$. Para ver como podemos hacer esto, daremos un repaso brevísimo sobre ciertos aspectos de teorías de gauge supersimétricas $\mc N=2$ en tres dimensiones.
+
+\subsection{Aspectos generales de teorías $\mc N=2$ en $3d$}
+
+En tres dimensiones existen 4 cargas supersimétricas [Csaba-Martone,Aharony-Hanany-Seiberg-Strassler,Gates-Grisaru-Roczek], a diferencia de las 8 supercargas en cuatro dimensiones. Estas se obtienen a partir de una reducción de dimensión del álgebra $\mc N=1$ en $4d$:
+\begin{align}
+	\{Q_\al,Q_\be\} = \{\overline Q_\al,\overline Q_\be\} =0, \ \ \{Q_\al,\overline Q_\be\} = 2(\sg^i)_{\al\be}P_i+2i\eps_{\al\be}Z
+\end{align}
+donde $\sg^{i=0,1,2}=(i\sg_2,\sg_3,\sg_1)$ y $Z$ es la carga central y corresponde a la componente $P_3$ del momento en $4d$. Una diferencia con las matrices gama en 4d es que estas son todas reales. En cuatro dimensiones, los espinores transformaban en la representación fundamental del grupo de Lorentz $SL(2,\m C)$. En tres dimensiones, el grupo de Lorentz es $SL(2,\m R)$ que posee 3 generadores (2 boosts y una rotación), y los espinores formar spinores de Majorana de dos componentes reales.
+
+Las coordenadas en el superespacio ahora son $z = (x^\mu,\theta_\al,\theta_\be)$, donde $\mu=0,1,2$ y $\theta_{\al,\be}$ son variables de Grassmann reales. En $4d$, los supercampos quirales se escriben de igual forma que \eqref{eq:5.2.0.1}, con la diferencia que en $3d$ el espinor de Weyl $\psi$ se descompone en dos fermiones de Majorana reales.
+
+El supercampo vectorial $\mc N=2$ en $3d$ se escribe como
+\begin{align}
+	V = i\theta\bar\theta\sg+i\theta\sg^i\bar\theta A_i+i\theta^2\bar\theta\lambda-i\bar\theta^2\theta\lambda+\f 12\theta^2\bar\theta^2 D, \label{eq:5.2.1.2}
+\end{align}
+donde se ha separado explícitamente el campo de gauge en $3d$ $A_i$ del campo de gauge escalar que surge de la reducción dimensional $\sg\sim A_3$. Nótese que a diferencia del supercampo vectorial de la teoría $3d$ $\mc N=1$ de la sección anterior, en $\mc N=2$ el supercampo contiene un campo escalar real $\sg$ que puede adquirir un valor de expectación de vacío distinto de cero que puede rompe la simetría de gauge de la teoría. Sin embargo, en $3d$ no es el único campo escalar que puede adquirir un valor de expectación distinto de cero. En tres dimensiones el dual de Hodge del tensor de campo electromagnético, $\star F$, es una $1$-forma. Esta $1$-forma la podemos escribir como el diferencial de algún campo escalar $\gm$
+\begin{align}
+	\star F = d\gm.
+\end{align}
+Este campo escalar se conoce como el fotón dual y es análogo al campo de gauge $A$ cuando $F=dA$ (con la diferencia que $A$ es una 1-forma y por lo tanto, $F$ es una 2-forma). Debido a la regla de cuantización de Dirac, $\gm$ debe ser una función periódica y entonces tomar valores en $S^1$. Uno puede combinar ambos campos escalares ($\sg$ y $\gm$) en un sólo campo escalar
+\begin{align}
+	\tilde\phi = \sg+i\gm.
+\end{align}
+Definamos $\mc J = d\gm$. Como $d^2=0$, entonces queda claro que $d\mc J=0$. Este resultado no es más que una consecuencia de las ecuaciones de Maxwell; por lo tanto, podemos considerar a $\mc J$ como una corriente conservada. Esta corriente conservada está asociada a alguna simetría global de la teoría. Claramente, esta simetría es $U(1)_{\mc j}$ debido a como definimos el tensor de campos. En SUSY, corrientes conservadas se pueden integrar dentro de un supercampo $\Sigma$ que es lineal, es decir, que satisface $\mc D^2\Sigma=\overline{\mc D}^2\Sigma=0$. Un supercampo que satisface las restricciones anteriores tiene [Bertolini] la siguiente expansión en componentes
+\begin{align}
+	\Sigma = -\f i2\overline{\mc D}^\al\mc D_\al V = \sg+\theta\bar\lambda+\overline\theta\lambda+\f 12\theta\sg^i\overline\theta\pr_i\gm+i\theta\overline\theta D+\f i2\overline\theta^2\theta\sg^i\pr_i\lambda-\nonumber\\
+	\f i2\theta^2\overline\theta\sg^i\pr_i\overline\theta+\f 14\theta^2\overline\theta^2\pr^2\sg.
+\end{align}
+
+
+Ahora, a partir de estos supercampos nos gustaría construir lagrangianos en $3d$ con supersimetría $\mc N=2$. A partir del supercampo vectorial \eqref{eq:5.2.1.2} podemos definir el supercampo electromagnético $W_\al = -\f 14\overline{\mc D}^2\mc D_\al V$ y con esto construir la parte electromagnética de la teoría
+\begin{align}
+	L_{YM} &= \int d^2\theta W_\al W^\al \label{eq:5.2.1.6} \\
+	&= -\f 14 F_{ij}F^{ij}+ D_i\sg D^i\sg+D^2+\overline\lambda\sg^iD_i\lambda
+\end{align}
+Alternativamente, uno puede usar el supercampo lineal $\Sigma$ para construir una acción análoga a la anterior
+\begin{align}
+	L_{YM} = \int d^2\theta d^2\overline\theta \Sigma^2
+\end{align}
+De hecho ambos lagrangianos son iguales.
+
+En $3d$, la acción de Yang-Mills(en el caso no abeliano) \eqref{eq:5.2.1.6} no es la única combinación que es invariante de gauge que se puede agregar a la acción. De hecho uno puede agregar un término de Chern-Simons que en una toería abeliana se escribe como
+\begin{align}
+	L_{CS} = \int d^2\theta d^2\overline\theta \Sigma V.
+\end{align}
+Aunque no estudiaremos teorías con términos de Chern-Simons, creemos que vale la pena mencionarlos por su mero interés. Referimos a [Seiberg-Intrilligator] para una \emph{review} excelente. A parte de estos términos también podemos agregar términos de Fayet-Iliopoulos como pasa en $4d$.
+
+Para agregar materia y dinámica a la teoría debemos acoplar los supercampos escalares con el supercampo vectorial. Para campos quirales el lagrangiano se escribe como
+\begin{align}
+	L = \int d^2\theta d^2\overline\theta Q e^{V}Q\dg
+\end{align}
+donde $Q = \phi_Q+\theta\psi+\theta^2 F$ es el campo quiral. Escrito en componentes, el lagrangiano es
+\begin{align}
+	L = |D_i\phi_Q|^2+\sg^2|\phi_Q|^2+D|\phi_Q|^2+i\overline\psi\sg^iD_i\psi-i\sg\overline\psi\psi+i(\phi_Q\dg\overline\lambda\psi-\overline\psi\lambda\phi_Q)+|F|^2
+\end{align}
+Con todos estos elementos escribamos el lagrangiano más general de una teoría en $3d$ con supersimetría $\mc N=2$ (sin término de Chern-Simons):
+\begin{align}
+	L_{\mc N=2} &= \int d^2\theta W_\al W^\al+\int d^2\theta d^2\overline\theta\overline Qe^{2gV}Q+\eta\int d^2\theta d^2\overline\theta V\\
+	&= -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12\pr_\mu\sg\pr^\mu\sg+i\overline\lambda\pr\slashd\lambda+\f 12D^2+g\eta D+gD|\phi_Q|^2+D^\mu\phi_Q\dg D_\mu\phi_Q+\nonumber\\
+	&i\overline\psi D\slashd\psi+g^2\sg^2|\phi_Q|^2+g\sg\overline\psi\psi+\sqrt{2}g(\overline\lambda\psi\phi_Q\dg-\overline\psi\lambda\phi_Q)+|F|^2
+\end{align}
+Este lagrangiano no es más que la reducción dimensional de un lagrangiano $\mc N=1$ en $4d$. La reducción de dimensión se obtiene al hacer que los campos no dependan de alguna de las coordenadas y cierta componente del campo de gauge se transforma en un campo escalar real. En este caso, hicimos que los campos no dependan de $x^2$ y la componente $A_2\ra \sg$.
+
+Eliminando los campos auxiliares, obtenemos la forma final para el lagrangiano $\mc N=2$ en $3d$:
+\begin{align}
+	L_{\mc N=2} &= -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12\pr_\mu\sg\pr^\mu\sg+i\overline\lambda\pr\slashd\lambda+D^\mu\phi_Q\dg D_\mu\phi_Q+\f{g^2}2(|\phi|^2+\eta)^2\nonumber\\
+	&i\overline\psi D\slashd\psi+g^2\sg^2|\phi_Q|^2+g\sg\overline\psi\psi+\sqrt{2}g(\overline\lambda\psi\phi_Q\dg-\overline\psi\lambda\phi_Q) \label{eq:5.2.1.14}
+\end{align}
+donde hemos reescaleado el supercampo vectorial $V\ra 2gV$ donde $g$ es el equivalente a la carga electrica $e$. La acción \eqref{eq:5.2.1.14} ya ha sido derivada por ejemplo en [Ivanov91] partiendo de una acción $\mc N=2$ supersimétrica y luego escribiéndola en términno de supercampos $\mc N=1$. Este procedimiento es el inverso a lo que queremos llegar. Para obtener una condición sobre la constante de acoplamiento $\lambda$ debemos partir de una acción $\mc N=1$ y llegar a una acción $\mc N=2$.
+
+
+\subsection{De $\mc N=1$ a $\mc N=2$}
+
+Ahora que tenemos la forma general de los lagrangianos $\mc N=1$ y $\mc N=2$, podemos plantearnos que condiciones deben satisfacer los parámetros del lagrangiano $\mc N=1$ para que podamos extender esta simetría a $\mc N=2$.  Primero para poder extender la supersimetría $\mc N=1$ a $\mc N=2$ debemos doblar el número de generadores de supersimetría. Esto significa aumentar el número de campos presentes en la teoría. Contemos el número de grados de libertad fermiónicos y bosónicos de los campos. Tanto $S,\Phi$ como $\Gamma_\al$ tiene 1 grado de libertad fermiónico y bosónicos. En efecto, $\Phi$ tiene al campos escalar $\phi$ y al fermión $\psi_\al$; de igual manera, el supercampop vectorial $\Gamma_\al$ tiene al fermión $\rho_\al$ y a $A_\mu$ que en $3d$ aporta sólo un grado de libertad (polarización); lo mismo con el supercampo escalar $S$. Por lo tanto, en una teoría $\mc N=2$, podemos construir un supercampo que contenga todos estos grados de libertad. Con este fin, vamos a juntar los fermiones $\chi$ y $\rho$ en un sólo fermión de Dirac
+\begin{align}
+	\Sigma = \chi-i\rho.
+\end{align}
+Ahora, queremos encontrar un campo escalar que contenga a $\Sigma$ como su grado de libertad fermiónico. Es fácil ver que tal campo es [Alexandre2003]
+\begin{align}
+	\Lambda = S+iD^\al \Gamma_\al = N+\theta\Sigma+\f 12\theta^2 D+i\theta\sg^\mu\sg^\nu\theta\pr_\mu A_\nu
+\end{align}
+El término cinético para este campo es
+\begin{align}
+	\f 12\int d^2\theta D^\al\Lambda D_\al\overline\Lambda = -\f 14 F_{\mu\nu}F^{\mu\nu}+\f i2\overline\Sigma\pr\slashd\Sigma+\f 12\pr_\mu N\pr^\mu N+\f{D^2}2+\nonumber\\
+	\f 12(\pr_\mu A^\mu)^2+\f 12\pr_\mu(\overline\Sigma\sg^\mu\Sigma),\label{eq:5.2.2.3}
+\end{align}
+donde el último término es un término de borde y puede desecharse. El penúltimo término puede eliminarse si se impone la condición de gauge $\pr_\mu A^\mu=0$. Esta condición de gauge no es arbitraria, de hecho, es equivalente a pedir que el supercampo vectorial satisfaga $D^\al\Gm_\al=0$, de modo que pueda contener una corriente conservada. Esta condición de gauge fue encontrada en [Alexandre[5]] y también la vimos en la sección anterior cuando construimos el camo lineal $\Sigma$. Entonces, $A_\mu$ tiene el rol de una corriente topológica conservada. Entonces, eliminando el término de borde y aplicando la condición de gauge en \eqref{eq:5.2.2.3} llegamos a una expresión para el lagrangiano $\mc N=2$ en términos de los supercampos $\mc N=1$
+\begin{align}
+	L_{\mc N=2,gauge} &= \int d^2\theta D^\al\Lambda D_\al\overline\Lambda\nonumber\\
+	&=-\f 14 F_{\mu\nu}F^{\mu\nu}+\f i2\overline\Sigma\pr\slashd\Sigma+\f 12\pr_\mu N\pr^\mu N+\f{D^2}2
+\end{align}
+Incluimos materia en la teoría de forma usual mediante un supercampo escalar complejo $\mc N=1$, $Q$:
+\begin{align}
+	Q = \phi+\theta\psi+\f 12\theta^2 F.
+\end{align}
+El término cinético para este campo es claramente
+\begin{align}
+	D^\al QD_\al\overline Q\vert_{\theta^2} = \pr_\mu\phi\pr^\mu\phi+i\overline\psi\pr\slashd\psi+|F|^2+\text{términos de borde},
+\end{align}
+El acoplamiento de $Q$ con el supercampo vectorial se obtiene a partir de los siguientes términos
+\begin{align}
+	D^\al Q\Gm_\al\overline Q\vert_{\theta^2} &= -\f 12(\overline\phi\psi\lambda-\overline A_\mu\pr^\mu\phi+i\overline\psi A\slashd\psi)\\
+	SQ\overline Q\vert_{\theta^2} &= \f 12(D|\phi|^2-\phi\overline\psi\chi-\overline\phi\psi\chi+N\phi\overline F+N\overline\phi F-N\overline\psi\psi)\\
+	Q\Gm^\al\Gm_\al\overline Q\vert_{\theta^2} &= -|\phi|^2A^\mu A_\mu,
+\end{align}
+de modo que el lagrangiano para la materia es
+\begin{align}
+	L_{\mc N=2,materia} &= \f 12\int d^2\theta\bb{(D^\al-ig\Gm^\al)Q(D_\al+ig\Gm_\al)\overline Q+2gSQ\overline Q}\nonumber\\
+	&= \f i2\overline\psi D\slashd\psi+\f 12 D_\mu\phi D^\mu\phi-\f g2(\phi\overline{\psi\Sigma}+\overline\phi\psi\Sigma)-\f g2N\overline\psi\psi\nonumber\\
+	&+\f g2 D|\phi|^2+\f 12|F|^2+\f g2N(\phi\overline F+\overline\phi F), \label{eq:5.2.2.10}
+\end{align}
+donde $g$ es la constante de acoplamiento y $D_\mu=\pr_\mu+ig A_\mu$. Este lagrangiano lo derivamos en la sección anterior a partir de una reducción dimensional de una teoría $\mc N=1$ en $4d$. En esa sección, no elevamos un lagrangiano $\mc N=1$ a $\mc N=2$ por lo que no se obtuvo ninguna condición sobre la constante de acoplamiento.
+
+Para obtener el potencial cuártico del modelo de Higgs abeliano, eliminemos los campos auxiliares
+\begin{align}
+	\overline F+gN\overline\phi &=0\\
+	D+\f g2\phi\overline\phi &=0
+\end{align}
+de modo que los términos en \eqref{eq:5.2.2.10} que contienen campos auxiliares se convierten en
+\begin{align}
+	(L_{\mc N=2,gauge}+L_{\mc N=2,materia})_{aux.} &= \f 12D^2+\f g2D|\phi|^2+\f 12|F|^2+\f g2 N(\overline\phi F+\overline F\phi)\\
+	&= -\f{g^2}2N^2|\phi|^2-\f{g^2}8|\phi|^4.
+\end{align}
+Agreguemos también un término de Fayet-Iliopoulos de la forma
+\begin{align}
+	L_{F.I.} = -\f{g^2}2\phi_0^2\int d^2\theta(\Lambda+\overline\Lambda)=-\f{g}2\phi_0^2 D.
+\end{align}
+donde $\phi_0$ es una constante real. La adición de este término al lagrangiano modifica la ecuación de movimiento para $D$ como
+\begin{align}
+	D+\f{g}2|\phi|^2-\f g2\phi_0^2 =0
+\end{align}
+de modo que el potencial cuártico se obtiene al eliminar los campos auxiliares
+\begin{align}
+	(L_{\mc N=2,gauge}+L_{\mc N=2,materia}+L_{F.I.})_{aux.} = -\f{g^2}2N^2|\phi|^2-\f{g^2}{8}(|\phi|^2-\phi_0^2)^2
+\end{align}
+Es fácil ver que la constante de acoplamiento de Higgs es $\lambda=\f{g^2}8$, la cual fue encontrada por [Schaposnik] como una condición de consistencia para pasar de $\mc N=1$ a $\mc N=2$.
