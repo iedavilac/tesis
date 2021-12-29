@@ -1,0 +1,119 @@
+% Chapter 6
+
+\chapter{Añadiendo impurezas} % Chapter title
+
+\label{ch:impurities} % For referencing the chapter elsewhere, use \autoref{ch:name} 
+
+%----------------------------------------------------------------------------------------
+
+El estudio de vórtices en presencia de impurezas ha ganado mucha atención en los últimos años. Como ejemplo tenemos el trabajo de Wong y Tong [WongTong] que estudia vórtices BPS en presencia de impurezas magnéticas y eléctricas. Este trabajo también ha motivado el estudio de vórtices en teorías abelianas de gauge producto, las cuales pueden ser relacionadas con vórtices abelianos en presencia de impurezas magnéticas. También, teoremas de existencia de vórtices y anti-vórtices en tales modelos han sido probados en [Ashcroft-Krusch-16,17].
+
+En este capítulo exploraremos el trabajo de Wong y Tong, así como recientes investigaciones por parte de Gudnason y Ross [GudnasonRoss], los cuales generalizan los cinco vórtices exóticos de Manton agregando impurezas del tipo Wong-Tong. Además, queremos introducir el trabajo de Ashcroft y Krusch acerca de soluciones vorticiales con simetría esférica en presencia de impurezas magnéticas para $\lambda\neq 1$.
+
+\section{impurezas magnéticas}
+
+Consideremos una deformación del lagrangiano \eqref{eq:2} propuesta por [WongTong] para que incluya impurezas magnéticas
+\begin{align}
+	\mc L = -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12\overline{D_\mu\phi}D^\mu\phi-\f{\lambda}8(m^2+\sg-|\phi|^2)^2+\f{\mu}2\sg B, \label{eq:7.1.0.1}
+\end{align}
+donde $\sg$ es un término de fuente estático y fijo de campo magnético $B$. A su vez, $\mu$ es otra constante de acoplamiento que caracteriza la fuerza del campo magnético. Las ecuaciones de movimiento pueden ser obtenidas a partir de las ecuaciones de Euler-Lagrange. Sin embargo, en esta sección estamos interesados en soluciones que mantengan una estructura BPS.
+
+Para obtener tales soluciones podemos aplicar el argumento de Bogomolny. Para esto debemos mirar al funcional de energía correspondiente, dado por
+\begin{align}
+	V_{\lambda,\mu} = \f 12\int\bp{B^2+\overline{D_i\phi}D_i\phi+\f{\lambda}4(m^2+\sg-|\phi|^2)^2-\mu\sg B}d^2x. \label{eq:7.1.0.2}
+\end{align}
+Es fácil ver que el integrando de \eqref{eq:7.1.0.2} se puede rescribir como
+\begin{align}
+	\bp{B-\f 12(m^2+\sg-|\phi|^2)}^2+&\overline{(D_1\phi+iD_2\phi)}(D_1\phi+iD_2\phi)+Bm^2-i(\pr_1(\overline\phi D_2\phi)-\pr_2(\overline\phi D_1\phi))\nonumber\\
+	&\f{\lambda-1}4(m^2+\sg-|\phi|^2)^2-(\mu-1)\sg B. \label{eq:7.1.0.3}
+\end{align}
+A partir de la ecuación anterior es sencillo encontrar el comportamiento crítico. Este ocurre cuando $\lambda=1$ y $\mu=1$.
+
+Integrando \eqref{eq:7.1.0.3} encontramos que el funcional de energía está acotado por abajo
+\begin{align}
+	V_{\lambda,\mu}\geq \pi Nm^2+\f{\lambda-1}8\int (m^2+\sg-|\phi|^2)^2d^2x-\f{\mu-1}2\int\sg Bd^2x.
+\end{align} 
+Claramente, cuando el comportamiento es crítico, obtenemos la desigualdad original de Bogomolny, la cuál se satura cuando
+\begin{align}
+	D_1\phi+iD_2\phi &=0, \label{eq:7.1.0.5}\\ 
+	B-\f 12(m^2+\sg-|\phi|^2) &=0. \label{eq:7.1.0.6}
+\end{align}
+Campos $\phi$ que satisfacen las ecuaciones de Bogomolny describen un objeto con masa $M=2\pi Nm^2$, donde $N=\f 1{2\pi}\int B d^2x$ es la carga vorticial o el \emph{winding number} o la carga topológica.
+
+Nos podemos preguntar acerca de la existencia de soluciones a las ecuaciones \eqref{eq:7.1.0.5}-\eqref{eq:7.1.0.6}, y si las hay, cuántas son. Varios argumentos sobre la existencia de un espacio de módulos $2N$-dimensional se presentan en [WongTong]. Alguno de ellos son: el teorema indicial introducido por E. Weinberg en [EWeingberg79] no es afectado por la introducción de la fuente $\sg(x)$. Es posible relacionar la existencia de soluciones de \eqref{eq:7.1.0.5}-\eqref{eq:7.1.0.6} con la existencia de soluciones vorticiales en teorías donde el grupo de gauge es un grupo producto. Además, también se presenta una descripción de la dinámica de los vórtices usando $D$-branas.
+
+\section{Vórtices exóticos con impurezas}
+
+Pasando a un espacio con métrica compleja $ds_0^2 = \Om_0(z,\overline z) dzd\overline z$, donde $z=x^1+ix^2$ y $\overline z=x^1-ix^2$, y aplicando la generalización de Manton, reescribimos las ecuaciones de Bogomolny con impurezas \eqref{eq:7.1.0.5} y \eqref{eq:7.1.0.6} como
+\begin{align}
+	\pr_{\overline z}\phi-iA_{\overline z}\phi &= 0\\
+	\pr_z A_{\overline z}-\pr_{\overline z}A_z &= \f{\Om_0}2(C_0+\sg(z,\overline z)-C|\phi|^2).
+\end{align}
+En [WongTong] se estudia el caso $(C_0,C)=(-1,-1)$, es decir, el caso de los vórtices hiperbólicos (ver Cuadro \ref{tab:vortex}). En esta sección estudiaremos todos los casos integrables en presencia de una impureza tipo delta de Dirac.
+
+La ecuación de Taubes con impurezas se escribe como
+\begin{align}
+	-\f{\Delta h}{\Om_0}+C e^{2h}-C_0+\sg(z,\overline z) = -\f{2\pi}{\Om_0}\sum_{r=1}^N\delta(z-Z_r), \label{eq:7.2.0.3}
+\end{align}
+donde se ha incluido el término de las delta que obviamos en Capítulo \ref{ch:taubes}. Los puntos $\{Z_r\}$ representan la posición de los centros de los vórtices. Vamos a tomar al factor conforme $\Om_0$ de la siguiente forma
+\begin{align}
+	\Om_0 = \f{4}{(1-C_0|z|^2)^2},
+\end{align}
+de modo que, la superficie de Riemann con métrica $ds_0^2$, $M_0$, tiene curvatura gaussiana constante $K_0 = C_0$. Vamos a hacer la siguiente sustitución
+\begin{align}
+	h = u+\log\bp{\f 12(1-C_0|z|^2)},
+\end{align}
+tal que
+\begin{align}
+	\Delta h = \Delta u-C_0\Om_0.
+\end{align}
+Reemplazando la ecuación anterior en \eqref{eq:7.2.0.3} la transforma en
+\begin{align}
+	\Delta u = Ce^{2u}+\Om_0\sg+2\pi\sum_{r=1}^N\delta(z-Z_r). \label{eq:7.2.0.7}
+\end{align}
+Este procedimiento es análogo a lo discutido en Sección \ref{sec:conic}. Ahora, $C$ es igual a la curvatura $K$ de una superficie de Riemann $M$ con métrica reescaleada $ds^2 = e^{2u}ds_0^2$.
+
+Existen tres casos en la cuál la ecuación \eqref{eq:7.2.0.7} se reduce a la ecuación de Liouville.
+
+\begin{enumerate}
+	\item Está el caso trivial $\sg =0$. En este caso ecuación \eqref{eq:7.2.0.7} es igual a la ecuación de Taubes modificada por Manton \eqref{eq:2.4.0.6}, y la solución está dada por \eqref{eq:2.5.1.5}.
+	
+	\item El segundo caso es cuando la impureza es del tipo delta
+	\begin{align}
+		\sg = \f{2\pi}{\Om_0}\sum_{j=1}^K\al_j\delta(z-Z_{N+j}), \ \ \ \al_j\in\m R_{>0},
+	\end{align}
+	ya que de esta forma ecuación \eqref{eq:7.2.0.7} se convierte en
+	\begin{align}
+		\Delta u = Ce^{2u}+2\pi\sum_{j=1}^K\al_j\delta(z-Z_{N+j})+2\pi\sum_{r=1}^N\delta(z-Z_r),
+	\end{align}
+	
+\end{enumerate}
+
+
+\section{Impurezas como vórtices congelados}
+
+En la sección anterior enunciamos que existe una relación entre los vórtices abelianos con impurezas magnéticas y vórtices en una teoría de gauge abeliana producto. En esta sección desarrollamos esta idea introducida por Wong-Tong.
+
+Consideremos una teoría con el grupo de gauge producto $\hat U(1)\times \tilde U(1)$. Introduzcamos dos campos escalares cargados: $q$ lleva la carga $(+1,-1)$ y $p$ lleva la carga $(0,+1)$. El lagrangiano correspondiente
+\begin{align}
+	\mc L = \f 14\hat F_{\mu\nu}\hat F^{\mu\nu}+\f 14\tilde F_{\mu\nu}\tilde F^{\mu\nu}+|D_\mu q|^2 &+|D_\mu p|^2+\nonumber\\
+	&\f{\hat\lambda}4(|q|^2-\hat m^2)^2+\f{\tilde\lambda}4(-|q|^2+|p|^2-\tilde m^2)^2,
+\end{align}
+donde $D_\mu q=\pr_\mu q-i \hat Aq$ y $D_\mu p=\pr_\mu p-i\tilde A p$. El objetivo es mostrar que esta acción se reduce en algún límite al lagrangiano con impurezas \eqref{eq:7.1.0.1}.
+
+Asumiremos de aquí en adelante que $\hat m^2>0$ y $\tilde m^2>-\hat m^2$. El vacío de la teoría se encuentra cuando $|p|^2 = \hat m^2+\tilde m^2$ y $|q|^2=\hat m^2$, y rompe ambos grupos de gauge espontáneamente. Por lo tanto, la teoría presenta dos tipos de vórtices asociados a cada grupo de gauge. Podemos derivar a partir del argumento de Bogmolny, las respectivas ecuaciones BPS:
+\begin{align}
+	\hat B = \f 12(|q|^2-\h m^2), \ \ \ D_1q+iD_2 q =0
+\end{align}
+y
+\begin{align}
+	\tilde B = \f 12(-|q|^2+|p|^2-\tilde m^2), \ \ \ D_1 p+iD_2p =0
+\end{align}
+Soluciones a estas ecuaciones son vórtices BPS que tienen una masa igual a
+\begin{align}
+	M = \int d^2x (\hat B\h m^2+\tilde B\tilde m^2) = 2\pi\hat k\h m^2+2\pi\tilde k\tilde m^2,
+\end{align}
+donde $\hat k$ y $\tilde k$ son los flujos de campo para $\hat U(1)$ y $\tilde U(1)$ respectivamente. Estos no son en general lo mismo que el \emph{winding number} o la carga topológica, ya que para calcular estos hay que hacer una integral en la variedad del grupo de gauge. Para teorías con un sólo grupo de gauge, efectivamente, ambas nociones coinciden. Sin embargo, para este caso, el campo $q$ tiene carga perteneciente a $\h U(1)\times\tilde U(1)$,  por lo que su carga topológica es $\h N=\h k-\tilde k$. Mientras que para el campo $p$ su carga topológica es simplemente $\tilde N=\tilde k$. La masa del vórtice es entonces,
+\begin{align}
+	M = 2\pi\h N m^2+2\pi\tilde N(\h m^2+\tilde m^2)
+\end{align}
