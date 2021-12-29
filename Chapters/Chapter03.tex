@@ -6,9 +6,9 @@
 
 %----------------------------------------------------------------------------------------
 
-Contatto y Dunajski demostraron que las cinco soluciones vorticiales integrables obtenidas por Manton surgen como reducción de simetría de las ecuaciones de autodualidad de Yang-Mills en una cuatro variedad. En este capítulo introduciremos brevemente la teoría de Yang-Mills y las ecuaciones de (anti-)autodualidad , mostrando algunas de las soluciones instantónicas. Mostraremos explícitamente el cálculo hecho por Witten y obtendremos las soluciones vorticiales ya vistas en el plano hiperbólico. Luego, nos evocaremos a mostrar los resultados de Contatto y Dunajski, basándonos principalmente en [Contatto-Dunajski]
+Contatto y Dunajski demostraron que las cinco soluciones vorticiales integrables obtenidas por Manton surgen como reducción de simetría de las ecuaciones de autodualidad de Yang-Mills en una cuatro variedad. En este capítulo introduciremos brevemente la teoría de Yang-Mills y las ecuaciones de (anti-)autodualidad , mostrando algunas de las soluciones instantónicas. También mostraremos explícitamente el cálculo hecho por Witten y obtendremos las soluciones vorticiales ya vistas en el plano hiperbólico. Luego, nos evocaremos a mostrar los resultados de Contatto y Dunajski, basándonos principalmente en [Contatto-Dunajski], dando un bosquejo de demostración del resultado principal. Para esto, vamos a introducir también el formalismo CSDR (\emph{Coset Space Dimensional Reduction}) que nos permitirá reducir una teoría de Yang-Mills definida en una variedad $\mc M$ a un modelo de Higgs en una dimensión menor.
 
-\section{Teoría de Yang-Mills}
+\section{Teoría de Yang-Mills}\label{sec:4.1}
 
 Los instantones son solitones topológicos de la teoría de Yang-Mills pura definidas en un espacio euclídeo cuadrimensional. Consideraremos a los instantones como solitones estáticos en un espacio de cuatro dimensiones, de modo que son del mismo tipo que los vórtices que estuvimos estudiando.
 
@@ -133,8 +133,580 @@ donde $B=\pr_4 A_1-\pr_r A_0$. Estas ecuaciones se resuelven derivando la ecuaci
 
 En esta sección expondremos el trabajo de Conttato y Dunajski [ContDunaj] sobre la obtención de las cinco ecuaciones vorticiales a partir de reducciones de simetría de las ecuaciones de anti autodualidad de Yang-Mills en cuatro dimensiones.
 
+\subsection{El grupo $G_C$}\label{sec:4.1}
+
+El elemento clave de esta sección es el grupo $G_C\inc SL(2,\m C)$, que es una grupo de Lie que consiste de matrices $K$ tales que
+\begin{align}
+	K\begin{pmatrix}
+	1 & 0\\
+	0 & -C
+	\end{pmatrix}K\dg=\begin{pmatrix}
+	1 & 0\\
+	0 & -C
+	\end{pmatrix}, \ \ C\in\m R.
+\end{align}
+Este grupo se puede escribir de otra forma equivalente como
+\begin{align}
+	G_C = \left\{ K=\begin{pmatrix}
+	k_1 & k_2\\
+	C\bar k_2 & \bar k_1
+	\end{pmatrix};k_1,k_2\in\m C, \ \ |k_1|^2-C|k_2|^2=1\right\}.
+\end{align}
+Es claro a partir de esta definición que $G_{-1}=SU(2)$, $G_1=SU(1,1)$ y $G_0=E(2)$ - el grupo euclídeo. Los generadores del álgebra de Lie correspondiente $\mf g_C$ son
+\begin{align}
+	J_1=\f 12\begin{pmatrix}
+	0 & i\\ -Ci & 0
+	\end{pmatrix}, \ J_2=\f 12\begin{pmatrix}
+	0 & -1\\ -C & 0
+	\end{pmatrix}, \ J_3=\f 12\begin{pmatrix}
+	i & 0\\ 0 & -i
+	\end{pmatrix}, \label{eq:4.2.1.3}
+\end{align}
+los cuales satisfacen las siguientes relaciones de conmutación
+\begin{align}
+	[J_1,J_2] = -CJ_3, \ [J_2,J_3]=J_1, \ [J_3,J_1]=J_2.
+\end{align}
+
+\subsection{La 4-variedad}
+
+Sea $M$ una 4-variedad riemanniana dada por el siguiente producto cartesiano $\Sigma\times N$ con la siguiente métrica
+\begin{align}
+	g=g_{\Sigma}+g_N,
+\end{align}
+donde $(\Sigma,g_{\Sigma})$ es una superficies riemanniana como la usada en las secciones del capítulo anterior, y $(N,g_N)$ es una superficie riemanniana con curvatura gaussiana constante $-C_0$. Elijamos coordenadas complejas locales en estas superficies, para $\Sigma$ sea $w$ sus coordenadas locales y $z$ para $N$, de modo que
+\begin{align}
+	g_{\Sigma}=\Om(w,\bar w)dwd\bar w, \ \ g_N = \f{4}{(1-C_0|z|^2)^2}dzd\bar z
+\end{align} 
+donde $\Om$ es una factor conforme en $\Sigma$. La forma del factor conforme en $N$ es solución de la ecuación de Liouville. Este es algo obvio pues $N$ tiene curvatura constante. Las correspondientes formas de Kaehler $\om_\Sigma$ en $\Sigma$ y $\om_N$ en $N$ están dadas por
+\begin{align}
+	\om_\Sigma = \f i2\Om(w,\bar w)dw\wedge d\bar w, \ \ \om_N = \f{2idz\wedge d\bar z}{(1-C_0|z|^2)^2} = 2id\beta,
+\end{align}
+donde 
+\begin{align}
+	\beta = \f{zd\bar z-\bar zdz}{2(1-C_0|z|^2)}. \label{eq:4.2.2.4}
+\end{align}
+
+\subsection{Equivarianza}
+
+Sean $G_C$ y $G_{C_0}$ grupos de Lie como los definidos en \ref{sec:4.1} y donde $C,C_0$ son constantes reales. Vamos a considerar a $G_C$ como el grupo de gauge y a $G_{C_0}$ como el grupo de simetrías de una teoría de Yang-Mills definida en $M=\Sigma\times N$. Sea $\mc E\xrightarrow{\pi} M$ un fibrado vectorial con una conexión representada por una 1-forma $A$ que toma valores en el álgebra de Lie $\mf g_C$. El grupo de simetrías $G_{C_0}$ es un subgrupo del grupo conforme en $(M,g)$ y actúa en $M$ de la siguiente forma
+\begin{align}
+	(w,z)\mapsto \bp{w,K\begin{pmatrix}
+	z\\ 1
+	\end{pmatrix}} = \bp{w,\f{k_1 z+k_2}{C_0\bar{k_2}z+\bar{k_1}}},
+\end{align}
+donde $K\in G_{C_0}$.
+
+Impondremos una condición de simetría sobre la conexión $A$, llamada condición de equivarianza. Esta condición fue introducida por Manton y Forgács [ManFor80] junto con un método de construcción de campos de gauge simétricos ante un grupo de gauge arbitrario. La condición, la cual derivaremos en la siguiente sección, es la siguiente
+\begin{align}
+	\mc L A=DW
+\end{align}
+donde $\mc L$ es la derivada de Lie y $DW=dW-[A,W]$ es la derivada covariante de una función en $M$ que toma valores en $\mf g_C$.
+
+En las coordenadas $(w,\bar w,z,\bar z)$ de $M$ el potencial se puede escribir como
+\begin{align}
+	A = A_{\Sigma}+A_N, \ \ \text{donde} \ \ A_{\Sigma}=A_w dw+A_{\bar w}d\bar w \ \text{y} \ A_N=A_zdz+A_{\bar z}d\bar z.
+\end{align}
+
+Ahora vamos a presentar el resultado de Contatto y Dunajski en el siguiente teorema
+
+\teo{Resultado principal}{Sea $A$ una conexión representada por una 1-forma que toma valores en $\mf g_C$ y además es equivariante ante $G_{C_0}$. Entonces,
+\begin{enumerate}
+	\item Existe un gauge y una elección de estructura compleja en $M$ tal que
+	\begin{align}
+		A=\begin{pmatrix}
+		-C_0\beta+\f i2a & -\f i{1-C_0|z|^2}\phi d\bar z\\
+		\f{iC}{1-C_0|z|^2}\bar\phi dz & C_0\beta-\f i2 a
+		\end{pmatrix}, \label{eq:4.2.3.3}
+	\end{align}
+	donde $\beta$ es la misma definida en \eqref{eq:4.2.2.4}, $a$ es una 1-forma que toma valores en $\mf u(1)$ (es decir, es un campo de gauge abeliano) y $\phi$ es un campo escalar complejo en $\Sigma$.
+	\item Las ecuaciones de anti autodualidad de Yang-Mills en $(M,g)$ son
+	\begin{align}
+		\bar{\mc D}\phi =0, \ \ f+\om_\Sigma(C_0-C|\phi|^2)=0 \label{eq:4.2.3.4}
+	\end{align}
+	donde $f=da$.
+	
+\end{enumerate}}
+
+La demostración se hará demostrando las siguientes dos proposiciones siguiendo el trabajo original
+
+\propos{Sea $G_{C_0}$ el grupo de simetrías maximal de $(N,g_N)$, donde $N=\m R^2, S^2$ o $\m H^2$. El campo de gauge equivariante ante $G_{C_0}$ que toma valores en $\mf g_C$ más general es equivalente a \eqref{eq:4.2.3.3} a menos de una transformación de gauge y a menos de una elección de estructura compleja en $M$.}
+
+\propos{Las ecuaciones de anti-autodualidad de Yang-Mills con $A$ dado por \eqref{eq:4.2.3.3} son equivalentes a \eqref{eq:4.2.3.4}.}
+
+\section{Reducción dimensional y formalismo CSDR}
+
+El formalismo CSDR (\emph{Coset Space Dimensional Reduction}) se enfoca en la reducción dimensional de una teoría de Yang-Mills pura. En este formalismo el punto de partida es una teoría de Yang-Mills definida en un espacio $\mc M$ y con grupo de gauge $G$. Se asume que la variedad $\mc M$ se puede escribir como un producto directo del espacio de Minkowski D-dimensional $\m M_D$, que actuará como el espacio-tiempo, y un espacio coset compacto $S/R$. Donde $S$ es un grupo de Lie compacto (usualmente semi-simple) y $R$ es un subgrupo de Lie de S. La métrica en $\mc M$ es diagonal en bloque debido a la suposición de producto directo del espacio tiempo. El grupo $S$ actúa como un grupo de simetrías en $S/R$ mediante multiplicación derecha. La reducción dimensional ocurre cuando requerimos que los campos de gauge sean simétricos ante la acción de $S$. 
+
+Por invarianza nos referimos a que la acción de cualquier elemento de $S$ debe ser compensada por una transformación de gauge; la cuál definiremos explícitamente en la siguiente sección. Esto implicará que la dependencia del campo de gauge en las coordenadas del espacio coset queda determinada. Por lo tanto, el campo de gauge puede expresarse en términos de funciones dependientes sólo de las coordenadas en $\m M_D$. De esta forma, cuando el campo es insertado en la acción de Yang-Mills en $M$, uno integra en las coordenadas del espacio coset $S/R$ y obtiene una acción correspondiente a un modelo de Higgs en $D$ dimensiones.
+
+\subsection{Invarianza típica}
+
+Comencemos reexaminando la condición de invarianza de un campo frente a una transformación de coordenadas. Considere una transformación de coordenadas que toma un tetravector $x^\mu$ y lo transforma en otro tetravector $x'^\mu$. Nos preguntamos como distintos campos transforman ante este cambio. Un campo escalar transforma como
+\begin{align}
+	\phi'(x') = \phi(x).
+\end{align}
+Para un campo vectorial $V_\mu$, la regla de transformación es 
+\begin{align}
+	V_\mu' = V_\nu(x)\f{\pr x^\nu}{\pr x'^\mu},
+\end{align}
+es decir, transforma de forma covariante. Para un tensor de rango $2$, se tiene
+\begin{align}
+	g_{\mu\nu}' = g_{\al\be}(x)\f{\pr x^\al}{\pr x'^\mu}\f{\pr x^\be}{\pr x'^\nu}.
+\end{align}
+Y así para tensores de mayor rango. Ahora consideremos una transformación infinitesimal $\delta x^\mu=x'^\mu-x^\mu=-\eps X^\mu$, representado por un campo vectorial $X^\mu$. El cambio de los campos ante esta transformación infinitesimal están dados por
+\begin{align}
+	\delta_X\phi/\eps &= X^\mu\pr_\mu\phi\\
+	\delta_XV_\mu/\eps &= V^\al\pr_\al X_\mu+(\pr_\mu X^\al)V_\al \label{eq:4.3.0.5} \\
+	\delta_X g_{\mu\nu}/\eps &= X^\al\pr_\al g_{\mu\nu}+(\pr_\mu X^\al)g_{\al\nu}+(\pr_\nu X^\al)g_{\mu\al}
+\end{align}
+Estas combinaciones de derivadas reciben el nombre de derivadas de Lie y se representa como $\mc L_X$. Esta derivada satisface la regla de Leibnitz y respeta las contracciones, de modo que el order del tensor no se ve afectado.
+
+Decimos que un campo es simétrico con respecto a una transformación de coordenadas cuando es invariante ante ese cambio. Es decir, la derivada de Lie de los campos a lo largo de un campo vectorial que representa la transformación se anula. Un campo escalar invariante ante traslaciones $X^\mu=a^\mu$, donde $a^\mu$ es un tetravector constante, es aquel cuya derivada se anula $\mc L_X = a^\mu\pr_\mu\phi=0$. Un campo escalar invariante frente a transformaciones de Lorentz $X^\mu=\om^{\mu\nu}x_\nu$, donde $\om^{\mu\nu}$ es antisimétrico, es aquel cuya derivada antisimetrizada se anula: $\mc L_X\phi=\om^{\mu\nu}x_\mu\pr_\nu\phi=\om^{\mu\nu}(x_\mu\pr_\nu-x_\nu\pr_\mu)\phi=0$,etc.
+
+\subsection{Transformación de coordenadas para campos de gauge}
+
+El interés del formalismo recae en los campos de gauge. Ecuación \eqref{eq:4.3.0.5} implica que para un campo de gauge simétrico, su derivada de Lie debe anularse, $\mc L_X A_\mu=0$. Sin embargo, esta condición es muy fuerte. Como veremos más adelante esta condición se puede debilitar un poco permitiendo una mayor cantidad de campos de gauge simétricos.
+
+Se sabe que ante una transformación de gauge, $A_\mu$ transforma como
+\begin{align}
+	A^g_\mu(x) = gA_\mu g^{-1}+(\pr_\mu g)g^{-1}, \label{eq:4.3.1.1}
+\end{align}
+donde $g(x)\in G$ y $G$ es el grupo de gauge.
+
+La transformación anterior se puede escribir también como
+\begin{align}
+	A^g_\mu(x) = A_\mu+g^{-1}D_\mu g, \label{eq:4.3.1.2}
+\end{align}
+donde $D_\mu=\pr_\mu+[A_\mu,]$ es la derivada covariante. Ahora consideremos una transformación de gauge infinitesimal $g=1+\eps W$, donde $1$ es la identidad de $G$ y $W$ es una función que toma valores en el álgebra de Lie de $G$ y es el generador de transformaciones de gauge. Ante esta transformación infinitesimal, ecuación \eqref{eq:4.3.1.2} se escribe como
+\begin{align}
+	A_\mu^g = A_\mu+\eps D_\mu W \label{eq:4.3.1.3}
+\end{align}
+Para los campos de gauge, imponemos la siguiente condición debilitada de simetría, esta es que para un dado $g_0\in G$ 
+\begin{align}
+	A^g_\mu(x)=A_\mu^{g_0}(x).
+\end{align}
+Esta condición de simetría implica que
+\begin{align}
+	\mc L_X A_\mu = D_\mu W_X \label{eq:4.3.1.4}
+\end{align}
+Que es la llamda condición de equivarianza. También es conocida como la ecuación de simetría para $A_\mu$. Queremos que esta condición siga valiendo ante un cambio de gauge de $A_\mu$, para que esto se cumpla, la función $W$ debe transformar como
+\begin{align}
+	W^g = gWg^{-1}+g^{-1}\mc L_Xg \label{eq:4.3.1.5}
+\end{align}
+Es importante notar que en el caso que la teoría tenga sólo una simetría, siempre es posible hacer $W=0$ mediante una transformación de gauge apropiada siguiendo \eqref{eq:4.3.1.5}. En este caso, el campo de gauge es explícitamente invariante, es decir, su derivada de Lie se anula. Cuando hay muchas simetrías, en general, no es posible hacer esta transformación de gauge simultáneamente para anular $W$.
+
+Consideraremos ahora un campo de gauge que tenga muchas simetrías, denotadas por $N$ campos vectoriales $X^\mu_m$, con $1\leq m\leq N$. Desarrollando la derivada de Lie se tiene
+\begin{align}
+	(\pr_\mu X^\rho_m)A_\rho+X^\rho_m\pr_\rho A_\mu = D_\mu W_m, \ \ 1\leq m\leq N. \label{eq:4.3.1.6}
+\end{align}
+Esta ecuación implica que existe un espacio vectorial de simetrías. Se puede mostrar que una combinación lineal de generadores $X_m$ con coeficientes constantes, $X=\sum_m\lambda_m X_m$, satisface
+\begin{align}
+	\mc L_{X}A_\mu = D_\mu(\sum_m\lambda_m W_m)
+\end{align}
+Podemos asumir que todas las simetrías de $A_\mu$ pertenecen a este espacio vectorial. Ahora, el conmutador de las derivadas de Lie de dos generadores de simetría particulares $X_m$ y $X_n$ nos da
+\begin{align}
+	(\mc L_{X_m}\mc L_{X_n}-\mc L_{X_n}\mc L_{X_m})A_\mu = \mc L_{X_m}(D_\mu W_n)-\mc L_{X_m}(D_\mu W_m) \label{eq:4.3.1.7}
+\end{align}
+el cuál se reduce a
+\begin{align}
+	\mc L_{[X_m,X_n]} = D_\mu(\mc L_{X_m}W_n-\mc L_{X_n}W_n-[W_m,W_n]) \label{eq:4.3.1.8}
+\end{align}
+y finalmente a
+\begin{align}
+	\mc L_{X_m} W_n-\mc L_{X_n}W_m-[W_m,W_n]-W_{[X_m,X_n]} =0 \label{eq:4.3.1.9}
+\end{align}
+A esta ecuación la llamaremos ecuación de consistencia para $W_m$. Esta ecuación debe satisfacerse por todos los generadores de transformaciones de gauge los cuales compensan la no invarianza de $A_\mu$ frente a transformaciones de coordenadas. Notemos que \eqref{eq:4.3.1.9} no hace referencia a $A_\mu$, entonces uno puede elegir un conjunto de transformaciones de coordenadas, resolver \eqref{eq:4.3.1.9} para la transformación de gauge más general, y finalmente resolver \eqref{eq:4.3.1.4} para determinar el campo de gauge más general ante esta transformación. Esto es básicamente el procedimiento que tenemos que seguir para hallar campos de gauge simétricos.
+
+Sumando y restando términos a la derivada de Lie de $A_\mu$, esta se puede reescribir como
+\begin{align}\nonumber
+	\mc L_X A_\mu &= \pr_\mu X^\rho A_\rho+X^\rho\pr_\rho A_\mu\\ \nonumber
+	&= \pr_\mu X^\rho A_\rho+X^\rho(\pr_\rho A_\mu-\pr_\mu A_\rho+[A_\mu,A_\rho])+X^\rho\pr_\mu A_\rho-X^\rho[A_\mu,A_\rho]\\ \nonumber
+	&=X^\rho F_{\rho\mu}+\pr_\mu(X^\rho A_\rho)+[A_\mu,X^\rho A_\rho]\\
+	&= X^\rho F_{\rho\mu}+D_\mu(X^\rho A_\rho) \label{eq:4.3.1.10}
+\end{align}
+Usando la ecuación de simetría para $A_\mu$ a la izquierda de la ecuación anterior y despejando el término con el tensor de campo, es claro que
+\begin{align}
+	X^\rho F_{\rho\mu} = D_\mu(W-X^\rho A_\rho). \label{eq:4.3.1.11}
+\end{align}
+Definiendo el campo escalar $\Psi = X^\rho A_\rho-W$, se tiene que
+\begin{align}
+	X^\rho F_{\rho\mu} = -D_\mu\Psi. \label{eq:4.3.1.12}
+\end{align}
+Esto quiere decir que ciertas componentes del tensor de campo contienen términos con derivadas covariantes de un campo escalar. Aunque este nuevo campo escalar no es el campo de Higgs, está estrechamente relacionado con este. Este nuevo campo la propiedad de simetría
+\begin{align}
+	\mc L_X\Psi-[W,\Psi] =0, \label{eq:4.3.1.13}
+\end{align}
+es decir, es un campo escalar covariante. Aunque hemos estado usando un sólo generador de transformación de gauge $X$, los resultados son análogos para $N$ generadores haciendo el cambio $X\ra X_m$ con $1\leq m\leq N$. Podemos obtener un resultado más fuerte que \eqref{eq:4.3.1.13} usando la ecuación de consistencia para $W$ \eqref{eq:4.3.1.9} y la ecuación de simetría para $A_\mu$
+\begin{align}
+	\mc L_{X_m}\Psi_n-[W_m,\Psi_n] = \Psi_{X_m,X_n} \label{eq:4.3.1.14}
+\end{align}
+lo cuál nos permite calcular la doble contracción del tensor de campo
+\begin{align}\nonumber
+	X^\mu_m X^\nu_n F_{\mu\nu} &= -X^\mu_n D_\nu\Psi_m\\ \nonumber
+	&= -X^\mu_n(\pr_\nu\Psi_m-[A_\nu,\Psi_m])\\ \nonumber
+	&= -\mc L_{X_n}\Psi_m+[W_n+\Psi_n,\Psi_m]\\
+	&=\Psi_{[X_m,X_n]}-[\Psi_m,\Psi_n] \label{eq:4.3.1.15}
+\end{align}
+que contiene términos algebraicos y cuadráticos en $\Psi_m$. Esto nos permitirá reducir una acción de Yang-Mills que automáticamente contendrá términos cuárticos, los cuales pueden considerarse como términos de un potencial.
+
+Estas funciones $W$ y $\Psi$, que surgen en un contexto formal como transformaciones de gauge infinitesimales que deben suplementar un cambio de coordenadas, de modo que se exhiba la invarianza de los campos de gauge, también tienen aparecen en un contexto físico como cantidades conservadas asociadas con la simetría en cuestión [Jackiw].
+
+\subsection{Análisis en el espacio coset}\label{sec:4.3.3}
+
+Definamos coordenadas en $\mc M=\m M_D\times S/R$ como $X^M=(x^\mu,y^\al)$, donde $x^\mu$ son coordenadas en el espacio tiempo $\m M_D$ y $y^\al$ con $\al=1,\cdots,d$ son coordenadas en $S/R$ y $d=\text{dim}(S/R)$. Estamos interesados en el caso en que $S$ actúa trivialmente sobre $\m M_D$, es decir es el grupo de simetrías del espacio tiempo.
+
+Vamos a dividir a los vectores generadores de simetría de una forma similar. Las componentes de los generadores son entonces, $X^\mu_m=(0,X^\al_m)$. Ya que vamos a considerar derivadas respecto de los generadores $X^\mu_m$, estas sólo serán respecto a las coordenadas $y^\al$. Por esto, sólo vamos a considerar a $W_m$ como funciones de $y^\al$. Además, debido a que la acción de $S$ es transitiva en $S/R$, el valor de cualquier campo simétrico en cualquier punto de $S/R$ está determinado por el valor en el origen $y^\al=0$ y una transformación por un elemento de $S$. Esto, es cualquier elemento de $s\in S$ puede ser escrito de forma única como
+\begin{align}
+	s(y^{\h\al}) = r(y^\om)s_0(y^\al), \label{eq:4.3.3.1}
+\end{align}
+para algún $r\in R$. Además, hemos definido coordenadas en $S$ como $y^{\h\al}=(y^\om,y^\al)$, donde el superíndice $\om$ indica coordenadas en $R$ y $y^\al$ las coordenadas usuales en $S/R$. Por lo tanto, vamos a hacer una identificación parecida para los generadores. Escribiendo,
+\begin{align}
+	X^{\h\al}_m=(X^\om_m,*X^\al_m),
+\end{align}
+que podemos interpretarla como los generadores de $S/R$ extendidos a todo el grupo $S$. Es fácil ver que las componentes $*X^\al_m$, que son independientes de las coordenadas $y^\om$, no son más que los generadores en $S/R$. Por lo tanto, podemos inferir que los generadores del espacio coset se obtienen mediante una proyección de los generadores del grupo de simetría $S$.
+
+El objetivo de esta sección es mostrar que al embeber la ecuación de consistencia para $W_m$ en todo el grupo de simetría, siempre es posible encontrar la solución $W_m=0$.
+
+En secciones anteriores dijimos que $W_m$ eran funciones que toman valores en el álgebra de Lie de $S/R$, sin embargo, ahora las vamos a definir como funciones definidas en $S$, pero que son constantes en cualquier espacio coset, de modo que
+\begin{align}
+	W_m(y^\om,y^\al) = W_m(y^\al) \ \ \forall y^\al. \label{eq:4.3.3.3}
+\end{align}
+La derivada de Lie de $W_m$ en la dirección de $X^{\h\al}_m$ es igual a la derivada de Lie en la dirección $X^\al_m$ ya que $W_m$ no depende de $y^\om$. Explícitamente,
+\begin{align}
+	X^{\h\al}_m\pr_{\h\al}W_m = X^\al\pr_\al W_m.
+\end{align}
+Por lo que $W_m$, así definidas en \eqref{eq:4.3.3.3}, es solución de la ecuación de consistencia en $S$
+\begin{align}
+	X^{\h\al}_m\pr_{\h\al}W_n-X^{\h\al}_n\pr_{\h\al}W_m-[W_m,W_n]-f_{mnp}W_p=0, \label{eq:4.3.3.5}
+\end{align}
+con la restricción de que $W_m$ es independiente de $y^\om$ y $f_{mnp}$ son las constantes de estructura de $S$.
+
+Definamos nuevos campos $W_{\h\al}$ como 
+\begin{align}
+	W_m = X^{\h\al}_mW_{\h\al},
+\end{align}
+donde estos nuevos campos $W_{\h\al}$ son en general no constantes en cada coset. En términos de estos campos , ecuación \eqref{eq:4.3.3.5}, se reduce a
+\begin{align}
+	\pr_{\h\al}W_{\h\beta}-\pr_{\h\beta}W_{\h\al}-[W_{\h\al},W_{\h\beta}]=0.
+\end{align}
+Esta ecuación es análoga al tensor electromagnético para un campo de gauge no abeliano $W_{\h\al}$. Recordemos que cuando $F=0$, el campo de gauge es un gauge puro. Entonces,
+\begin{align}
+	W_{\h\al} = (\pr_{\h\al}g)g^{-1}
+\end{align}
+en el grupo de simetría.
+
+Embebiendo la ecuación de consistencia para $W_m$ en el grupo de simetrías $S$, hemos sido capaces de aumentar el conjunto de transformaciones de gauge con aquellas que dependen de $y^\om$. Siguiendo con la analogía con un campo de gauge, con una transformación de gauge es posible hacer $W_{\h\al}=0$, entonces $W_m=0$ en $S$. Las soluciones en el espacio coset están dadas por
+\begin{align}
+	W_m = X^{\h\al}_m(\pr_{\h\al}g)g^{-1}
+\end{align}
+con la restricción de que sean independiente de $y^\om$. En general, estas soluciones no pueden hacerse cero mediante una transformación de gauge pues esta requería una dependencia en $y^\om$.
+
+Podemos hacer un análisis similar para el campo de gauge. Vamos a separar el campo de gauge como $A_\mu=(A_i,A_\al)$, donde $A_i$ dependen sólo de las coordenadas del espacio tiempo y $A_{\al}$ de las coordenadas en el espacio coset. Luego vamos a reducir la ecuación de simetría para $A_\al$ embebiéndola en el grupo $S$. De forma similar vamos a tratar a $A_\al$ como una función en $S$ pero constante en cualquier coset, e introducimos componentes extras $A_\om=0$ que corresponden a coordenadas en $R$, de modo que
+\begin{align}
+	A_{\h\al}(y^{\h\beta}) = (A_\om(y^{\h\beta}),A_\al(y^{\h\beta}))=(0,A_\al(y^\beta)).
+\end{align}
+Entonces, se puede verificar que toda solución de la ecuación de simetría en el espacio coset es un caso especial de la misma ecuación en el grupo de simetría. Para ver esto, vamos a dividir la ecuación de simetría en $S$ como
+\begin{align}
+	(\pr_\om X^{\h\al}_m)A_{\h\al}+X^{\h\al}_m\pr_{\h\al}A_\om &=\pr_\om W_m-[A_\om,W_m],\\
+	(\pr_\be X^{\h\al}_m)A_{\h\al}+X^{\h\al}_m\pr_{\h\al}A_\be &=\pr_\be W_m-[A_\be,W_m].
+\end{align}
+La primera de estas ecuaciones se satisface trivialmente ya que ni $X^{\h\al}_m$ ni $W_m$ dependen de $y^\om$. La segunda es la ecuación de simetría en $S/R$.
+
+La ecuación de simetría en $S$ se resuelve fácilmente usando la libertad de gauge sobre $W_m$ y hacerla nula. De esta forma, la ecuación se reduce a
+\begin{align}
+	\mc L_{X_m}A_{\h\al} =0
+\end{align}
+Analicemos las consecuencias de la ecuación anterior. Una de las implicancias es que el campo de gauge es completamente independiente de las coordenadas en el espacio coset. Otra de las consecuencias es que la ecuación se desacopla y permite resolver para cada componente del campo de gauge separadamente
+\begin{align}
+	\mc L_{X_m}A^a_{\h\al} =0 \label{eq:4.3.3.14}
+\end{align}
+Esto nos permite escribir al campo de gauge como
+\begin{align}
+	A^a_{\h\al} = \Phi^a_m\tilde X_{m\h\al}, \label{eq:4.3.3.15}
+\end{align}
+donde $\tilde X^{\h\al}_m$ son traslaciones infinitesimales izquierdas. Estos están relacionados con los generadores $X^{\h\al}_m$ por una transformación de coordenadas que mapea cada elemento del grupo en su inverso. Estas satisfacen que 
+\begin{align}
+	\mc L_{X_m}\tilde X^{\h\al}_n=0, \ \ \forall m,n,
+\end{align}
+y por lo tanto, son campos vectoriales invariantes. Podemos definir su correspondiente versión covariante $\tilde X_{m\h\al}$ de la siguiente forma
+\begin{align}
+	\tilde X_{m\h\al}\tilde X^{\h\al}_n=\delta_{mn}. \label{eq:4.3.3.17}
+\end{align}
+Combinaciones de estos nuevos generadores permiten definir tensores invariantes. De especial interés es el siguiente tensor
+\begin{align}
+	\tilde h^{\h\al\h\be} = \tilde X^{\h\al}_m\tilde X^{\h\be}_m,
+\end{align}
+el cuál actúa como un operador para subir índices. Esto es consecuencia de \eqref{eq:4.3.3.17}, ya que
+\begin{align}
+	\tilde X_{m\h\al}\tilde h^{\h\al\h\be} = \tilde X^{\h\be}_m.
+\end{align}
+Entonces, $\tilde h^{\h\al\h\be}$ actúa como una métrica en $S$.
+
+Volvamos a \eqref{eq:4.3.3.15}. Los campos $\Phi^a$ son independientes de las coordenadas en el espacio coset, por lo tanto, pueden depender sólo de las coordenadas del espacio-tiempo tiempo. Por lo tanto, la solución general a \eqref{eq:4.3.3.14} es
+\begin{align}
+	A_i^a &= A_i^a(x^\mu)\\
+	A^a_{\h\al} &= \Phi^a_m(x^\mu)\tilde X_{m\h\al}(y^{\h\al}) \label{eq:4.3.3.21}
+\end{align}
+Sin embargo, para asegurarnos de obtener una solución en $S/R$ y no sólo en $S$, debemos imponer condiciones en los campos $\Phi_m$ y $A_i$. Estas condiciones nacen de pedir que $A_\om=0$ y que $A_\al$ sean independientes de las coordenadas en $R$. Esto implica que el tensor de campo $F$ se anula en las componentes $F_{i\om},F_{\al\om},F_{\tau\om}$, donde $\tau$ es una coordenada en $R$ al igual que $\om$.
+
+Recordemos las \eqref{eq:4.3.1.12} y \eqref{eq:4.3.1.15}, que eran las contracciones del tensor de campo en términos de un campo escalar $\Psi_m$. Notemos también que en el gauge donde $W_m=0$, los campos $\Psi_m$ se reducen a $\Psi_m=X^{\h\al}_m A_{\h\al}$, y usando \eqref{eq:4.3.3.21}, es fácil ver que se pueden escribir como $\Psi_m=X^{\h\al}_m\Phi_n\tilde X_{n\h\al}$. En términos de los campos $\Phi_m$, las contracciones del tensor de campo se escriben como
+\begin{align}
+	X^{\h\al}_m F_{\h\al i} &= D_i\Phi_m \label{eq:4.3.3.22}\\
+	X^{\h\al}_m X^{\h\be}_n F_{\h\al\h\be} &= f_{mnp}\Phi_p-[\Phi_m,\Phi_n] \label{eq:4.3.3.23}
+\end{align}
+A partir de estas contracciones se pueden derivar las condiciones para los campos:
+\begin{align}
+	\pr_i\Phi_n-[A_i,\Phi_n]&=0 \label{eq:4.3.3.24}\\
+	[\Phi_m,\Phi_n] &= -f_{mnp}\Phi_p \label{eq:4.3.3.25}
+\end{align}
+La segunda de estas ecuaciones nos dice que $\Phi'_m=-\Phi_m$ en $R$, genera una subálgebra de $G$ isomorfa a $R$. Ya que $\Phi_m$ no dependen de las coordenadas en $R$, podemos hacer que sean constantes. De este modo, la primera ecuación arriba nos dice que $A_i$ conmutan con los elementos de la subálgebra isomorfa a $R$. Entonces, $A_i$ pertenecen al grupo pequeño de $R$. Este grupo pequeño es el grupo de simetría residual después de la reducción dimensional.
 
 
+\subsection{Campos de gauge $U(1)$ esféricamente simétricos}
+
+El formalismo desarrollado en la sección anterior nos da las herramientas para aplicar a un ejemplo concreto, este es, campos de gauge $U(1)$ esféricamente simétricos.
+
+El grupo de gauge es $U(1)$, que es un grupo abeliano, por lo que las derivadas covariantes se trasforman en simples derivadas. Para rotaciones $SO(3)$ una transformación infinitesimal toma la siguiente forma
+\begin{align}
+	x'^i = x^i+(d\vct n\times \vct r)_i = x^i+\eps_{ijk}d\Om_j x_k \label{eq:4.3.2.1}
+\end{align}
+donde $d\Om_i$ son ángulos infinitesimales que especifican una rotación alrededor de algún eje. Nótese que no se especificó la coordenada temporal, pues la transformación no le afecta. Por lo tanto, de \eqref{eq:4.3.2.1} podemos identificar los tres generadores $X^j_m=\eps^{mij}x^j$ de rotaciones.
+
+Eligiendo como los ejes de rotación algún sistema ortogonal (por ejemplo, coordenadas cartesianas, coordenadas esféricas,etc) los generadores de rotación se pueden escribir en forma vectorial. Por ejemplo, en coordenadas cartesianas
+\begin{align}
+	\vct X_1 =\begin{pmatrix}
+	0\\
+	z\\
+	-y
+	\end{pmatrix},\ \ \vct X_2 =\begin{pmatrix}
+	-z\\
+	0\\
+	x
+	\end{pmatrix} , \ \ \vct X_3 =\begin{pmatrix}
+	y\\
+	-x\\
+	0
+	\end{pmatrix} \label{eq:4.3.2.2}
+\end{align}
+
+Las funciones $W_m$ que compensarán las rotaciones infinitesimales serán 3, una por cada generador de rotaciones $\vct X_m$. Estas funciones deben satisfacer la ecuación de consistencia \eqref{eq:4.3.1.9}. Para este caso, el conmutador de dos funciones  $W$ es siempre cero pues ahora son funciones escalares. Luego, la ecuación de consistencia se reduce a
+\begin{align}\nonumber
+	\mc L_{X_1}W_2-\mc L_{X_2}W_1-W_3 &=0\\
+	\nabla W_2\cd\vct X_1-\nabla W_1\cd\vct X_2-W_3 &=0 \label{eq:4.3.2.3}
+\end{align}
+La regla de transformación de gauge para $W$ de ecuación \eqref{eq:4.3.1.5} es ahora
+\begin{align}\nonumber
+	W_m&\ra gW_m g^{-1}+g^{-1}\nabla g\cd\vct X_m,\\ \nonumber
+	&= W_m+g^{-1}\nabla g\cd\vct X_m,\\ \nonumber
+	&= W_m+g^{-1}\f{\pr g}{\pr x_i}\eps^{mij}x^j\\
+	&= W_m+g^{-1}(\vct r\times\nabla)_m g \label{eq:4.3.2.4}
+\end{align}
+donde usamos el hecho de que el grupo de gauge es abeliano. En este punto conviene pasar a coordenadas esféricas. Es claro que la componente radial de $\vct r\times\nabla$ es cero, por lo que $W_r$ transforma homogéneamente. Esto significa que no existe una transformación de gauge que lo haga cero. El conjunto de transformaciones de gauge \eqref{eq:4.3.2.4} es
+\begin{align}
+	W_r &\ra W_r,\\
+	W_\theta &\ra W_\theta-g^{-1}\f{1}{\sin\theta}\f{\pr g}{\pr\phi},\\
+	W_\phi &\ra W_\phi+g^{-1}\f{\pr g}{\pr\theta}.
+\end{align}
+Aunque $W_r$ no pueda hacerse cero mediante una transformación de gauge, si que es posible hacerlo con $W_\theta$ o $W_\phi$. Este análisis no es tan obvio para las funciones $W$ en coordenadas cartesianas. En coordenadas cartesianas uno puede ajustar una función de gauge para anular una de las tres funciones $W$. Elijamos poner $W_3=0$, entonces \eqref{eq:4.3.2.3} se reduce a
+\begin{align}
+	\cot\theta\sin\phi\f{\pr W_1}{\pr\phi}-\cos\phi\f{\pr W_1}{\pr\theta} = -\cot\theta\cos\phi\f{\pr W_2}{\pr\phi}-\sin\phi\f{\pr W_2}{\pr\theta}
+\end{align}
+Una solución a esta ecuación diferencial es de la forma $W_1=f(\theta)\cos\phi$ y $W_2=f(\theta)\sin\phi$, donde $f(\theta)$ satisface la ecuación diferencial siguiente
+\begin{align}
+	\f{df}{d\theta}+f\cot\theta=0, 
+\end{align}
+la cuál tiene por solución
+\begin{align}
+	f(\theta) = \f{C}{\sin\theta},
+\end{align}
+donde $C$ es una constante. Por lo que las funciones $W$ escritas en coordenadas esféricas son
+\begin{align}
+	W_r = C, \ \ W_\theta = C\cot\theta, \ \ W_\phi=0.
+\end{align}
+Nótese que esto está de acuerdo con el análisis de transformaciones de gauge para $W_\phi$. También es importante notar que no hay dependencia de la variable $\phi$, esto es debido a la libertad de gauge que usamos para eliminar $W_\phi$.
+
+Ahora, analicemos la ecuación de simetría para $A_\mu$ \eqref{eq:4.3.1.6}
+\begin{align}
+	(\pr_\mu X^\rho_m)A_\rho+X^\rho_m\pr_\rho A_\mu = D_\mu W_m.
+\end{align}
+Recordemos que los generadores de rotaciones son $X^i_m=\eps^{mij}x_j$, lo cuales al ser insertados en la ecuación anterior nos dan
+\begin{align}
+	(\vct r\times\nabla)_m A_\mu = \pr_\mu W_m, \label{eq:4.3.2.13}
+\end{align}
+que son tres ecuaciones para las tres componentes del campo de gauge. Las componentes del campo que se encuentran a partir de \eqref{eq:4.3.2.13} son
+\begin{align}
+	A_\theta &=\f{a_\theta(r)}r, \label{eq:4.3.2.14}\\
+	A_\phi &= C\f{\cot\theta}r=\f{a_\phi}r,\label{eq:4.3.2.15}
+\end{align}
+donde $a_\theta$ y $a_\phi$ deben satisfacer
+\begin{align}
+	[a_\theta,C] &=a_\phi\\
+	[a_\phi,C]&=-a_\theta
+\end{align}
+y $A_r$ queda como una función arbitraria de $r$. Es claro que debido a que la teoría es abeliana, las ecuaciones anteriores implican que $a_\theta=a_\phi=0$. Sin embargo, antes de llegar a esa conclusión, analicemos un poco las soluciones \eqref{eq:4.3.2.14} y \eqref{eq:4.3.2.15}. La componente $A_\phi$ presenta singularidades en $\theta=0,\pi$, las cuales pueden ser removidas mediante una transformación de gauge apropiada:
+\begin{align}\nonumber
+	A_\phi' &= A_\phi+e^{\mp\phi C}\f{1}{r\sin\theta}\f{\pr}{\pr\phi}e^{\pm\phi C},\\
+			&= \f{C}{r\sin\theta}(\pm 1-\cos\theta),
+\end{align}
+donde el $+$ es para la singularidad en el polo norte ($\theta=0$) y $-$ para la singularidad en el polo sur ($\theta=\pi$). En el ecuador ambas soluciones difieren en $e^{2\phi C}$, la cuál debe ser una función univaluada. Esto agrega una restricción sobre $C$, que no es otra cosa que la condición de cuantización de Dirac (para el caso abeliano). Incluso, ahora es posible calcular el tensor de campos y calcular el campo magnético
+\begin{align}
+	B = -\f 1{r^2}(C+[a_\theta,a_\phi])
+\end{align}
+que para una teoría abeliana se reduce al campo de un monopolo magnético de Dirac.
+
+Es importante analizar como se puede generalizar estos argumentos para cuando nos enfrentamos con grupos de gauge no abelianos. En primer lugar, la constante $C$ para el caso abeliano se generaliza a un elemento del álgebra del grupo de gauge. La libertad de gauge permite reducir $C$ a una matriz diagonal. Es claro  que en este caso las funciones $a_\theta$ y $a_\phi$ son no triviales. Un posible caso es hacer $C=0$. En este caso la única componente no trivial del campo de gauge es $A_r$, la cuál es una función arbitraria de $r$. En este caso la simetría rotacional es manifiesta explícitamente.
+
+Un caso importante es cuando $C$ es un elemento del álgebra $\mathfrak{su}(2)$. En este caso las funciones $a_\theta$ y $a_\phi$ son no triviales y mediante una transformación de gauge las funciones $W$ pueden hacerse todas constantes. De hecho, si todas las funciones $W$ son constantes, la ecuación de consistencia implica
+\begin{align}
+	[W_m,W_n] = W_{[X_m,X_n]},
+\end{align}
+esto quiere decir, que las funciones $W$ son los generadores del grupo de gauge que satisfacen el álgebra de Lie de las transformaciones de coordenadas. Esto es lo que se conoce como un \emph{embedding} de las transformaciones de coordenadas en el grupo de gauge. Se puede mostrar [Manton,Jackiw] que en este caso, el campo magnético es proporcional a $C$ y la singularidad en $r=0$ se puede remover imponiendo condiciones de borde sobre $a_\theta$ y $a_\phi$ apropiadas en el origen. Este análisis conlleva finalmente a la solución de un monopolo.
+
+% Vamos a hacer un resumen de todo el formalismo CSDR en dos o tres páginas.
+
+\subsection{Reducción de la acción}
+
+Dada la forma en que elegimos la variedad donde definimos nuestra teoría de Yang-Mills, no es descabellado elegir una métrica para ese espacio que sea diagonal por bloques. Asumiremos que los campos de gauge son simétricos en el sentido definido en las secciones anteriores. En este caso, la acción se vuelve independiente de las coordenadas del espacio coset y por consiguiente podemos integrar en las coordenadas $y^\al$ de $S/R$, obteniendo la teoría en $D$ dimensiones.
+
+La métrica que elegimos es la siguiente
+\begin{align}
+	h^{\mu\nu} = \begin{pmatrix}
+	h^{ij} & 0\\
+	0 & \f{1}{R^2}h^{\al\be}(y)
+	\end{pmatrix}
+\end{align}
+
+La acción original de Yang-Mills es
+\begin{align}
+	S = -\f 18\int d^{D+d}x h^{1/2}\Tr(F_{\mu\nu}F_{\sg\tau}h^{\mu\sg}h^{\nu\tau}),
+\end{align}
+la cual puede ser expandida usando el \emph{ansatz} para la métrica a
+\begin{align}
+	S = -\f 18\Tr\int d^Dx d^dy h^{1/2}\bb{F_{ij}F_{kl}h^{ik}h^{jl}+\f{2}{R^2}F_{i\al}F_{j\be}h^{ij}h^{\al\be}+\f{1}{R^4}F_{\al\be}F_{\gm\delta}h^{\al\be}h^{\be\delta}}.
+\end{align}
+Usando las contracciones del tensor de campo \eqref{eq:4.3.3.22} y \eqref{eq:4.3.3.23} podemos escribir la ecuación anterior como
+\begin{align}
+	S = \Om\int d^Dx R^{d}\sqrt{h}\bb{\f 14 F_{ij}^a F_{kl}^a h^{ik}h^{jl}+\f{1}{R^2}(D_i\Phi_m)^a(D_j\Phi_m)^a h^{ij}+\f{1}{2R^4}V(\Phi)},
+\end{align}
+donde
+\begin{align}\nonumber
+	F_{\al\be}^aF_{\gm\delta}^a h^{\al\gm}h^{\be\delta} &= (f_{rst}\Phi_t-[\Phi_r,\Phi_s])^a(f_{rst}\Phi_t-[\Phi_r,\Phi_s])^a,\\
+	&\equiv 2V(\Phi),
+\end{align}
+$\Om$ es el volumen de $S/R$ obtenido integrando $\sqrt{\det h_{\al\be}}$ en $d^dy$, ya que lo demás ya no depende de $y^{\al}$. Para eliminar el parámetro $R(x)$, podemos redefinir la métrica como
+\begin{align}
+	g^{ij} = f(x)h^{ij}.
+\end{align}
+Donde si queremos eliminar el factor de $R^4$ que divide a $V(\Phi)$ debemos tener $f(x)=R^2(x)$ y $D+d=4$. La acción resultante es
+\begin{align}
+	S = C\int d^Dx \sqrt{\det g}\bb{\f 14 F^a_{ij}F^a_{kl}g^{ik}g^{jl}+\f 12(D_i\Phi_m)^a(D_j\Phi_m)^ag^{ij}+V(\Phi)},
+\end{align}
+donde $C$ es una constante. Nótese que la acción describe el modelo de Higgs abeliano en $D$ dimensiones definido en un espacio con métrica curva $g^{ij}$.
+
+Este análisis nos permite tener una comprensión más amplia acerca del \emph{ansatz} de Witten para los vórtices hiperbólicos. En el trabajo de Witten tanto el grupo de gauge como el grupo de simetría eran $SO(3)$. Este grupo está parametrizado por los tres ángulos de Euler $(\chi,\theta,\phi)$ y un elemento general del grupo se puede escribir como la composición de tres rotaciones. Sea $s\in SO(3)$, entonces,
+\begin{align}
+	s(\chi,\theta,\phi) = R_z(\chi)R_x(\theta)R_z(\phi), \label{eq:4.3.5.8}
+\end{align}
+donde $R_z(\chi)$ representa una rotación en ángulo $\chi$ alrededor del eje z, y los demás son análogos. Las rotaciones alrededor del eje $z$ forman un subgrupo $SO(2)\inc SO(3)$, por lo que una rápida comparación de  \eqref{eq:4.3.5.8} con \eqref{eq:4.3.3.1}, nos permite concluir que $\theta$ y $\phi$ son coordenadas en el espacio coset $SO(3)/SO(2)$. Las dimensiones del espacio tiempo en el \emph{ansatz} de Witten ya están fijas en $D+d=4$ y tienen coordenadas $(t,r,\theta,\phi)$. La dimensión del espacio coset también se conoce y es $dim SO(3)/SO(2)=2$, de modo que la dimensión del modelo de Higgs resultante es $D=2$.
+
+Los generadores de simetría, escritos como $X^\al_m=(X^\theta_m,X^\phi_m)$ son
+\begin{align}
+	X^\al_1 &= (\cos\phi,-\cot\theta\sin\phi),\\
+	X^\al_2 &= (-\sin\phi,\cot\theta\cos\phi),\\
+	X^\al_3 &=(0,1).
+\end{align}
+
+\subsection{Un resumen del método}
+
+Definamos una teoría de Yang-Mills en una variedad $\mc M=M_D\times S/R$ y con grupo de gauge $G$ y grupo de simetría $S$. Sea $A_\mu$ un campo de gauge que, localmente, se escribe como una 1-forma  que toma valores en $\mf g$. Decimos que $A$ (como una 1-forma) es equivariante ante $S$ si la acción de $S$ sobre $A$ lo deja invariante a menos de una transformación de gauge. Esta definición se escribe infinitesimalmente como la ecuación de equivarianza. El formalismo desarrollado permite resolver la ecuación de equivarianza para todos los generadores de simetría $X_m$. 
+
+El procedimiento consiste en extender el análisis en $S/R$ de la ecuación de equivarianza a todo el grupo de simetría $S$. Esto permite que las ecuaciones de consistencia para $W$ se resuelvan con expresiones simples que pueden anularse mediante una transformación de gauge en $S$, simplificando considerablemente la ecuación de equivarianza. Una vez que esta ecuación se resuelve en $S$, uno debe asegurarse que el campo de gauge obtenido sea un campo en $S/R$. Esto significa que la dependencia de $A$ con las coordenadas en $S/R$ puede eliminarse con otra transformación de gauge. Para que esto pase se debe satisfacer ciertas ecuaciones.
+
+Definimos coordenadas en $S/R$ como $y^\al$ y coordenadas en $R$ como $y^\om$ de modo que $(y^\al,y^\om)$ forman coordenadas en $S$. Para cualquier elemento $s\in S$, sea $s_0(y^\al)\in Rs(y^\al)$ un elemento fijo en $S/R$, entonces, $s$ se puede escribir como $s=r(y^\om)s_0(y^\al)$ para algún $r\in R$.
+
+Sean $J_m$ los generadores del álgebra de Lie de $S$ con constantes de estructura $f_{mnp}$, $[J_m,J_n]=f_{mnp}J_p$. 
+
+\subsection{Un bosquejo de la demostración del teorema principal}
+
+Para dar un bosquejo de la demostración de la proposición 1 vamos a considerar una teoría de Yang-Mills definida en un espacio $M=\Sigma\times N$. En analogía con el formalismo presentado, el espacio $N$ será nuestro espacio coset y $\Sigma$ será el espacio donde vivirá nuestro modelo de Higgs resultante.
+
+Como dijimos en el enunciado del teorema principal el grupo $G_C$ (ver sección \ref{sec:4.1}) actuará como el grupo de gauge de la teoría y el grupo $G_{C_0}$ actuará como el respectivo grupo de simetría. Nótese que antes dijimos que el grupo de simetría estaba definido como el grupo isometrías de $N$ (pensado como una superficie de Riemann con curvatura constante) y en proposición 1, asumimos que este grupo contiene todas las dichas isometrías, es decir, es el grupo maximal de isometrías de $N$.
+
+A cada campo vectorial $X^\mu(x)$ que genera la acción de $G_{C_0}$ en $M$ le corresponde una función $\Phi_X$ que toma valores en $\mf g_C$. Esta función es el llamado campo de Higgs.
+
+Considere $N=G_{C_0}/U(1)$ como el espacio coset, donde $U(1)\inc G_{C_0}$ es un subgrupo que es generado por $J_3$ (que es diagonal), que a su vez corresponde a un campo vectorial $X^\mu_3$ en $M$. Por lo tanto, las condiciones en los campo (ver ecuaciones \eqref{eq:4.3.3.24} y \eqref{eq:4.3.3.25}) se escriben entonces
+\begin{align}
+	d\Phi_3-[A,\Phi_3] =0, \ \ [\Phi_3,\Phi_m]=-f_{3mp}\Phi_p \label{eq:4.3.7.1}
+\end{align}
+donde claramente $f_{mnp}$ son las constantes de estructura de $G_{C_0}$ y $\Phi_m\equiv \Phi_{X^m}$. Como dijimos al final de Sección \ref{sec:4.3.3}, la segunda ecuación a la derecha nos muestra que $\Phi_3$ genera una subálgebra de $G_C$ isomorfa a $\mf u(1)$; es decir, $\mf u(1)\inc\mf g_C$. También dijimos que la primera condición implicaba que las componentes del campo de gauge en el espacio-tiempo $\Sigma$ en este caso, eran elementos del grupo pequeño de $R=U(1)$, por lo que necesariamente, $A_\Sigma$ es un campo de gauge abeliano y no depende de las coordenadas en el espacio coset $N$. Vamos a definir el campo de gauge abeliano como
+\begin{align}
+	a = a_w dw+a_{\bar w}d\bar w\equiv A_\Sigma
+\end{align}
+Para calcular los campos de gauge a partir de \eqref{eq:4.3.7.1} elegimos un gauge donde $\Phi_3$ es diagonal. Esto es siempre posible si $C=-1$, ya que en ese caso correspondería a una matriz hermítica, pero también se verifica para los demás casos. En general se encuentra que escribiendo $\Phi_3=\eps J_3$, donde $\eps=\pm 1$, engloba todos los anteriores casos. Sin pérdida de generalidad se tomará $\eps=1$. La solución general para \eqref{eq:4.3.7.1} es
+\begin{align}
+	\Phi_1 = \phi_1 J_1+\phi_2 J_2, \ \ \Phi_2 = \phi_2 J_1-\phi_1 J_2, \ \ \Phi_3 = J_3,
+\end{align}
+donde $\phi=\phi_2-i\phi_1$ es una función compleja definida en $\Sigma$ el cuál se indentificará con el campo de Higgs abeliano en las ecuaciones de vórtice.
+
+Nos falta hallar las componentes restantes del campo de gauge - sus componentes en el espacio coset $N$. La solución nos la provee el formalismo CSDR desarrollado; ecuación \eqref{eq:4.3.3.21} nos dice que las componentes del campo de gauge en $N$ está dado por los campos de Higgs $\Phi_m$ y por los generadores infinitesimales derechos $\bar X_m$. Estos últimos han sido hallados de forma explícita junto con una parametrización del grupo $G_{C_0}$ la cuál mostramos a continuación:
+\begin{align}
+	K = \begin{pmatrix}
+	e^{i(\kp_3-\kp_2)/2}\cos(\sqrt{-C_0}\kp_1/2) & -\f{1}{\sqrt{-C_0}}e^{i(\kp_2+\kp_3)/2}\sin(\sqrt{-C_0}\kp_1/2)\\
+	\sqrt{-C_0}e^{-i(\kp_3+\kp_2)/2}\sin(\sqrt{-C_0}\kp_1/2) & e^{-i(\kp_3-\kp_2)/2}\cos(\sqrt{-C_0}\kp_1/2)
+	\end{pmatrix},
+\end{align}
+donde $0\leq\kp_1\leq 4\pi$, $0\leq\kp_2\leq 4\pi$, $0\leq\kp_1\leq\pi/\sqrt{-C_0}$ si $C_0<0$ y $\kp_1\geq 0$ si $C_0\geq 0$; son nuevas coordenadas en $G_{C_0}$. La coordenada $\kp_3$ parametriza a $U(1)$, por lo tanto los campos de gauge resultantes no dependerán de $\kp_3$. Coordenadas en $N$ son entonces, $(\kp_1,\kp_2)$, que reemplazan a $(z,\bar z)$. La relación entre ambos sistemas de coordenadas está dado por
+\begin{align}
+	z = \f 1{\sqrt{-C_0}}\tan(\sqrt{-C_0}\kp_1/2)e^{i\kp_2} \label{eq:4.3.7.5}
+\end{align}
+Luego, los generadores infinitesimales derechos son
+\begin{align}
+	\bar X_1 &= \f{1}{-\sqrt{-C_0}}\sin(-\sqrt{-C_0}\kp_1)\cos\kp_3 d\kp_2+\sin\kp_3 d\kp_1,\\
+	\bar X_2 &= -\cos\kp_-3 d\kp_1+\f 1{\sqrt{-C_0}}\sin\kp_3\sin(-\sqrt{-C_0}\kp_1)d\kp_2,\\
+	\bar X_3 &= -d\kp_3+\cos(-\sqrt{-C_0}\kp_1)d\kp_2. 
+\end{align}
+Y los correspondientes generadores $X_m$ tales que $X_m\cd \bar X_n=\delta_{mn}$ son
+\begin{align}
+	X_1 &= -\sin\kp_2\pr_{\kp_1}-\f{\sqrt{-C_0}}{\tan(\sqrt{-C_0}\kp_1)}\cos\kp_2\pr_{\kp_2}-\f{\sqrt{-C_0}}{\sin(\sqrt{-C_0}\kp_1)}\cos\kp_2\pr_{\kp_3},\\
+	X_2 &= \cos\kp_2\pr_{\kp_1}-\f{\sqrt{-C_0}}{\tan(\sqrt{-C_0}\kp_1)}\sin\kp_2\pr_{\kp_2}-\f{\sqrt{-C_0}}{\sin(\sqrt{-C_0}\kp_1)}\sin\kp_2\pr_{\kp_3},\\
+	X_3 &= -\pr_{\kp_2}
+\end{align}
+Recordemos que la ecuación de simetría para $A$ se reducía cuando la insertábamos dentro del grupo de simetría; mediante una transformación de gauge era posible hacer $W_m=0$ y la ecuación se reducía a
+\begin{align}
+	\mc L_{X^3}A =0
+\end{align}
+y junto con las condiciones en los campo nos asegurábamos de obtener un campo de gauge en $N$. El campo de gauge en $N=G_{C_0}/U(1)$ está dado por
+\begin{align}
+	A_N = A_1 d\kp_1+A_2 d\kp_2,
+\end{align}
+dónde
+\begin{align}
+	A_1 &= -\phi_2 J_1+\phi_1 J_2,\\
+	A_2 &= \f 1{\sqrt{-C_0}}\sin(\sqrt{-C_0}\kp_1)\phi_1 J_1+\f 1{\sqrt{-C_0}}\sin(\sqrt{-C_0}\kp_1)\phi_2 J_2+\cos(\sqrt{-C_0}\kp_1)J_3.
+\end{align}
+Sin embargo, este resultado no tiene la forma de \eqref{eq:4.2.3.3}. Para llegar a la forma final, hagamos un cambio de gauge de la forma $\text{diag}(e^{-i\kp_2/2},e^{i\kp_2/2})$ y luego cambiar de coordenadas de vuelta a $(z,\bar z)$ usando la fórmula \eqref{eq:4.3.7.5}.
+
+Calculemos las componentes del tensor de campo $F_{\mu\nu}=\pr_\mu A_\nu-\pr_\nu A_\mu-[A_\mu,A_\nu]$:
+\begin{align}
+	F_{z\overline z} &= \f{-C_0+C\phi\bar\phi}{(1-C_0z\bar z)^2}\sg_3, & F_{w\overline w} &= \f i2 f_{w\overline w}\sg_3,\\
+	F_{\overline z\overline w} &= \f{i}{1-C_0z\bar z}D_{\overline w}\phi\sg_+, & F_{z\overline w} &= -\f{i}{1-C_0z\bar z}D_{\overline w}\bar\phi \sg_-,\\
+	F_{zw} &= -\f{i}{1-C_0 z\bar z}D_w\bar\phi\sg_-, & F_{\overline zw} &=\f{i}{1-C_0 z\overline z}D_w\phi\sg_+
+\end{align}
+donde $f_{w\overline w}=\pr_w a_{\overline w}-\pr_{\overline w}a_w$.
+
+Ahora, insertemos estas componentes en la ecuación de anti dualidad de Yang-Mills \eqref{eq:3.1.0.8}
+\begin{align}
+	\star F_{\mu\nu} = -F_{\mu\nu}
+\end{align}
+que en coordenadas holomorfas $(w,z)$ se reducen a $(\om_N+\om_\Sigma)\wedge F=0$ y $dw\wedge dz\wedge F=0$. Y estas a su vez se reducen a
+\begin{align}
+	F_{wz}=0, \ \ \ F_{\overline w\overline z}=0, \ \ \ \Om^{-1}F_{w\overline w}+\f{(1-C_0|z|^2)^2}4 F_{z\overline z} =0
+\end{align}
+Las dos primeras se reducen al reemplazar las componentes a $D_{\overline w}\phi=0$ y la tercera se reduce a
+\begin{align}
+	\f i2f_{w\overline w}+\f{\Om}4(-C_0+C|\phi|^2) = 0,
+\end{align}
+resultando en las ecuaciones de Bogomolny para los vórtices integrables.
 
 %----------------------------------------------------------------------------------------
 
