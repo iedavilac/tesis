@@ -30,7 +30,7 @@
 
 
 \documentclass[
-		twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,
+		twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines, %eliminated twoside option 
 	 	footinclude=false,cleardoublepage=empty,
 		dottedtoc, % Make page numbers in the table of contents flushed right with dots leading to them
 		BCOR=5mm,paper=a4,fontsize=11pt, % Binding correction, paper type and font size
@@ -68,7 +68,7 @@
 %	PRE-CONTENT THESIS PAGES
 %----------------------------------------------------------------------------------------
 
-%\include{FrontBackMatter/Titlepage} % Main title page
+\include{FrontBackMatter/Titlepage} % Main title page
 
 %\include{FrontBackMatter/Titleback} % Back of the title page
 
@@ -109,6 +109,7 @@
 \include{Chapters/Chapter01} % Capítulo 1
 \include{Chapters/Chapter02} % Capítulo 2
 \include{Chapters/Chapter03} % Capítulo 3
+\include{Chapters/Chapter04} % Capítulo 4
 
 \cleardoublepage % Empty page before the start of the next part
 
@@ -118,8 +119,8 @@
 
 \part{Modelos modificados} % Second part of the thesis
 
-%\include{Chapters/Chapter02} % Chapter 2
-%\include{Chapters/Chapter03} % Chapter 3
+\include{Chapters/Chapter05} % Chapter 5
+\include{Chapters/Chapter06} % Chapter 3
 %\include{Chapters/Chapter04} % Chapter 4 - empty template
 
 \cleardoublepage % Empty page before the start of the next part
@@ -140,7 +141,6 @@
 %----------------------------------------------------------------------------------------
 
 \cleardoublepage\include{FrontBackMatter/Bibliography} % Bibliography
-
 %\cleardoublepage\include{FrontBackMatter/Declaration} % Declaration
 
 %\cleardoublepage\include{FrontBackMatter/Colophon} % Colophon
