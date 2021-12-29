@@ -1,0 +1,236 @@
+% Chapter 5
+
+\chapter{Modelos de Higgs abelianos modificados} % Chapter title
+
+\label{ch:ahmmod} % For referencing the chapter elsewhere, use \autoref{ch:name} 
+
+%----------------------------------------------------------------------------------------
+
+La existencia y analiticidad de los vórtices abelianos en el plano fueron estudiados extensivamente por Taubes y Jaffe en [TaubesJaffe]. En capítulo 2 analizamos los resultados más importantes de estos papers. Modelos modificados han sido propuestos una multitud de veces, por ejemplo, Lohe [Lohe43] admite otros tipos de potenciales y modifica el término cinético del campo de modo que el truco de Bogomolny se pueda aplicar también. Veremos más adelante en este capítulo que esta condición es muy usada para constreñir la forma de los factores que modifican los términos cinéticos y el potencial.
+
+En este capítulo vamos a presentar un modelo modificado propuesto por Contatto [Contatto2017] que admite vórtices estáticos. Contatto se vale de un análisis de ecuaciones diferenciales para hallar todos los posibles casos integrables de una familia de modelos modificados. A su vez, también se presenta una solución explícita.
+
+Otra forma de modificar el modelo que exploraremos en este capítulo es agregar impurezas del tipo eléctrico y magnético. Tales impurezas fueron estudiadas por primera vez por Tong y Wong [TongWong2014] basándose en resultados parecidos en teorías supersimétricas en 2+1. Las cinco ecuaciones vorticiales que estudiamos en capítulo 2 son generalizadas por Gudnason y Ross en [GudnRoss2021] de modo que se puedan incluir impurezas del tipo Tong-Wong. Estudiaremos que bajo ciertas condiciones estas generalizaciones siguen siendo integrables.
+
+\section{El modelo modificado}
+
+En esta sección describiremos una familia de modelos modificados propuestos por Contatto. El lagrangiano del modelo es el siguiente
+\begin{align}
+	L = \int d^2x \Om\bp{-\f{G(|\phi|)^2}4F_{\mu\nu}F^{\mu\nu}+\f 12\overline{D_\mu\phi}D^\mu\phi-V(|\phi|)}
+\end{align}
+Este lagrangiano está definido en una variedad suave $\m R\times\Sigma$ con métrica $ds^2=dt^2-\Om(dx^2+dy^2)$. Donde $G$ es una función continua de $|\phi|$ en su dominio de definición y $\Om=\Om(x,y)$ es un factor conforme para la métrica de $\Sigma$.
+
+El potencial considerado es
+\begin{align}
+	V(|\phi|) = \f{1}{8G(|\phi|)^2}(1-|\phi|^2)^2,
+\end{align}
+el cuál difiere del potencial cuártico del modelo abeliano de Higgs por un factor de $G(|\phi|)$ en el denominador. El truco de Bogomolnyi puede ser aplicado a este caso. Para ver esto, consideremos el funcional de energía
+\begin{align}
+	E &= \f 12\int d^2x\Om\bp{\f{G(|\phi|)^2}{\Om^2}B^2+\overline{D_i\phi}D_i\phi+\f{1}{4G(|\phi|)^2}(1-|\phi|^2)^2}\\
+	&=\f 12\int d^2x\Om\bb{\bp{\f{G(|\phi|)}{\Om}B-\f 1{2G(|\phi|)}(1-|\phi|^2)}^2+\overline{D_i\phi}D_i\phi+\f B{\Om}(1-|\phi|^2)}\\
+	&=\f 12\int d^2x\Om\bb{\bp{\f{G(|\phi|)}{\Om}B-\f 1{2G(|\phi|)}(1-|\phi|^2)}^2+4|D_{\overline z}\phi|^2}+\int d^2x B+\int B|\phi|^2 d^2x\\
+	&= \f 12\int d^2x\Om\bb{\bp{\f{G(|\phi|)}{\Om}B-\f 1{2G(|\phi|)}(1-|\phi|^2)}^2+4|D_{\overline z}\phi|^2}+\pi N \label{eq:6.1.0.6}
+\end{align}
+Donde hemos asumido que todos los términos en el funcional se pueden integrar, lo cual se cumple para todos los casos considerados.
+
+Las ecuaciones de Bogomolnyi modificadas se derivan de ecuación \eqref{eq:6.1.0.6} cuando $E=\pi N$:
+\begin{align}
+	D_{\overline z}\phi &\equiv\pr_{\overline z}\phi-ia_{\overline z}\phi=0\\
+	B &= \f{\Om}{2G(|\phi|)^2}(1-|\phi|^2).
+\end{align}
+Siguiendo el mismo procedimiento que en el capítulo 2, eliminamos $a_{\overline z}$ de la primera ecuación y reemplazando en la segunda, nos lleva a la ecuación de Taubes modificada
+\begin{align}
+	\Delta h+\f{\Om}{G(e^{h/2})^2}(1-e^h) =0, \label{eq:6.1.0.9}
+\end{align}
+donde $h=\log|\phi|^2$ y $\Delta=\pr_x^2+\pr_y^2$ es el Laplaciano. Resolviendo \eqref{eq:6.1.0.9} e imponiendo las condiciones de borde usuales $|\phi|\ra 1$ y $D_i\phi\ra 0$, se obtienen soluciones vorticiales topológicas definidas en una superficie $\Sigma$ con curvatura gaussiana $K_{\Sigma}$.
+
+Notemos que la ecuación \eqref{eq:6.1.0.9} está incompleta, ya que en general una solución vorticial $\phi$ tiene ceros justamente en los centros de los vórtices. Esto implica que la solución tendrá singularidades logarítmicas para $h$ y el laplaciano aplicado a $h$ generará funciones delta. Esto ya lo habíamos notado para los vórtices de Taubes $(G=1)$ en el capítulo 2.
+
+A partir de ahora, tomaremos $G(e^{h/2})^2=e^{(q+1)h/2}$, para un $q\in\m R$, y estudiaremos que valores de $q$ hacen que la ecuación \eqref{eq:6.1.0.9} sea integrable. También vamos a imponer dos condiciones sobre el campo de Higgs. Primero, vamos a requerir que el campo $\phi$ sea no nulo excepto en $N$ puntos finitos $\{z_i\}$, los cuáles representan la posición del centro del vórtice. Y segundo, en una vecindad de $z_i$, existe $n_i\in\m N$ tal que
+\begin{align}
+	\phi\approx (z-z_i)^{n_i}\psi_i(z,\overline z), \label{eq:6.1.0.10}
+\end{align}
+donde $\phi_i$ es una función continua y diferenciable en todo punto excepto posiblemente en $z_i$.
+
+Estas condiciones ya las habíamos presentado cuando discutimos los Teoremas de Taubes en Capítulo 2. Por lo tanto, estas condiciones son las más naturales que podemos pensar para buscar generalizaciones del modelo abeliano de Higgs.
+
+\section{Casos integrables}
+
+En [Contatto2017] se muestra que a partir de un análisis de Painlevé, el cuál es un método de analizar la integrabilidad de ecuaciones diferenciales ordinarias y parciales, que en espacio plano $\Om=1$ existen tres modelos integrables. Estos son los casos $q=1/3$, $q=0$ y $q=-1/3$. Los dos primeros casos ya habían sido estudiados por Dunajski en [Dunajski2012] y corresponden a los vórtices sinh-Gordon y a los vórtices de Tzitzeica, mientras que el último caso fue recientemente estudiado por Contatto.
+
+En esta sección presentaremos estos tres casos.
+
+\subsection{Los vórtices sinh-Gordon}
+
+Tomando $\Om=1$ y $q=0$, la ecuación \eqref{eq:6.1.0.9} se transforma en
+\begin{align}
+	\Delta \f h2 = \sinh\f h2 \label{eq:6.2.1.1}
+\end{align}
+Esta ecuación fue estudiada en el contexto de los vórtices abelianos de Taubes (Cuadro 1). Los vórtices de Taubes o hiperbólicos eran descritos por la siguiente ecuación 
+\begin{align}
+	\Delta h+\Om-\Om e^h =0, \label{eq:6.2.1.2}
+\end{align}
+donde $\Om$ es el factor conforme usual de la métrica $g=\Om dzd\overline z$ en una superficie de Riemann $\Sigma$. Tomando $\Om=e^{-h/2}$, la ecuación de Taubes \eqref{eq:6.2.1.2} se reduce a la ecuación de sinh-Gordon \eqref{eq:6.2.1.1}. Esto nos provee de una interpretación de la métrica $g$ como un vórtice aislado.
+
+Una solución simple para \eqref{eq:6.2.1.1} es
+\begin{align}
+	\f h2 = -\tanh^{-1}\bb{\exp\bp{\f{(z-z_0)e^{-i\al}}2+\f{(\overline z-\overline z_0)e^{i\al}}2}},
+\end{align}
+donde $\al$ es un parámetro real. Esta solución luce muy similar a la solución de \emph{domain wall} para el modelo seno-Gordon. De hecho, esta solución es una continuación analítica de dicha solución. Imponiendo $\al=0$ y $z_0=0$ se tiene que la métrica en $\Sigma$ es
+\begin{align}
+	g = \tanh(x/2)^{-2}(dx^2+dy^2).
+\end{align}
+Para darnos una idea de como luce esta superficie, expandamos el factor conforme alrededor de $x=0$. Esto nos da
+\begin{align}
+	\f 14\f{dx^2+dy^2}{x^2}, \label{eq:6.2.1.5}
+\end{align}
+que no es más que la métrica del semiplano de Poincaré.
+
+La expansión de $h$ alrededor del cero es
+\begin{align}
+	h\approx 4\log|x|+\cdots
+\end{align}
+Entonces, podríamos pensar que la solución se trata de una solución de dos vórtices. Sin embargo, esto no es así, pues para eso debemos comprobar que la integral de $B$ devuelva el valor de $2\pi$. Sin embargo, esto no sucede pues la integral en la dirección $y$ no converge debido a la métrica \eqref{eq:6.2.1.5}.
+
+Para poder encontrar una solución, vamos a reducirnos a encontrar soluciones con simetría esférica de la forma $h=h(r)$, con $r=|z|$. La ecuación de Taubes sinh-Gordon se reduce a
+\begin{align}
+	h_{rr}+\f 2r h_r = \sinh\f h2 \label{eq:6.2.1.7}
+\end{align}
+Gracias al comportamiento \eqref{eq:6.1.0.10}, podemos expandir $h(r)$ alrededor de $r=0$ como
+\begin{align}
+	h(r)\sim 2N\ln r+a-\f{\Om(0)}4 r^2+O(r^4). \label{eq:6.2.1.8}
+\end{align}
+Donde consideramos $z_i=0$ sin pérdida de generalidad. Se debe resaltar que la expansión \eqref{eq:6.2.1.8} tiene sentido sólo cuando la métrica es suave y completa geodésicamente, en particular, se requiere que $\Om(0)$ esté bien definida. Además, la expansión anterior se puede obtener también a partir de la ecuación de Taubes para soluciones esféricamente simétricas en el límite $r\ra 0$, dada por
+\begin{align}
+	u_{rr}+\f 1r u_r = \f 12e^{u} \label{eq:6.2.1.9}
+\end{align}
+donde $-2u=h$.
+
+Además de tener este comportamiento asintótico cerca de $r=0$, $h(r)$ debe tender a cero cuando $r\ra\infty$. 
+Para $r\ra\infty$, aproximamos $\sinh\f h2\approx \f h2$ y la ecuación diferencial \eqref{eq:6.2.1.7} se reduce a la ecuación de Bessel modificada de orden cero. Por lo tanto, la solución asintótica para $h(r)$ es
+\begin{align}
+	u\sim 4\lambda K_0(r), \ \ \text{para} \ \ r\ra\infty
+\end{align}
+para alguna constante $\lambda$ a determinar. 
+
+Haciendo el cambio de variables $w=-2\ln w$ y $r=r\rho$, la ecuación \eqref{eq:6.2.1.9} cambia a 
+\begin{align}
+	w_{\rho\rho} = \f{(w_\rho)^2}{w}-\f{w_\rho}{\rho}+w^3-\f 1w,
+\end{align}
+la cual es una ecuación diferencial que pertenece a una familia de ecuaciones diferenciales bien estudiadas. Esta en particular es la ecuación de Painlevé III con parámetros $(0,0,1,-1)$ [Dunajski2012]. El comportamiento asintótico de $h(r)$ en $r=0$ y $r\ra\infty$ junto con ciertas fórmulas que conectan ambos regímenes determinan completamente las constantes de la solución. 
+
+Se encuentra que el comportamiento asintótico para $h=2u$ es de la forma
+\begin{align}
+	h(r)&\sim 4\sg\ln r+4\ln\beta+\f{1}{\beta^2}r, \ \ \text{para} \ \ r\ra 0 \label{eq:6.2.1.12}\\
+	&\sim -8\lambda K_0(r) \ \ \text{para} \ \ r\ra\infty, \label{eq:6.2.1.13}
+\end{align}
+con las fórmulas de conexión
+\begin{align}
+	\sg(\lambda) = \f 2\pi\arcsin(\pi\lambda), \ \ \beta(\lambda) = 2^{-3\sg}\f{\Gm((1-\sg)/2)}{\Gm((1+\sg)/2)},
+\end{align}
+donde $\Gm$ es la función gama de Euler. Esta comportamiento es sólo válido para $0\leq\lambda\leq\pi^{-1}$. Comparando esta expansión asintótica con \eqref{eq:6.2.1.8} vemos que esta solución tiene $N=2\sg$. Como $N$ debe ser un entero es fácil comprobar que en el rango de $\lambda$, la única posiblidad es $N=1$. Por lo que existe una solución de 1-vórtice con $\sg=1/2$ y
+\begin{align}
+	\lambda = \f{\sqrt{2}}{2\pi}, \ \ \beta = 2^{-3/2}\f{\Gm(1/4)}{\Gm(3/4)}
+\end{align}
+Como se puede ver en la ecuación anterior, ambas constantes quedan determinadas.
+
+Según $[Speight]$, podemos dar una interpretación de los vórtices como partículas, que vistas desde una gran distancia, tienen un comportamiento de partícula puntual. En este esquema, la constante $8\lambda$ nos indica la fuerza del vórtice. Entonces, en el caso discutido, la fuerza del vórtices es aproximadamente
+\begin{align}
+	8\f{\sqrt{2}}{2\pi}\sim 1.80
+\end{align}
+En comparación con los vórtices en espacio plano, cuyo valor de $\lambda$ no se puede calcular analíticamente, este valor fue encontrado numéricamente, dando un valor de $1.68$.
+
+\subsection{Vórtices de Tzitzeica}
+
+Tomemos ahora $\Om=1$ y $q=-1/3$. En este caso \eqref{eq:6.1.0.9} se transforma en la ecuación de Tzitzeica
+\begin{align}
+	\Delta u+\f 13(e^{-2u}-e^u) =0, \ \ \ u=\f h3. \label{eq:6.2.2.1}
+\end{align}
+De forma similar a la sección anterior, vamos a asumir $u=u(r)$ y reducir la ecuación diferencial parcial \eqref{eq:6.2.2.1} a la ecuación diferencial ordinaria siguiente
+\begin{align}
+	u_{rr}+\f 1r u_r+\f 13(e^{-2u}-e^u) =0.
+\end{align}
+Esta ecuación también se puede reducir a una ecuación de Painlevé III con el siguiente cambio
+\begin{align}
+	u(r) = \ln w-\f 12\ln r+\f 14\ln\f{27}4, \ \ \ r=\f{3\sqrt 3}2\rho^{2/3}
+\end{align}
+La ecuación de Painlevé III resultante es
+\begin{align}
+	w_{\rho\rho} = \f{(w_\rho)^2}{w}-\f{w_\rho}\rho+\f{w^2}{\rho}-\f 1w,
+\end{align}
+la cuál tiene parámetros $(1,0,0,-1)$. Fórmulas de conexión asintóticas ya han sido obtenidas por [Kitaev89=Dunajski2012-10]. En nuestro caso, se encuentra que
+\begin{align}
+	h(r) = 3u&\sim \bp{\f{9p}\pi-6}\log r+\beta \ \ \ \text{para} \ \ r\ra 0 \label{eq:6.2.2.5}\\
+	&\sim \f{6\sqrt 3}{\pi}\bp{\cos p+\f 12}K_0(r) \ \ \ \text{para} \ \ r\ra\infty, \label{eq:6.2.2.6}
+\end{align}
+donde $0<p<\pi$ parametriza las soluciones,
+\begin{align}
+	\beta = 3\ln\bp{3^{-3p/\pi}\f{9p^2}{2\pi^2}\f{\Gm(1-p/2\pi)\Gm(1-p/\pi)}{\Gm(1+p/2\pi)\Gm(1+p/\pi)}}-\bp{\f{9p}{2\pi}-3}\ln 12.
+\end{align}
+De nuevo, comparando con la expansión asintótica \eqref{eq:6.2.1.8} obtenemos una expresión para $N$ en función de $p$ dada por
+\begin{align}
+	2N = \f{9p}{\pi}-6. \label{eq:6.2.2.8}
+\end{align}
+El rango de $p$ reduce las posibilidades a sólo $N=1$, en cuyo caso $p=8\pi/9$. De esta forma, el coeficiente de $K_0(r)$ en la expansión asintótica \eqref{eq:6.2.2.6} determina la fuerza del vórtice de Tzitzeica
+\begin{align}
+	\left|\f{6\sqrt 3}\pi\bp{\cos(8\pi/9)+\f 12}\right|\sim 1.45.
+\end{align}
+
+\newpage
+
+\subsection{Vórtices con $q=-1/3$}
+
+Ahora consideremos el caso $\Om=1$ y $q=-1/3$. La ecuación de Taubes modificada es ahora,
+\begin{align}
+	\Delta u+\f 13(e^{-2u}-e^{u}) =0
+\end{align}
+que es idéntica al del caso $q=1/3$, con la cautela que ahora $u=-h/3$. Por lo tanto, podemos usar las expresiones asintóticas \eqref{eq:6.2.2.5} y \eqref{eq:6.2.2.6} para $u$
+\begin{align}
+	h(r) = -3u &\sim \bp{\f{9p}\pi-6}\log r+\beta \ \ \ \text{para} \ \ r\ra 0 \\
+	&\sim \f{6\sqrt 3}{\pi}\bp{\cos p+\f 12}K_0(r) \ \ \ \text{para} \ \ r\ra\infty, 
+\end{align}
+La única diferencia es el cambio de signo en los coeficientes. Análogamente a \eqref{eq:6.2.2.8}, tenemos que los valores de $N$ y $p$ están relacionados de la siguiente manera
+\begin{align}
+	2N = 6-\f{9p}{\pi}.
+\end{align}
+Ahora, en el rango de $p$ existen dos posibles valores para $N$. Estos son $N=1$ y $N=2$, y para los cuales $p=4\pi/9$ y $p=2\pi/9$. Con estos valores de $p$ podemos hallar la fuerza de los vórtices para $N=1$ y $N=2$:
+\begin{align}
+	\left|\f{6\sqrt 3}\pi\bp{\cos(4\pi/9)+\f 12}\right|\sim 2.23,\\
+	\left|\f{6\sqrt 3}\pi\bp{\cos(2\pi/9)+\f 12}\right|\sim 4.19.
+\end{align}
+
+\section{Notas de cierre}
+
+Resta calcular que efectivamente, las soluciones halladas representan soluciones vorticiales topológicas. Para comprobarlo, debemos calcular el campo magnético y asegurarnos que $\int_{\Sigma}d^2x B=2\pi N$. Para todos los casos se cumple que $\Sigma=\m R^2$ y que el campo magnético está dado por
+\begin{align}
+	B= -\f 1{2r}\f{d}{dr}\bp{r\f{dh}{dr}},
+\end{align}
+entonces,
+\begin{align}
+	\int_{\Sigma}d^2x B = \int_0^{2\pi}\int_0^\infty-\f 1{2r}\f{d}{dr}\bp{r\f{dh}{dr}} rdrd\theta = -(2\pi)\f 12\bb{r\f{dh}{dr}}_{r=0}^\infty \label{eq:6.3.0.2}
+\end{align}
+Ahora, nos especializamos en cada caso estudiado. Para los vórtices sinh-Gordon, usemos los comportamientos asintóticos \eqref{eq:6.2.1.12} y \eqref{eq:6.2.1.13}. En el límite superior debemos calcular la derivada de $K_0(r)$, que nos da $K_1(r)$. Esta función decae exponencialmente en el infinito, por lo que, $r^nK_1(r)\underset{r\ra 0}{\longrightarrow} 0$ para toda potencia positiva $n$. Por lo tanto, el límite superior se anula.
+
+Para el límite inferior, calculamos
+\begin{align}
+	r\f{dh}{dr} = r\bp{4\sg\f 1r+\f 1{\beta^2}}\underset{r\ra 0}{\longrightarrow} 4\sg.
+\end{align}
+Como $\sg = 1/2$, entonces, el límite es $2$. Finalmente, la integral \eqref{eq:6.3.0.2} es
+\begin{align}
+	\int_{\Sigma}d^2x B = 2\pi,
+\end{align}
+lo que indica que la solución es un vórtice $N=1$.
+
+Podemos hacer el mismo análisis para los vórtices de Tzitzeica. Ahora, debemos usar las fórmulas asintóticas \eqref{eq:6.2.2.5} y \eqref{eq:6.2.2.6}. Siguiendo la lógica del análisis anterior, es fácil ver que
+\begin{align}
+	\int_{\Sigma} d^2x B = (2\pi)\f 12\bp{\f{9p}{\pi}-6} = 2\pi,
+\end{align}
+donde usamos $p=8\pi/9$. Por lo tanto, la solución también representa un vórtice $N=1$ como se esperaba.
+
+El último caso es similar al anterior. La integral del campo magnético da
+\begin{align}
+	\int_{\Sigma} d^2x B = 2\pi\f 12\bp{6-\f{9p}{\pi}} = 2\pi N
+\end{align}
+donde $N=1,2$ de acuerdo con el valor de $p$.
+
+Otro aspecto importante, que simplemente mencionaremos, que podemos discutir acerca de estos vórtices es la construcción de soluciones multi-vorticiales con $N>1$. Esto se puede hacer mediante el mecanismo explicado al final de la sección 3.5. La llamada propiedad de transitividad, básicamente, nos dice que podemos construir nuevas soluciones vorticiales a partir de otras deformando la métrica original. En [Contatto-Dorigoni] este proceso se muestra de forma explícita y se obtienen soluciones multi-vorticiales para los vórtices sinh-Gordon y los de Tzitzeica.
