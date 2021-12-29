@@ -2,16 +2,26 @@
 
 \chapter{Vórtices} % Chapter title
 
-\label{ch:introduction} % For referencing the chapter elsewhere, use \autoref{ch:introduction} 
+\label{ch:ch2} % For referencing the chapter elsewhere, use \autoref{ch:introduction} 
 
 %----------------------------------------------------------------------------------------
 
-Los vórtices son solitones\footnote{Solitones son soluciones estáticas de las ecuaciones de movimiento (no lineales) de una teoría que son estables, localizados en el espacio y tienen energía finita[solibranas].} en dos dimensiones con comportamiento de partícula que aparecen en ciertas teorías de campo.
-Teorías de campo que presentan soluciones vorticiales pueden ser de dos tipos, globales y con gauge, y sus respectivas soluciones son llamadas vórtices globales y vórtices gauge. En una teoría global el único campo dinámico es un campo escalar complejo $\phi(x)$, mientras que en un teoría con gauge este campo se encuentra acoplado al campo electromagnético mediante un potencial de gauge $A_\mu(x)$. 
+Como anunciamos en la parte introductoria, los vórtices son solitones topológicos que viven en un espacio de $d=2$ dimensiones espaciales. En principio el teorema de Derrick impide su existencia, sin embargo, hay tres modos de sobrepasarlo: agregar un campo de gauge; agregar términos de momento angular (es el caso de los \emph{Q-lumps}); agregando términos con derivadas de mayor orden (es el caso de los \emph{baby-Skyrmions}). Los vórtices aparecen considerando la primera opción, es decir, a partir de una teoría de gauge. Los vórtices en el modelo abeliano de Higgs o en el modelo de Ginzburg-Landau nacen de una teoría de gauge $U(1)$ que se rompe espontáneamente a $1$, $U(1)\ra 1$. El argumento topológico para los vórtices es $\pi_1(U(1))\approx\pi_1(S^1)=\m Z$. El potencial de la teoría se rompe debido al mecanismo de Higgs o en teorías supersimétricas agregando un término de Fayet-Illiopoulos. En nuestro caso el potencial que vamos a considerar es el potencial cuártico con rompimiento espontáneo de la simetría
+\begin{align}
+	V=\f{\lambda}2(\chi^2-|\phi|^2)^2
+\end{align}
+El vórtice surge de un mapeo no trivial del infinito espacial de la configuración de campos a la variedad de vacío. Una representación gráfica se muestra en Fig. \ref{fig:mapping}. La magnitud del campo $|\phi|$ is constante en el infinito, sin embargo la fase puede cambiar por un entero $N\in\m Z=\pi_1(S^1)$, es decir, puede dar $N$ vueltas alrededor de una circunferencia. Esto es lo que se llama la vorticidad.
 
-En este trabajo estamos interesados en el modelo abeliano de Higgs, que es la versión relativista del modelo de Ginzburg-Landau para la superconductividad, la cuál presenta soluciones vorticiales. Empezaremos explicando el modelo de Ginzburg-Landau para la superconductividad.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{gfx/soliton_mapping.png}
+	\caption{Dibujo del mapeo del infinito de un campo escalar a la variedad de vacío. Estos mapeos son caracterizados por el primer grupo de homotopía.}
+	\label{fig:mapping}
+\end{figure}
 
-\section{Modelo de Ginzburg-Landau}
+Los vórtices aparecen en distintas teorías que barren muchas áreas de la Física. En este trabajo vamos a estudiar los vórtices en el modelo abeliano de Higgs. Comenzaremos en sección \ref{sec:1.1} con el modelo de Ginzburg-Landau que es una versión no relativista del modelo abeliano de Higgs. Este modelo se usa para explicar la superconductividad a nivel macroscópico.
+
+\section{Modelo de Ginzburg-Landau}\label{sec:1.1}
 
 Uno de primeros modelos que explicaron la superconductividad apareció en los años cincuenta de la mano de V. Ginzburg y L. Landau.  Siguiendo el modelo de transiciones de fase de la termodinámica, el "grado de superconductividad" de un cuerpo que ocupa una región del espacio $\om\in\m R^3$, está caracterizado por un parámetro de orden representado como una "pseudo función de onda" $\phi:\om\ra\m C$. En la terminología moderna, $\phi$ es una sección en un fibrado lineal $\hat{\mc L}$.
 
@@ -89,56 +99,64 @@ La distinción de estos dos tipos de superconductores es de gran importancia pr�
 
 \section{Modelo de Higgs abeliano}
 
-El modelo de Higgs abeliano (o modelo de Maxwell-Higgs) es la versión relativista del modelo GL. La sección $\phi(x):\m R^{2+1}\ra\m C$ se le conoce ahora como campo de Higgs. Esta teoría es el paradigma para obtener soluciones vorticiales. La densidad lagrangiana de la teoría es
+El modelo de Higgs abeliano (o modelo de Maxwell-Higgs) es la versión relativista del modelo GL. La sección $\phi(x):\m R^{2+1}\ra\m C$ la llamaremos a partir de ahora campo de Higgs. Esta teoría es el paradigma para obtener soluciones vorticiales. La densidad lagrangiana que describe la teoría es
 \begin{align}
-    \mc L = -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12D_\mu\phi\overline{D^\mu\phi}-\f{\lambda}8(1-|\phi|^2)^2 \label{eq:2}
+    \mc L = -\f 14 F_{\mu\nu}F^{\mu\nu}+\f 12D_\mu\phi\overline{D^\mu\phi}-\f{\lambda}8(m^2-|\phi|^2)^2 \label{eq:2}
 \end{align}
 Este funcional corresponde a una teoría gauge pues el campo de Higgs se encuentra acoplado al campo electromagnético. La teoría tiene presenta las simetrías internas típicas del electromagnetismo, i.e., invarianza ante transformaciones de gauge $\phi\ra e^{i\al}\phi$ y $A_\mu\ra A_\mu-i\pr_\mu\al$. Las correspondientes ecuaciones de Euler-Lagrange son
 \begin{align}
-    D_\mu D^\mu\phi + \f{\lambda}2(1-|\phi|^2)\phi &=0,\label{eq:euler1}\\
+    D_\mu D^\mu\phi + \f{\lambda}2(m^2-|\phi|^2)\phi &=0,\label{eq:euler1}\\
     \pr_\mu F^{\mu\nu} &= J^\nu,\label{eq:euler2}
 \end{align}
-donde $J^\mu=\f i2(\bar\phi D^\mu\phi-\overline{D^\mu\phi}\phi)$ puede ser considerada como una \emph{corriente} generada por la simetría interna. Buscamos configuraciones de campos vorticiales, esto es, soluciones estáticas a $\eqref{eq:euler1}$ y $\eqref{eq:euler2}$ con energía finita. En el gauge temporal $A_0=0$, el funcional de energía de la configuración estática es
-\begin{align}
-    V_{\lambda} = \f 12\int_{\m R^2}\bp{B^2+D_i\phi\overline{D_i\phi}+\f{\lambda}4(1-|\phi|^2)^2}d^2x \label{eq:gl}
-\end{align}
-Podemos obtener la correspondiente teoría global haciendo $A_i=0$, obteniéndose
-\begin{align}
-    V_{\lambda} = \f 12\int_{\m R^2}\bp{|\nabla\phi|^2+\f{\lambda}4(m^2-|\phi|^2)^2}d^2x \label{eq:3a}
-\end{align}
-A esta teoría global se la conoce como teoría de Ginzburg-Landau global y sus soluciones son llamadas vortices globales. En este trabajo estamos especialmente interesados en el modelo de Higgs abeliano, sin embargo, analizaremos brevemente la teoría de Ginzburg-Landau global ya que algunos métodos nos servirán más tarde.
+donde $J^\mu=\f i2(\bar\phi D^\mu\phi-\overline{D^\mu\phi}\phi)$ puede ser considerada como una \emph{corriente} generada por la simetría interna.  Nótese que estas ecuaciones son idénticas en forma a las ecuaciones de Ginzburg-Landau, per difieren en que el modelo de Ginzburg-Landau está definido en $\m R^3$ mientras que el modelo abeliano de Higgs está definido en un espacio tiempo $(2+1)$-dimensional.
 
-\section{Teoría de Ginzburg-Landau global}
+Buscamos configuraciones de campos vorticiales, esto es, soluciones estáticas a $\eqref{eq:euler1}$ y $\eqref{eq:euler2}$ con energía finita. En el gauge temporal, $A_0=0$, la energía de estas soluciones está dada por el funcional de energía $V$
+\begin{align}
+    V_{\lambda} = \f 12\int_{\m R^2}\bp{B^2+D_i\phi\overline{D_i\phi}+\f{\lambda}4(m^2-|\phi|^2)^2}d^2x \label{eq:gl}
+\end{align}
+
+\newpage
+\section{Modelo abeliano de Higgs global}
 \label{sec:1.3}
 
-El funcional de energía $\eqref{eq:3a}$ es invariante ante rotaciones en el plano complejo $\phi\ra e^{i\al}\phi$ dónde $\al$ es una fase constante . Soluciones estáticas se obtendrán minimizando el funcional de energía, $\delta V_\lambda=0$, obteniéndose su ecuación de movimiento
+Antes de encontrar soluciones vorticiales para el modelo abeliano de Higgs, notemos que uno puede obtener una teoría que posea simetría de gauge global, es decir, simetría ante una fase global, a partir de $\eqref{eq:2}$ haciendo $A_\mu=0$. Posibles soluciones estáticas tendrán una energía igual a 
 \begin{align}
-    \Delta\phi+\f{\lambda}2(m^2-|\phi|^2)\phi=0 \label{eq:3}
+	V_G = \f 12\int\bp{|\nabla\phi|^2+\f{\lambda}4(m^2-|\phi|^2)^2},
 \end{align}
-Dada esta simetría ante rotaciones en el plano complejo, resulta natural escribir el funcional de energía en términos de coordenadas polares $x^1=\rho\cos\theta$ y $x^2=\rho\sin\theta$
+que no es más que el funcional \eqref{eq:gl} con $A_i=0$. Las correspondientes ecuaciones de movimiento son
 \begin{align}
-    V_\lambda = \f 12\int_0^\infty\int_0^{2\pi}\bp{\pr_\rho\bar\phi\pr_\rho\phi+\f 1{\rho^2}\pr_\theta\bar\phi\pr_\theta\phi+\f\lambda 4(m^2-|\phi|^2)^2}\rho d\rho d\theta \label{eq:4}
+    \nabla^2\phi+\f{\lambda}2(m^2-|\phi|^2)\phi=0. \label{eq:3}
 \end{align}
-Para que esta teoría presente solitones, sabemos\footnote{Ver Apéndice 1} que el campo de Higgs debe ser no trivial en el infinito y también $V_\lambda$ debe ser finita en el infinito. Observando la ecuación $\eqref{eq:4}$ vemos que para que el funcional sea finito en el infinito, $\rho\ra\infty$, se debe cumplir que el potencial cuártico y la derivada respecto al campo radial se anulen, esto pasa cuando
+La variedad de vacío la componen configuraciones de campo tales que $|\phi|=m$, de modo que no es trivial; hay posibilidad de encontrar vórtices. Sin embargo, teorema de Derrick elimina toda posibilidad de soluciones estáticas en dos dimensiones. Esto no quita que soluciones estáticas existan, sin embargo, estas tendrán una energía infinita.
+
+Para encontrar estas soluciones analicemos el funcional de energía en coordenadas polares $x^1=\rho\cos\theta$ y $x^2=\rho\sin\theta$
+\begin{align}
+    V_G = \f 12\int_0^\infty\int_0^{2\pi}\bp{\pr_\rho\bar\phi\pr_\rho\phi+\f 1{\rho^2}\pr_\theta\bar\phi\pr_\theta\phi+\f\lambda 4(m^2-|\phi|^2)^2}\rho d\rho d\theta \label{eq:4}
+\end{align}
+Si tratamos de hacer finita esta energía, el campo debe cumplir que el potencial cuártico y la derivada respecto al campo radial se anulen en el infinito
 \begin{align}
     \lim_{\rho\ra\infty} |\phi| &= m \label{eq:5}\\
-    \lim_{\rho\ra\infty} \pr_\rho\phi &= 0 \label{eq:6}
+    \lim_{\rho\ra\infty} \pr_\rho\phi &= 0 .\label{eq:6}
 \end{align}
-A partir de ahora, haremos un reescaleo de la teoría imponiendo $m=1$ sin pérdida de generalidad. Entonces, impondremos las condiciones de contorno $|\phi|\ra 1$ y $\pr_r\phi\ra 0$. La primera condición implica que $\phi_\infty = e^{i\chi(r,\theta)}$, mientras que la segunda condición implica que $\chi(r,\theta)=\chi(\theta)$. Otra propiedad que queremos que tenga el campo en el infinito es que sea univaluada, esto se traduce en que $\chi_\infty(2\pi)=\chi_\infty(0)+2\pi N$, donde $N\in\m Z$. Dado este comportamiento en el infinito, uno puede plantear el siguiente \emph{ansatz} para el campo de Higgs
+No es necesario hacer $\pr_\theta\phi=0$ en el infinito pues ese término ya se anula en el infinito debido al factor $\f{1}{\rho^2}$ que tiene en frente.
+
+Entonces, impondremos las condiciones de contorno $|\phi|\ra m$ y $\pr_r\phi\ra 0$. La primera condición implica que $\phi_\infty = e^{i\chi}$,  donde $\chi$ de be ser constante para que el gradiente del campo $\phi$ sea cero. Queremos ver si podemos encontrar soluciones estáticas con simetría rotacional. Esto es, hacer que el módulo de la configuración de campo no dependa de $\theta$. Se puede plantear el siguinte \emph{ansatz}
 \begin{align}
-    \phi(\rho,\theta) = f_N(\rho)e^{iN\theta} \label{eq:7}
+    \phi(\rho,\theta) = f_N(\rho)e^{iN\theta}. \label{eq:7}
 \end{align}
-Donde $f_N(\rho)\xrightarrow{\rho\ra\infty} 1$ para satisfacer las condiciones de contorno.
+Donde $f_N(\rho)\xrightarrow{\rho\ra\infty} 1$ para satisfacer las condiciones de contorno y $N$ es un entero. Veremos más adelante que este entero está relacionado con la topología no trivial de la variedad de vacío.
 
-El entero $N$ juega un papel muy importante en lo que veremos más adelante. En el contexto de la topología, $N$ es el llamado grado de un mapeo continuo. En el contexto de la física $N$ es llamado un número cuántico topológico.
-
-Insertando el \emph{ansatz} $\eqref{eq:7}$ en la ecuación de movimiento $\eqref{eq:3}$ obtenemos una ecuación diferencial para $f_N(\rho)$
+Insertando el \emph{ansatz} $\eqref{eq:7}$ en el funcional de energía se tiene 
+\begin{align}
+	V_G = \pi\int_0^\infty \bb{\bp{\f{df_N(\rho)}{d\rho}}^2+\f{N^2}{\rho^2}\phi^2+\f{\lambda}4(m^2-f_N^2)^2}\rho d\rho. \label{eq:1.3.0.7}
+\end{align}
+Insertando el mismo \emph{ansatz} en la ecuación de movimiento se obtiene una ecuación diferencial de segundo orden para $f_N(\rho)$
 \begin{align}
     \f{d^2f_N}{d\rho^2}+\f 1\rho\f{d f_N}{d\rho}-\f{N^2}{\rho^2}f_N+\f{\lambda}2(1-f_N^2)f_N=0 \label{eq:8}
 \end{align}
-Soluciones de $\eqref{eq:8}$ existen para todo $N\neq 0$ [Manton,177] y se pueden encontrar numéricamente.
+Se ha probado la existencia de soluciones a \eqref{eq:9} en [Manton,177] y se encuentran mayormente de forma numérica. En el apéndice  mostramos algunas gráficas de soluciones a \eqref{eq:8} para valores arbitrarios de $\lambda$ y $N$; obtenidos de forma numérica.
 
-Esta teoría tiene un problema: la energía de las soluciones diverge logarítmicamente. Basta con ver el término del gradiente angular en $\eqref{eq:4}$ 
+Como se había anticipado, las soluciones que se obtienen no tienen energía finita. Un pequeño análisis sobre \eqref{eq:1.3.0.7} muestra que la energía  diverge logarítmicamente. Basta con ver el término del gradiente angular
 \begin{align}
     V_\lambda &= \pi\int_0^\infty\bp{f'^2_N(\rho)+\f{N^2}{\rho^2}f_N^2(\rho)}\rho d\rho \overset{\rho\ra\infty}{\sim} \pi N^2\int_0^\infty \f{d\rho}\rho\ra\infty \label{eq:9} 
 \end{align}
@@ -152,6 +170,8 @@ Ahora, analicemos las soluciones vorticiales en el modelo de Higgs abeliano cuyo
     D_iD_i\phi+\frac{\lambda}{2}(1-|\phi|^2)\phi &= 0 \label{eq:11}\\
     \eps_{ij}\pr_jB+\frac{i}{2}(\bar\phi D_i\phi-\phi\overline{D_i\phi}) &= 0 \label{eq:12}
 \end{align}
+Estas ecuaciones son idénticas a las ecuaciones de Ginzburg-Landau presentadas en la sección anterior.
+
 \paragraph{Un comentario sobre $\eqref{eq:12}$} Esta ecuación se puede interpretar como una versión bidimensional de la ecuación de Ampere. Podemos tratar a $J_i=\frac{i}{2}(\bar\phi D_i\phi-\phi\overline{D_i\phi})$ como una corriente en el plano.
 
 Estamos interesados en configuraciones de campo que minimizen la energía y además que sea finita. Para esto imponemos las siguientes condiciones de contorno
@@ -252,7 +272,17 @@ donde $|D_i\phi+iD_2\phi|^2=|D_1\phi|^2+|D_2\phi|^2+2(\pr_1\phi A_2-\pr_2\phi A_
  Estas ecuaciones fueron derivadas por primera vez por Bogomolny en [Bogomolny,gab] utilizando este método de factorización. Esta propiedad de reducción de las ecuaciones de movimiento de segundo orden $\eqref{eq:euler1}$ y $\eqref{eq:euler2}$ a ecuaciones de primero orden se ha encontrado en muchos modelo en teorías de gauge. Uno de los primeros casos se encontró en la teoría de gauge no abeliana de Yang-Mills puro [Jaffe,Taubes]. En este caso, los solitones son llamados \emph{instantones} y corresponden a campos de gauge autoduales.
  Otra de las teorías de gauge en que podemos hacer un procedimiento de factorización es la teoría de Chern-Simons.
  
- Taubes, en [Manton,396,397], realizó un estudio sobre las ecuaciones de Bogomolny y obtuvo resultados importantes concernientes a vortices críticos. Estos resultados son presentados en el libro [Jaffe,Taubes]. Uno de estos resultados es el ahora conocido como Teorema de Taubes, el cuál analizaremos los aspectos más importantes en un capítulo posterior. Otro de los resultados importantes fue la reducción de las ecuaciones de Bogomolny a una ecuación escalar conocida como ecuación de Taubes. Esta ecuación fue generalizada por [Manton,Five vortex equations], obteniendo cinco ecuaciones vorticiales con soluciones analíticas conocidas.
+ Taubes, en [Manton,396,397], realizó un estudio sobre las ecuaciones de Bogomolny y obtuvo resultados importantes concernientes a vórtices críticos. Estos resultados son presentados en el libro [Jaffe,Taubes]. Uno de estos resultados es el ahora conocido como Teorema de Taubes, el cuál analizaremos los aspectos más importantes en un capítulo posterior. Otro de los resultados importantes fue la reducción de las ecuaciones de Bogomolny a una ecuación escalar conocida como ecuación de Taubes. Esta ecuación fue generalizada por [Manton,Five vortex equations], obteniendo cinco ecuaciones vorticiales con soluciones analíticas conocidas.
  
+ \subsection{Unas palabras sobre vórtices con carga}
  
- 
+Al principio no es evidente que los vórtices que hemos estudiado en esta sección son eléctricamente neutros. Para comprobar esto, recordemos que para obtener las soluciones vorticiales usamos el gauge temporal $A_0=0$. De las ecuaciones de Maxwell, sabemos que el campo eléctrico se puede expresar en función del potencial escalar y vectorial
+\begin{align}
+	\vct E = -\nabla\phi+\f{\pr \vct A}{\pr t}
+\end{align}
+Para una configuración estática y en el gauge temporal, es evidente de la ecuación anterior que $\vct E=0$. Entonces surge la pregunta, ¿es posible encontrar vórtices con carga eléctrica en el modelo abeliano de Higgs? Lamentablemente, la respuesta es negativa.
+
+En un paper de 1975, Julia y Zee [Julia-Zee] estudiaron el modelo abeliano de Higgs. Usando un \emph{ansatz} radialmente simétrico, como el estudiado en esta sección; y asumiendo condiciones de contorno en el infinito, lograron concluir que una solución estática de energía finita de las ecuaciones de movimiento en un espacio tiempo $(2+1)$-dimensional de Minkowski debe satisfacer el gauge temporal, y necesariamente ser eléctricamente neutro. A partir de este trabajo, se aceptó rápidamente que era necesario introducir más estructura a la teoría para permitir la existencia de vórtices cargados. A modo de obtener estos vórtices es necesario agregar un término de Chern-Simons, de modo que la densidad lagrangiana es [Paul-Khare]
+\begin{align}
+	\mc L = -\f 14F_{\mu\nu}F^{\mu\nu}+\f 12D_\mu\bar\phi D^\mu\phi-\f{\lambda}4(m^2-|\phi|^2)^2+\f{\kappa}4\eps^{\mu\nu\al}F_{\mu\nu}A_\al
+\end{align}
