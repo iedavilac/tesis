@@ -13,10 +13,17 @@
 	#2
 	\end{teor}
 	}
+\newtheorem{prop}{Proposición}
+\newcommand{\propos}[1]{
+	\begin{prop}
+	#1
+	\end{prop}
+}
 
 % Nuevos paquetes
 
 \usepackage{amssymb} % Para cargar \mathfrak
+\usepackage{braket} % For braket notation
 
 % Nuevos operadores matemáticos
 
@@ -71,6 +78,7 @@
 \newcommand{\Gm}{\Gamma}          % Gamma
 \newcommand{\del}{\delta}         % Delta
 \newcommand{\sg}{\sigma}          % Sigma
+\newcommand{\kp}{\kappa}		% kappa
 \newcommand{\Del}{\Delta}
 \newcommand{\rel}{\sim}
 \newcommand{\uvec}[1]{\bm{\hat{\mathbf{#1}}}}   % Vector unitario
@@ -86,3 +94,4 @@
 \newcommand{\lrpr}{\overset{\lra}{\pr}}		% left right partial
 \newcommand{\slashd}{\kern-0.5em\raise0.22ex\hbox{/}}
 \newcommand{\barra}[1]{\cancel{#1}}
+\newcommand{\ov}[1]{\overline{#1}}
